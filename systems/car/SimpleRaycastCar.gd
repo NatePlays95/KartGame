@@ -138,13 +138,13 @@ func _physics_process(delta):
 		var ground_velocity = linear_velocity - linear_velocity*global_transform.basis.y
 		var drift_slip = ground_velocity.normalized().dot(-global_transform.basis.z)
 		drift_angle = acos(clamp(drift_slip, -1, 1))
-		add_drift_charge(delta * (1.1-drift_slip) * 8)
+		add_drift_charge(delta * min(1.1-drift_slip, 0.25) * 8)
 	else:
 		add_drift_charge(-delta * 2)
 	#add_drift_charge(delta * 2)
 	
 	## simple steering
-	var d = 0.6 if is_drifting else 1 #steer less when drifting
+	var d = 0.8 if is_drifting else 1 #steer less when drifting
 	var r = -2 if get_speed() < 0 else 1
 	global_rotate(global_transform.basis.y, -steer_axis*d*r * PI * handling_factor * delta)
 	#apply_torque(global_transform.basis.y * -steer_axis * mass)

@@ -5,11 +5,11 @@
 [ext_resource type="PackedScene" uid="uid://77nexksnu7ie" path="res://scenes/ui/car_debug_ui.tscn" id="3_ma2a4"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_kdl87"]
-friction = 0.5
-bounce = 0.2
+friction = 0.3
+bounce = 0.4
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_3p8ib"]
-size = Vector3(0.78, 0.25, 1)
+size = Vector3(0.78, 0.473979, 1)
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_vi4mp"]
 margin = 0.0001
@@ -30,69 +30,70 @@ script = ExtResource("1_dfo1x")
 wheels = [NodePath("SimpleWheel"), NodePath("SimpleWheel2"), NodePath("SimpleWheel3"), NodePath("SimpleWheel4")]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0951661, -0.0952803)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25271, -0.0952803)
 shape = SubResource("BoxShape3D_3p8ib")
 
 [node name="CSGBox3D" type="CSGBox3D" parent="CollisionShape3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.180751, 0)
 size = Vector3(0.598689, 0.194079, 1)
 
 [node name="SimpleWheel" type="ShapeCast3D" parent="."]
 transform = Transform3D(0.5, 0, 0, 0, 1, 0, 0, 0, 1, 0.3, 0.0680173, -0.49528)
 shape = SubResource("SphereShape3D_vi4mp")
-target_position = Vector3(0, -0.1, 0)
+target_position = Vector3(0, -0.15, 0)
 script = ExtResource("2_s58g6")
 wheel_radius = 0.15
-spring_length = 0.1
+spring_length = 0.15
 spring_stiffness = 20.0
-rebound_damping = 1.3
+rebound_damping = 2.0
 
 [node name="CSGCylinder3D" type="CSGCylinder3D" parent="SimpleWheel"]
-transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, 0, -0.1, 0)
+transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, 0, -0.15, 0)
 radius = 0.138157
 height = 0.132088
 
 [node name="SimpleWheel2" type="ShapeCast3D" parent="."]
 transform = Transform3D(0.5, 0, 0, 0, 1, 0, 0, 0, 1, -0.3, 0.0680173, -0.49528)
 shape = SubResource("SphereShape3D_xjtsw")
-target_position = Vector3(0, -0.1, 0)
+target_position = Vector3(0, -0.15, 0)
 script = ExtResource("2_s58g6")
 wheel_radius = 0.15
-spring_length = 0.1
+spring_length = 0.15
 spring_stiffness = 20.0
-rebound_damping = 1.3
+rebound_damping = 2.0
 
 [node name="CSGCylinder3D" type="CSGCylinder3D" parent="SimpleWheel2"]
-transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, 0, -0.1, 0)
+transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, 0, -0.15, 0)
 radius = 0.138157
 height = 0.132088
 
 [node name="SimpleWheel3" type="ShapeCast3D" parent="."]
 transform = Transform3D(0.5, 0, 0, 0, 1, 0, 0, 0, 1, 0.3, 0.0680173, 0.30472)
 shape = SubResource("SphereShape3D_xjtsw")
-target_position = Vector3(0, -0.1, 0)
+target_position = Vector3(0, -0.15, 0)
 script = ExtResource("2_s58g6")
 wheel_radius = 0.15
-spring_length = 0.1
+spring_length = 0.15
 spring_stiffness = 20.0
-rebound_damping = 1.3
+rebound_damping = 2.0
 
 [node name="CSGCylinder3D" type="CSGCylinder3D" parent="SimpleWheel3"]
-transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, 0, -0.1, 0)
+transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, 0, -0.15, 0)
 radius = 0.138157
 height = 0.132088
 
 [node name="SimpleWheel4" type="ShapeCast3D" parent="."]
 transform = Transform3D(0.5, 0, 0, 0, 1, 0, 0, 0, 1, -0.3, 0.0680173, 0.30472)
 shape = SubResource("SphereShape3D_xjtsw")
-target_position = Vector3(0, -0.1, 0)
+target_position = Vector3(0, -0.15, 0)
 script = ExtResource("2_s58g6")
 wheel_radius = 0.15
-spring_length = 0.1
+spring_length = 0.15
 spring_stiffness = 20.0
-rebound_damping = 1.3
+rebound_damping = 2.0
 
 [node name="CSGCylinder3D" type="CSGCylinder3D" parent="SimpleWheel4"]
-transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, 0, -0.1, 0)
+transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, 0, -0.15, 0)
 radius = 0.138157
 height = 0.132088
 
