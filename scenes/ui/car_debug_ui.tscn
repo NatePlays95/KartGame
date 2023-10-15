@@ -1,0 +1,190 @@
+[gd_scene load_steps=13 format=3 uid="uid://77nexksnu7ie"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5ab7r"]
+bg_color = Color(0.168627, 0.168627, 0.168627, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4huc3"]
+bg_color = Color(0.796078, 0.541176, 0.0901961, 1)
+
+[sub_resource type="Theme" id="Theme_xv6oj"]
+ProgressBar/styles/background = SubResource("StyleBoxFlat_5ab7r")
+ProgressBar/styles/fill = SubResource("StyleBoxFlat_4huc3")
+
+[sub_resource type="GDScript" id="GDScript_lly0v"]
+script/source = "extends Control
+
+
+@export var car : SimpleRaycastCar
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	set_speed(car.get_speed())
+	set_drifting(car.is_drifting, car.drift_angle, car.drift_charge)
+	set_steer(car.steer_axis)
+
+
+
+func set_steer(amount):
+	%bar_steer.value = amount
+	%bar_steer/Label.text = str(%bar_steer.value)
+
+func set_drifting(is_drifting, drift_angle, drift_charge):
+	%label_drift.text = \"\" if is_drifting else \"NOT\"
+	%label_drift.text += \" in drift\\nangle: %.2f\" % rad_to_deg(drift_angle)
+	%label_drift.text += \" slip: %.2f\" % (1.1-cos(drift_angle))
+	%bar_charge.value = drift_charge
+
+func set_speed(amount):
+	%label_speed.text = \"Speed: %.2f m/s\" % amount
+	%label_speed.text += \"\\nSpeed: %.2f km/h\" % (amount*3.6)
+
+"
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ghplh"]
+bg_color = Color(0.4, 0.196078, 0.0666667, 1)
+
+[sub_resource type="Gradient" id="Gradient_1uekx"]
+interpolation_mode = 1
+offsets = PackedFloat32Array(0, 0.281853, 0.567568, 0.861004)
+colors = PackedColorArray(0, 0, 0.2, 1, 0, 0, 0.372549, 1, 0, 0.290196, 0.639216, 1, 0, 0.517647, 0.67451, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_4ec1w"]
+gradient = SubResource("Gradient_1uekx")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_f72x5"]
+texture = SubResource("GradientTexture1D_4ec1w")
+axis_stretch_horizontal = 1
+
+[sub_resource type="Theme" id="Theme_y07ha"]
+ProgressBar/styles/background = SubResource("StyleBoxFlat_ghplh")
+ProgressBar/styles/fill = SubResource("StyleBoxTexture_f72x5")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_prdub"]
+bg_color = Color(0.168627, 0.376471, 0.215686, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nhtmu"]
+bg_color = Color(0.54902, 0.2, 0.196078, 1)
+corner_radius_top_left = 12
+corner_radius_bottom_left = 12
+
+[sub_resource type="Theme" id="Theme_nq4in"]
+ProgressBar/styles/background = SubResource("StyleBoxFlat_prdub")
+ProgressBar/styles/fill = SubResource("StyleBoxFlat_nhtmu")
+
+[node name="car_debug_ui" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_xv6oj")
+script = SubResource("GDScript_lly0v")
+
+[node name="label_speed" type="Label" parent="."]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 355.0
+offset_top = -94.0
+offset_right = -495.0
+offset_bottom = -42.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Speed: 100.00 m/s
+Speed: 760.00 km/h"
+
+[node name="label_drift" type="Label" parent="."]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 355.0
+offset_top = -43.0
+offset_right = -495.0
+offset_bottom = 9.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "in drift
+asassas"
+
+[node name="bar_charge" type="ProgressBar" parent="."]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -128.0
+offset_top = 89.0
+offset_right = 128.0
+offset_bottom = 101.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_y07ha")
+max_value = 3.5
+value = 3.5
+show_percentage = false
+
+[node name="Label" type="Label" parent="bar_charge"]
+visible = false
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 25.0
+offset_top = -13.0
+offset_right = -25.0
+offset_bottom = 13.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "1.0"
+horizontal_alignment = 1
+
+[node name="bar_steer" type="ProgressBar" parent="."]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -173.0
+offset_top = 107.0
+offset_right = 173.0
+offset_bottom = 134.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_nq4in")
+min_value = -1.0
+max_value = 1.0
+show_percentage = false
+
+[node name="Label" type="Label" parent="bar_steer"]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -11.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "1.0"
+horizontal_alignment = 1

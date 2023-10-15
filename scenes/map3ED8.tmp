@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://4hbncnulngj4"]
+
+[ext_resource type="PackedScene" uid="uid://bbs6o63a524oj" path="res://objects/karts/test_kart.tscn" id="1_tjhk4"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_1rbhi"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_v2mw1"]
+noise = SubResource("FastNoiseLite_1rbhi")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nkivm"]
+albedo_texture = SubResource("NoiseTexture2D_v2mw1")
+
+[node name="map_test1" type="Node3D"]
+
+[node name="ground" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.599543, 0)
+use_collision = true
+size = Vector3(29.2152, 1, 28.0128)
+material = SubResource("StandardMaterial3D_nkivm")
+
+[node name="test_kart" parent="." instance=ExtResource("1_tjhk4")]
+transform = Transform3D(0.965926, 0.258819, 0, -0.258819, 0.965926, 0, 0, 0, 1, 0, 0.326087, 0)
+mass = 500.0
+linear_damp = 0.1
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, -3, 1, 2)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.823156, 0.567815, 0, -0.567815, 0.823156, 0, 2.46743, 0)
+shadow_enabled = true

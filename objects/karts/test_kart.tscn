@@ -1,0 +1,117 @@
+[gd_scene load_steps=9 format=3 uid="uid://bbs6o63a524oj"]
+
+[ext_resource type="Script" path="res://systems/car/SimpleRaycastCar.gd" id="1_dfo1x"]
+[ext_resource type="Script" path="res://systems/car/SimpleWheel.gd" id="2_s58g6"]
+[ext_resource type="PackedScene" uid="uid://77nexksnu7ie" path="res://scenes/ui/car_debug_ui.tscn" id="3_ma2a4"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_kdl87"]
+friction = 0.5
+bounce = 0.2
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_3p8ib"]
+size = Vector3(0.78, 0.25, 1)
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_vi4mp"]
+margin = 0.0001
+radius = 0.15
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_xjtsw"]
+margin = 0.0001
+radius = 0.15
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_5qc06"]
+viewport_path = NodePath("UI")
+
+[node name="test_kart" type="RigidBody3D" node_paths=PackedStringArray("wheels")]
+mass = 200.0
+physics_material_override = SubResource("PhysicsMaterial_kdl87")
+angular_damp = 10.0
+script = ExtResource("1_dfo1x")
+wheels = [NodePath("SimpleWheel"), NodePath("SimpleWheel2"), NodePath("SimpleWheel3"), NodePath("SimpleWheel4")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0951661, -0.0952803)
+shape = SubResource("BoxShape3D_3p8ib")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="CollisionShape3D"]
+size = Vector3(0.598689, 0.194079, 1)
+
+[node name="SimpleWheel" type="ShapeCast3D" parent="."]
+transform = Transform3D(0.5, 0, 0, 0, 1, 0, 0, 0, 1, 0.3, 0.0680173, -0.49528)
+shape = SubResource("SphereShape3D_vi4mp")
+target_position = Vector3(0, -0.1, 0)
+script = ExtResource("2_s58g6")
+wheel_radius = 0.15
+spring_length = 0.1
+spring_stiffness = 20.0
+rebound_damping = 1.3
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="SimpleWheel"]
+transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, 0, -0.1, 0)
+radius = 0.138157
+height = 0.132088
+
+[node name="SimpleWheel2" type="ShapeCast3D" parent="."]
+transform = Transform3D(0.5, 0, 0, 0, 1, 0, 0, 0, 1, -0.3, 0.0680173, -0.49528)
+shape = SubResource("SphereShape3D_xjtsw")
+target_position = Vector3(0, -0.1, 0)
+script = ExtResource("2_s58g6")
+wheel_radius = 0.15
+spring_length = 0.1
+spring_stiffness = 20.0
+rebound_damping = 1.3
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="SimpleWheel2"]
+transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, 0, -0.1, 0)
+radius = 0.138157
+height = 0.132088
+
+[node name="SimpleWheel3" type="ShapeCast3D" parent="."]
+transform = Transform3D(0.5, 0, 0, 0, 1, 0, 0, 0, 1, 0.3, 0.0680173, 0.30472)
+shape = SubResource("SphereShape3D_xjtsw")
+target_position = Vector3(0, -0.1, 0)
+script = ExtResource("2_s58g6")
+wheel_radius = 0.15
+spring_length = 0.1
+spring_stiffness = 20.0
+rebound_damping = 1.3
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="SimpleWheel3"]
+transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, 0, -0.1, 0)
+radius = 0.138157
+height = 0.132088
+
+[node name="SimpleWheel4" type="ShapeCast3D" parent="."]
+transform = Transform3D(0.5, 0, 0, 0, 1, 0, 0, 0, 1, -0.3, 0.0680173, 0.30472)
+shape = SubResource("SphereShape3D_xjtsw")
+target_position = Vector3(0, -0.1, 0)
+script = ExtResource("2_s58g6")
+wheel_radius = 0.15
+spring_length = 0.1
+spring_stiffness = 20.0
+rebound_damping = 1.3
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="SimpleWheel4"]
+transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, 0, -0.1, 0)
+radius = 0.138157
+height = 0.132088
+
+[node name="Sprite3DBillboard" type="Sprite3D" parent="."]
+transform = Transform3D(0.720172, 0, 0, 0, 0.720172, 0, 0, 0, 0.720172, 0, 0.439838, 0.597988)
+visible = false
+billboard = 1
+no_depth_test = true
+texture = SubResource("ViewportTexture_5qc06")
+
+[node name="Sprite3D2" type="Sprite3D" parent="."]
+transform = Transform3D(0.720172, 0, 0, 0, 0.720172, 0, 0, 0, 0.720172, 0, 0.439838, 0.597988)
+no_depth_test = true
+texture = SubResource("ViewportTexture_5qc06")
+
+[node name="UI" type="SubViewport" parent="."]
+transparent_bg = true
+
+[node name="car_debug_ui" parent="UI" node_paths=PackedStringArray("car") instance=ExtResource("3_ma2a4")]
+car = NodePath("../..")
+
+[node name="debug_ui" type="Node" parent="."]
