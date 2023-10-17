@@ -25,8 +25,8 @@ const ROAD_MATERIALS := preload("res://systems/car/RoadMaterialGroups.tres")
 
 
 @export var spring_stiffness : float = 10
-@export var compress_damping : float = 1
-@export var rebound_damping : float = 0.7
+@export var damping : float = 1
+#@export var rebound_damping : float = 0.7
 
 var car : SimpleRaycastCar
 var contact_material : RoadMaterial = null
@@ -91,11 +91,11 @@ func _update_suspension(dt):
 	
 	var delta_deform = (last_deform - deform)
 	var up_or_down = sign(delta_deform)
-	var damp_force = delta_deform/dt
-	if up_or_down == 1:
-		damp_force *= rebound_damping
-	elif up_or_down == -1:
-		damp_force *= compress_damping
+	var damp_force = damping * delta_deform/dt
+	#if up_or_down == 1:
+	#	damp_force *= rebound_damping
+	#elif up_or_down == -1:
+	#	damp_force *= compress_damping
 	
 	var final_force = car.mass * (spring_force - damp_force) # force is length-independent, mass-independent
 	var force_pos = global_position - car.global_position
@@ -107,7 +107,7 @@ func _update_suspension(dt):
 	if bumpiness > 0:
 		var terrain_push = car.mass * car.linear_velocity.length()
 		terrain_push *= min(0, randf_range(-1,1)) * bumpiness
-		car.apply_force(global_transform.basis.y * terrain_push, force_pos)
+		car.apply_force(-global_transform.basis.y * terrain_push, force_pos)
 	
 	last_deform = deform
 

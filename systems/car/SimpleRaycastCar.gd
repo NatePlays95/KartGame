@@ -42,11 +42,6 @@ func _process(delta):
 	if Engine.is_editor_hint(): return
 
 
-func _input(event):
-	if event is InputEventMouseMotion: return
-	
-	print_debug(event, "event device:", event.device)
-
 
 func _physics_process(delta):
 	## update if car is grounded or not
@@ -181,7 +176,7 @@ func add_drift_charge(amount):
 	drift_charge = clamp(drift_charge, 0, 3.5)
 
 func release_drift_charge():
-	print("a")
+	#print("a")
 	apply_central_force(-global_transform.basis.z * mass * 700 * (0.5+floor(drift_charge)))
 	drift_charge = 0
 

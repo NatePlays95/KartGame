@@ -1,9 +1,11 @@
-[gd_scene load_steps=18 format=3 uid="uid://jds7ak0tic0n"]
+[gd_scene load_steps=20 format=3 uid="uid://jds7ak0tic0n"]
 
 [ext_resource type="PackedScene" uid="uid://dn7eau2kt1hmq" path="res://models/mktour/new-york-mario-kart-tour/new_york_mario_kart_tour.glb" id="1_22wwg"]
 [ext_resource type="PackedScene" uid="uid://bbs6o63a524oj" path="res://objects/karts/test_kart.tscn" id="2_w6jko"]
 [ext_resource type="Script" path="res://systems/cameras/ChaseCamera.gd" id="3_m716t"]
+[ext_resource type="Script" path="res://systems/checkpoints/CarCheckpointTracker.gd" id="3_ppkyb"]
 [ext_resource type="Texture2D" uid="uid://sdtcbkuymmmh" path="res://models/mktour/new-york-mario-kart-tour/T_Mobny1_VR_Alb.png" id="4_v6a6s"]
+[ext_resource type="PackedScene" uid="uid://dyl0q1dqpn1wf" path="res://systems/checkpoints/Checkpoint.scn" id="5_bmbee"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_vgotv"]
 panorama = ExtResource("4_v6a6s")
@@ -52,10 +54,14 @@ data = PackedVector3Array(-167.232, -572.171, -39.996, -130.578, -558.539, -39.9
 [node name="new_york_mario_kart_tour" instance=ExtResource("1_22wwg")]
 
 [node name="test_kart" parent="." index="0" instance=ExtResource("2_w6jko")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.63778, 8.71188, 11.6684)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -55.6745, 8.71189, -80.3939)
+
+[node name="CarCheckpointTracker" type="Node" parent="test_kart" index="9" node_paths=PackedStringArray("next_checkpoint")]
+script = ExtResource("3_ppkyb")
+next_checkpoint = NodePath("../../Checkpoint")
 
 [node name="ChaseCamera" type="Camera3D" parent="." index="1" node_paths=PackedStringArray("car")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.63778, 8.71188, 11.6684)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -55.6745, 8.71189, -80.3939)
 v_offset = 0.5
 current = true
 script = ExtResource("3_m716t")
@@ -71,6 +77,7 @@ environment = SubResource("Environment_12p4y")
 
 [node name="collisions" type="Node3D" parent="." index="3"]
 transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, 0)
+metadata/_edit_lock_ = true
 
 [node name="grass" type="StaticBody3D" parent="collisions" index="0" groups=["grass"]]
 transform = Transform3D(0.146222, 0, 0, 0, 0, -0.146222, 0, 0.146222, 0, 0, 0, 0)
@@ -134,6 +141,23 @@ shape = SubResource("ConcavePolygonShape3D_pdh7n")
 
 [node name="Sketchfab_model" parent="." index="4"]
 transform = Transform3D(3.339, 0, 0, 0, -1.45952e-07, 3.339, 0, -3.339, -1.45952e-07, 0, 0, 0)
+metadata/_edit_lock_ = true
 
 [node name="VR_0_32" parent="Sketchfab_model/root/GLTF_SceneRootNode" index="32"]
 visible = false
+
+[node name="checkpoints" type="Node3D" parent="." index="5"]
+
+[node name="Checkpoint" parent="." index="6" instance=ExtResource("5_bmbee")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -54.9652, 11.345, -91.8164)
+width = 30.0
+height = 6.0
+
+[node name="Checkpoint2" parent="." index="7" instance=ExtResource("5_bmbee")]
+transform = Transform3D(0.931571, 0, -0.36356, 0, 1, 0, 0.36356, 0, 0.931571, -51.4714, 11.0287, -102.312)
+width = 12.0
+
+[node name="Checkpoint3" parent="." index="8" instance=ExtResource("5_bmbee")]
+transform = Transform3D(0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, -42, 15.4339, -113)
+width = 9.0
+height = 22.0

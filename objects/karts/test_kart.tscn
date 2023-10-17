@@ -6,7 +6,6 @@
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_kdl87"]
 friction = 0.3
-bounce = 0.4
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_3p8ib"]
 size = Vector3(0.78, 0.473979, 1)
@@ -44,8 +43,8 @@ target_position = Vector3(0, -0.15, 0)
 script = ExtResource("2_s58g6")
 wheel_radius = 0.15
 spring_length = 0.15
-spring_stiffness = 20.0
-rebound_damping = 2.0
+spring_stiffness = 15.0
+damping = 2.0
 
 [node name="CSGCylinder3D" type="CSGCylinder3D" parent="SimpleWheel"]
 transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, 0, -0.15, 0)
@@ -59,8 +58,8 @@ target_position = Vector3(0, -0.15, 0)
 script = ExtResource("2_s58g6")
 wheel_radius = 0.15
 spring_length = 0.15
-spring_stiffness = 20.0
-rebound_damping = 2.0
+spring_stiffness = 15.0
+damping = 2.0
 
 [node name="CSGCylinder3D" type="CSGCylinder3D" parent="SimpleWheel2"]
 transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, 0, -0.15, 0)
@@ -74,8 +73,8 @@ target_position = Vector3(0, -0.15, 0)
 script = ExtResource("2_s58g6")
 wheel_radius = 0.15
 spring_length = 0.15
-spring_stiffness = 20.0
-rebound_damping = 2.0
+spring_stiffness = 15.0
+damping = 2.0
 
 [node name="CSGCylinder3D" type="CSGCylinder3D" parent="SimpleWheel3"]
 transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, 0, -0.15, 0)
@@ -89,8 +88,8 @@ target_position = Vector3(0, -0.15, 0)
 script = ExtResource("2_s58g6")
 wheel_radius = 0.15
 spring_length = 0.15
-spring_stiffness = 20.0
-rebound_damping = 2.0
+spring_stiffness = 15.0
+damping = 2.0
 
 [node name="CSGCylinder3D" type="CSGCylinder3D" parent="SimpleWheel4"]
 transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, 0, -0.15, 0)

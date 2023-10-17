@@ -8,4 +8,4 @@ group_name = "grass"
 is_offroad = true
 drag = 0.4
 slide_drag = 3.0
-bumpiness = 0.8
+bumpiness = 1.2
