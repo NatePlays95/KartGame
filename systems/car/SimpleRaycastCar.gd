@@ -1,6 +1,7 @@
 class_name SimpleRaycastCar
 extends RigidBody3D
 
+signal area_entered(area:Area3D)
 
 @export_group("Stats")
 @export var engine_power : float = 8
@@ -183,3 +184,7 @@ func release_drift_charge():
 
 func get_speed() -> float :
 	return linear_velocity.dot(-global_transform.basis.z)
+
+
+func _on_contact_area_area_entered(area):
+	area_entered.emit(area)

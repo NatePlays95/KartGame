@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://bbs6o63a524oj"]
+[gd_scene load_steps=10 format=3 uid="uid://bbs6o63a524oj"]
 
 [ext_resource type="Script" path="res://systems/car/SimpleRaycastCar.gd" id="1_dfo1x"]
 [ext_resource type="Script" path="res://systems/car/SimpleWheel.gd" id="2_s58g6"]
@@ -6,6 +6,9 @@
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_kdl87"]
 friction = 0.3
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_5hp1n"]
+size = Vector3(0.824922, 0.615085, 1.02748)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_3p8ib"]
 size = Vector3(0.78, 0.473979, 1)
@@ -24,9 +27,17 @@ viewport_path = NodePath("UI")
 [node name="test_kart" type="RigidBody3D" node_paths=PackedStringArray("wheels")]
 mass = 200.0
 physics_material_override = SubResource("PhysicsMaterial_kdl87")
+max_contacts_reported = 16
+contact_monitor = true
 angular_damp = 10.0
 script = ExtResource("1_dfo1x")
 wheels = [NodePath("SimpleWheel"), NodePath("SimpleWheel2"), NodePath("SimpleWheel3"), NodePath("SimpleWheel4")]
+
+[node name="contact_area" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="contact_area"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.202972, -0.0900074)
+shape = SubResource("BoxShape3D_5hp1n")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25271, -0.0952803)
@@ -115,3 +126,5 @@ transparent_bg = true
 car = NodePath("../..")
 
 [node name="debug_ui" type="Node" parent="."]
+
+[connection signal="area_entered" from="contact_area" to="." method="_on_contact_area_area_entered"]
