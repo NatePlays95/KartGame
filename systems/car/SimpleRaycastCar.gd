@@ -4,15 +4,19 @@ extends RigidBody3D
 signal area_entered(area:Area3D)
 
 @export_group("Stats")
-@export var engine_power : float = 8
-@export var top_speed : float = 30
-@export var handling_factor : float = 0.3
-@export var drift_power_multiplier : float = 1.3
+@export var engine_power : float = 7
+@export var top_speed : float = 27
+@export var handling_factor : float = 0.3 #how fast the car turns (0.25 - 0.4)
+@export var grip_factor : float = 0.7 #how well it sticks to the track for turns (0.3 - 1)
+@export var drift_grip_factor : float = 0.7 #how well it sticks to the track for drift turns (0.3 - 1)
+@export var drift_speed : float = 2#how fast the car goes sideways, 0.7 - 4
+@export var boost_power : float = 400
 
 @export_group("Node References")
 ## Drag all your wheels here.
 @export var wheels : Array[SimpleWheel] = []
 
+var can_input : bool = true
 
 var input_throttle : float = 0
 var input_brakes : float = 0
@@ -62,6 +66,7 @@ func _physics_process(delta):
 	
 	_update_input()
 	
+	var speed = get_speed()
 	## interpret inputs
 	engine_throttle = input_throttle * engine_power * mass
 	if get_speed() > top_speed: engine_throttle = 0.0
@@ -70,9 +75,9 @@ func _physics_process(delta):
 	if get_speed() < -8: braking_force = 0.0
 	
 	var temp_steer = input_steer
-	temp_steer *= clampf(abs(get_speed())/5, -1, 1) #TODO: improve turning while stopped
+	temp_steer *= clampf(abs(speed)/5, -1, 1) #TODO: improve turning while stopped
 	steer_axis = lerp(steer_axis, temp_steer, delta*10)
-	if abs(get_speed()) < 2: steer_axis = 0.0
+	if abs(speed) < 2: steer_axis = 0.0
 	
 	# complex brakes
 	#var force_pos = global_transform.basis.z*0.2 -global_transform.basis.y*0.1
@@ -100,16 +105,18 @@ func _physics_process(delta):
 	
 	#jump
 	if input_drift_just_pressed and is_grounded:
+		
 		#for device in Input.get_connected_joypads():
 		#	print_debug(Input.get_joy_name(device))
-		apply_central_force(global_transform.basis.y * mass * 500)
+		#apply_central_force(global_transform.basis.y * mass * 500)
+		pass
 	
 	
 	## drift steer
 	drift_angle = 0
 	
 	
-	if (not is_drifting) and input_drift != 0.0 and input_steer != 0:
+	if (not is_drifting) and input_drift != 0.0 and input_steer != 0 and speed > 6.0:
 		is_drifting = true
 		drift_dir = sign(input_steer)
 	
@@ -117,7 +124,7 @@ func _physics_process(delta):
 		is_drifting = false
 		drift_dir = 0.0
 	
-	if is_drifting and input_throttle == 0.0: #lose drift, lose charge
+	if is_drifting and (input_throttle == 0.0 or speed < 1.0): #lose drift, lose charge
 		is_drifting = false
 		drift_dir = 0.0
 		drift_charge = 0.0
@@ -130,17 +137,17 @@ func _physics_process(delta):
 	
 	
 	if is_drifting:
-		global_rotate(global_transform.basis.y, -drift_dir * PI * handling_factor * delta)
+		global_rotate(global_transform.basis.y, -drift_dir * PI * handling_factor * 1.5 * delta)
 		var ground_velocity = linear_velocity - linear_velocity*global_transform.basis.y
 		var drift_slip = ground_velocity.normalized().dot(-global_transform.basis.z)
 		drift_angle = acos(clamp(drift_slip, -1, 1))
-		add_drift_charge(delta * min(1.1-drift_slip, 0.25) * 8)
+		add_drift_charge(delta * min(1.1-drift_slip, 0.35) * 6)
 	else:
 		add_drift_charge(-delta * 2)
 	#add_drift_charge(delta * 2)
 	
 	## simple steering
-	var d = 0.8 if is_drifting else 1 #steer less when drifting
+	var d = 0.7 if is_drifting else 1 #steer less when drifting
 	var r = -2 if get_speed() < 0 else 1
 	global_rotate(global_transform.basis.y, -steer_axis*d*r * PI * handling_factor * delta)
 	#apply_torque(global_transform.basis.y * -steer_axis * mass)
@@ -164,11 +171,18 @@ func _physics_process(delta):
 
 # TODO: tie with custom input node to detect both player, AI and set inputs.
 func _update_input():
-	input_throttle = Input.get_action_strength("throttle")
-	input_brakes = Input.get_action_strength("brake")
-	input_steer = Input.get_axis("steer_left", "steer_right")
-	input_drift = Input.get_action_strength("drift")
-	input_drift_just_pressed = Input.is_action_just_pressed("drift")
+	if can_input:
+		input_throttle = Input.get_action_strength("throttle")
+		input_brakes = Input.get_action_strength("brake")
+		input_steer = Input.get_axis("steer_left", "steer_right")
+		input_drift = Input.get_action_strength("drift")
+		input_drift_just_pressed = Input.is_action_just_pressed("drift")
+	else:
+		input_throttle = 0
+		input_brakes = 0
+		input_steer = 0
+		input_drift = 0
+		input_drift_just_pressed = false
 
 
 
@@ -178,7 +192,8 @@ func add_drift_charge(amount):
 
 func release_drift_charge():
 	#print("a")
-	apply_central_force(-global_transform.basis.z * mass * 700 * (0.5+floor(drift_charge)))
+	if drift_charge >= 1: 
+		apply_central_force(-global_transform.basis.z * mass * boost_power * (1+floor(drift_charge)*2))
 	drift_charge = 0
 
 

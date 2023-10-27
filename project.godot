@@ -14,6 +14,14 @@ config/name="KartGame"
 config/features=PackedStringArray("4.1", "Forward Plus")
 config/icon="res://icon.svg"
 
+[autoload]
+
+RaceManager="*res://systems/autoloads/RaceManager.gd"
+
+[filesystem]
+
+import/fbx/enabled=false
+
 [input]
 
 flip={

@@ -1,10 +1,11 @@
-[gd_scene load_steps=21 format=3 uid="uid://jds7ak0tic0n"]
+[gd_scene load_steps=22 format=3 uid="uid://jds7ak0tic0n"]
 
 [ext_resource type="PackedScene" uid="uid://dn7eau2kt1hmq" path="res://models/mktour/new-york-mario-kart-tour/new_york_mario_kart_tour.glb" id="1_22wwg"]
+[ext_resource type="PackedScene" uid="uid://c7v6t2dyiiy5q" path="res://objects/karts/test_rr4.tscn" id="2_s5552"]
 [ext_resource type="PackedScene" uid="uid://bbs6o63a524oj" path="res://objects/karts/test_kart.tscn" id="2_w6jko"]
-[ext_resource type="Script" path="res://systems/cameras/ChaseCamera.gd" id="3_m716t"]
 [ext_resource type="Script" path="res://systems/checkpoints/CarCheckpointTracker.gd" id="3_ppkyb"]
 [ext_resource type="Texture2D" uid="uid://sdtcbkuymmmh" path="res://models/mktour/new-york-mario-kart-tour/T_Mobny1_VR_Alb.png" id="4_v6a6s"]
+[ext_resource type="Script" path="res://systems/time_attack/CarTimeTracker.gd" id="4_wevj7"]
 [ext_resource type="PackedScene" uid="uid://dyl0q1dqpn1wf" path="res://systems/checkpoints/Checkpoint.scn" id="5_bmbee"]
 [ext_resource type="Script" path="res://systems/checkpoints/TrackCheckpoints.gd" id="6_p4icq"]
 
@@ -54,21 +55,17 @@ data = PackedVector3Array(-167.232, -572.171, -39.996, -130.578, -558.539, -39.9
 
 [node name="new_york_mario_kart_tour" instance=ExtResource("1_22wwg")]
 
-[node name="test_kart" parent="." index="0" instance=ExtResource("2_w6jko")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.15997, 8.71188, 15.1456)
+[node name="test_rr4" parent="." index="0" instance=ExtResource("2_s5552")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.71876, 8.71188, 15.1456)
 
-[node name="CarCheckpointTracker" type="Node" parent="test_kart" index="9"]
+[node name="CarCheckpointTracker" type="Node" parent="test_rr4" index="12"]
 script = ExtResource("3_ppkyb")
 
-[node name="ChaseCamera" type="Camera3D" parent="." index="1" node_paths=PackedStringArray("car")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.15997, 8.71188, 15.1456)
-v_offset = 0.5
-current = true
-script = ExtResource("3_m716t")
-cam_distance = 3.0
-cam_height = 1.0
-speed = 20.0
-car = NodePath("../test_kart")
+[node name="CarTimeTracker" type="Node" parent="test_rr4" index="13"]
+script = ExtResource("4_wevj7")
+
+[node name="test_kart" parent="." index="1" instance=ExtResource("2_w6jko")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.15997, 1.91707, 15.1456)
 
 [node name="environment" type="Node3D" parent="." index="2"]
 
@@ -147,6 +144,7 @@ metadata/_edit_group_ = true
 visible = false
 
 [node name="TrackCheckpoints" type="Node3D" parent="." index="5"]
+visible = false
 script = ExtResource("6_p4icq")
 key_checkpoints = Array[int]([6, 13, 19, 23])
 highest_index = 25

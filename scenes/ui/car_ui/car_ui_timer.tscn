@@ -1,0 +1,39 @@
+[gd_scene load_steps=2 format=3 uid="uid://baj1uieshkyfj"]
+
+[ext_resource type="Script" path="res://scenes/ui/car_ui/car_ui_timer.gd" id="1_icymn"]
+
+[node name="car_ui_timer" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_icymn")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -155.0
+offset_top = 24.0
+offset_right = -29.0
+offset_bottom = 258.0
+grow_horizontal = 0
+
+[node name="lbl_current_time" type="Label" parent="VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "TIME: 99:99.999"
+horizontal_alignment = 2
+
+[node name="ColorRect" type="ColorRect" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+
+[node name="lbl_splits" type="Label" parent="VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "LAP1: 99:99.999"
+horizontal_alignment = 2

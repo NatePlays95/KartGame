@@ -92,6 +92,10 @@ func _update_suspension(dt):
 	var delta_deform = (last_deform - deform)
 	var up_or_down = sign(delta_deform)
 	var damp_force = damping * delta_deform/dt
+	
+	#var damp_clamp = car.mass * damping / 100
+	#damp_force = clampf(damp_force, -damp_clamp, damp_clamp)
+	#damp_force = 0
 	#if up_or_down == 1:
 	#	damp_force *= rebound_damping
 	#elif up_or_down == -1:
@@ -100,6 +104,10 @@ func _update_suspension(dt):
 	var final_force = car.mass * (spring_force - damp_force) # force is length-independent, mass-independent
 	var force_pos = global_position - car.global_position
 	force_pos -= (1-deform)*transform.basis.y*spring_length
+	
+	#var force_clamp = car.mass * dt * 1000
+	#final_force = clampf(final_force, -force_clamp, force_clamp)
+	
 	car.apply_force(global_transform.basis.y * final_force, force_pos)
 	
 	#### bumpiness ####
@@ -118,8 +126,11 @@ func _update_movement(dt):
 	var factor = 1.0 / car.wheels.size()
 	var forward = -car.global_transform.basis.z
 	if car.is_drifting:
-		forward = (forward - car.global_transform.basis.x * car.drift_dir).normalized()
-		forward *= car.drift_power_multiplier
+		forward = (forward - car.global_transform.basis.x * car.drift_dir * 2).normalized()
+		forward *= car.drift_speed
+		
+		#forward = forward - car.global_transform.basis.x * car.drift_dir * car.drift_speed
+		#forward *= 0.5
 	
 	var throttle_force = forward * car.engine_throttle * factor
 	#print(throttle_force)
@@ -151,8 +162,15 @@ func _update_drag(dt):
 	var sideways_velocity = car.linear_velocity.dot(car.global_transform.basis.x)
 	if car.is_drifting:
 		slide_drag *= 0.6
-	var sideways_counterforce = car.mass * sideways_velocity * slide_drag
+	var grip_factor = car.drift_grip_factor if car.is_drifting else car.grip_factor
+	var sideways_counterforce = car.mass * sideways_velocity * slide_drag * grip_factor
 	car.apply_central_force(-car.global_transform.basis.x  * sideways_counterforce * factor)
+	
+	#### stopping drag ####
+	var abs_speed = abs(car.get_speed())
+	if abs_speed < 5.0 and not (car.engine_throttle != 0.0 or car.braking_force != 0.0):
+		var stopping_drag = max(0, 5 - abs_speed)
+		car.linear_velocity *= 1.0 - dt * stopping_drag * factor
 
 
 func _update_children_positions() -> void:

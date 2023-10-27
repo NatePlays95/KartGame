@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://c4o2gvraawhcj"]
+
+[node name="select_car" type="Node"]
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control"]
+layout_mode = 0
+offset_left = 781.0
+offset_top = 103.0
+offset_right = 1065.0
+offset_bottom = 547.0
+alignment = 1
+
+[node name="Button" type="Button" parent="Control/VBoxContainer"]
+layout_mode = 2
+text = "FA Racing"
+
+[node name="Button4" type="Button" parent="Control/VBoxContainer"]
+layout_mode = 2
+text = "DIG Racing"
+
+[node name="Button2" type="Button" parent="Control/VBoxContainer"]
+layout_mode = 2
+text = "White Angel"
+
+[node name="Button3" type="Button" parent="Control/VBoxContainer"]
+layout_mode = 2
+text = "Supernova"

@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://systems/car/SimpleRaycastCar.gd" id="1_dfo1x"]
 [ext_resource type="Script" path="res://systems/car/SimpleWheel.gd" id="2_s58g6"]
-[ext_resource type="PackedScene" uid="uid://77nexksnu7ie" path="res://scenes/ui/car_debug_ui.tscn" id="3_ma2a4"]
+[ext_resource type="PackedScene" uid="uid://77nexksnu7ie" path="res://scenes/ui/car_ui/car_debug_ui.tscn" id="3_ma2a4"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_kdl87"]
 friction = 0.3

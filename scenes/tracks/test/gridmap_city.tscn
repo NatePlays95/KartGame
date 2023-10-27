@@ -1,8 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://c0qperxbl5pot"]
+[gd_scene load_steps=4 format=3 uid="uid://c0qperxbl5pot"]
 
 [ext_resource type="MeshLibrary" uid="uid://db1rpt0vdx5xb" path="res://objects/tiles/kenney_cityroads/kenney_cityroads.meshlib" id="1_u7drk"]
-[ext_resource type="PackedScene" uid="uid://bbs6o63a524oj" path="res://objects/karts/test_kart.tscn" id="2_ojpqk"]
-[ext_resource type="Script" path="res://systems/cameras/ChaseCamera.gd" id="3_5qvhu"]
+[ext_resource type="PackedScene" uid="uid://c7v6t2dyiiy5q" path="res://objects/karts/test_rr4.tscn" id="4_murnl"]
 
 [sub_resource type="Environment" id="Environment_77y73"]
 background_mode = 1
@@ -32,14 +31,5 @@ data = {
 }
 metadata/_editor_floor_ = Vector3(0, 0, 0)
 
-[node name="test_kart" parent="." instance=ExtResource("2_ojpqk")]
-transform = Transform3D(-2.18557e-07, 0, 1, 0, 1, 0, -1, 0, -2.18557e-07, 54.9643, 5.13954, 77.9674)
-
-[node name="ChaseCamera" type="Camera3D" parent="." node_paths=PackedStringArray("car")]
-transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, -4.10179, 5.13954, 1.30291)
-current = true
-script = ExtResource("3_5qvhu")
-cam_distance = 3.0
-cam_height = 1.5
-speed = 20.0
-car = NodePath("../test_kart")
+[node name="test_hachiroku" parent="." instance=ExtResource("4_murnl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.68172, 19, 65.5242)

@@ -1,7 +1,6 @@
-[gd_scene load_steps=6 format=3 uid="uid://4hbncnulngj4"]
+[gd_scene load_steps=5 format=3 uid="uid://4hbncnulngj4"]
 
-[ext_resource type="PackedScene" uid="uid://bbs6o63a524oj" path="res://objects/karts/test_kart.tscn" id="1_tjhk4"]
-[ext_resource type="Script" path="res://systems/cameras/ChaseCamera.gd" id="2_w4lqo"]
+[ext_resource type="PackedScene" uid="uid://bbs6o63a524oj" path="res://objects/karts/test_kart.tscn" id="1_bvrtp"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_1rbhi"]
 
@@ -67,14 +66,6 @@ use_collision = true
 size = Vector3(32, 1, 32)
 material = SubResource("StandardMaterial3D_nkivm")
 
-[node name="ChaseCamera" type="Camera3D" parent="." node_paths=PackedStringArray("car")]
-current = true
-script = ExtResource("2_w4lqo")
-cam_distance = 3.0
-cam_height = 1.5
-speed = 20.0
-car = NodePath("../test_kart")
-
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, -3, 1, 2)
 
@@ -82,7 +73,7 @@ transform = Transform3D(0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, 
 transform = Transform3D(1, 0, 0, 0, 0.823156, 0.567815, 0, -0.567815, 0.823156, 0, 2.46743, 0)
 shadow_enabled = true
 
-[node name="test_kart" parent="." instance=ExtResource("1_tjhk4")]
+[node name="test_kart" parent="." instance=ExtResource("1_bvrtp")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.750227, 0)
 
 [node name="loop" type="CSGCombiner3D" parent="."]

@@ -1,0 +1,27 @@
+[remap]
+
+importer="3d_texture"
+type="CompressedTexture3D"
+uid="uid://ihq0lq2qs5na"
+path.s3tc="res://.godot/imported/2031D569_c.png-b85700b8bed81936d9bcb579948f3ba1.s3tc.ctex3d"
+metadata={
+"imported_formats": ["s3tc_bptc"],
+"vram_texture": true
+}
+
+[deps]
+
+source_file="res://models/ridgeracer4/fa_racing/2031D569_c.png"
+dest_files=["res://.godot/imported/2031D569_c.png-b85700b8bed81936d9bcb579948f3ba1.s3tc.ctex3d"]
+
+[params]
+
+compress/mode=2
+compress/high_quality=false
+compress/lossy_quality=0.7
+compress/hdr_compression=1
+compress/channel_pack=0
+mipmaps/generate=true
+mipmaps/limit=-1
+slices/horizontal=8
+slices/vertical=8
