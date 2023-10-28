@@ -50,10 +50,8 @@ func _process(delta):
 
 func _physics_process(delta):
 	## update if car is grounded or not
-	
 	#only not grounded if all 4 wheels aren't grounded
 	#only grounded if all 4 wheels are grounded
-	
 	var wheel_not_grounded_count = 0
 	for wheel in wheels:
 		if wheel.deform == 0: wheel_not_grounded_count += 1
@@ -62,6 +60,10 @@ func _physics_process(delta):
 		is_grounded = false
 	if wheel_not_grounded_count == 0:
 		is_grounded = true
+	
+	
+	if not is_grounded:
+		_align_up_while_airborne(delta)
 	
 	
 	_update_input()
@@ -184,6 +186,12 @@ func _update_input():
 		input_drift = 0
 		input_drift_just_pressed = false
 
+
+func _align_up_while_airborne(delta):
+	rotation_degrees.x = lerp(rotation_degrees.x, 0.0, delta*2)
+	rotation_degrees.z = lerp(rotation_degrees.z, 0.0, delta*2)
+	#var new_basis : Basis = Basis
+	pass
 
 
 func add_drift_charge(amount):

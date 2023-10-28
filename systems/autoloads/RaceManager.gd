@@ -32,6 +32,7 @@ func start_race():
 
 
 func handle_car_finish(car:SimpleRaycastCar):
+	if not current_race: return
 	if current_race.race_type == RaceData.RACE_TYPE.TIME_ATTACK:
 		handle_end_race()
 
@@ -65,6 +66,7 @@ func _on_end_race():
 
 signal car_completed_lap(car:SimpleRaycastCar, new_lap:int, max_laps:int)
 func _on_car_completed_lap(car:SimpleRaycastCar, new_lap:int):
+	if not current_race: return
 	car_completed_lap.emit(car, new_lap, current_race.lap_count)
 	
 	if new_lap > current_race.lap_count:

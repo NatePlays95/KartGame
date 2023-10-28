@@ -144,7 +144,6 @@ metadata/_edit_group_ = true
 visible = false
 
 [node name="TrackCheckpoints" type="Node3D" parent="." index="5"]
-visible = false
 script = ExtResource("6_p4icq")
 key_checkpoints = Array[int]([6, 13, 19, 23])
 highest_index = 25

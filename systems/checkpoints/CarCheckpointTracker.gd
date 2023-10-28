@@ -113,7 +113,7 @@ func has_valid_key_cps(passing_cp:int=0) -> bool:
 			break
 		
 		#does car have required checkpoints up to this point, in order
-		if key_cp_crossed.size() == 0:
+		if key_cp_crossed.size() < i+1:
 			return false
 		
 		if key_cp_crossed[i] != key_cps[i]: 
