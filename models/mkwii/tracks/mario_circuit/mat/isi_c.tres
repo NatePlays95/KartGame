@@ -1,0 +1,11 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://dp1ic4xwpnsqy"]
+
+[ext_resource type="Texture2D" uid="uid://ddvyoxooj32y2" path="res://models/mkwii/tracks/mario_circuit/mario_circuit_base_t_shiro_GC15k.png" id="1_l0637"]
+
+[resource]
+resource_name = "isi_c"
+cull_mode = 2
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("1_l0637")
+roughness = 0.5
+uv1_scale = Vector3(10, 1, 0)

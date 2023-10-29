@@ -1,0 +1,13 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://duoln8ifhenef"]
+
+[ext_resource type="Texture2D" uid="uid://u1wp2u7xnvle" path="res://models/mkwii/tracks/mario_circuit/mario_circuit_base_p_union_B13k.png" id="1_y4c2b"]
+
+[resource]
+resource_name = "union_B01"
+transparency = 2
+alpha_scissor_threshold = 0.5
+alpha_antialiasing_mode = 0
+cull_mode = 2
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("1_y4c2b")
+roughness = 0.5

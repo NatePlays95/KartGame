@@ -73,3 +73,8 @@ boost={
 common/physics_ticks_per_second=120
 common/max_physics_steps_per_frame=12
 3d/default_gravity=20.0
+
+[rendering]
+
+driver/threads/thread_model=2
+anti_aliasing/quality/msaa_3d=2

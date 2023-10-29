@@ -19,7 +19,7 @@ sky_material = SubResource("PanoramaSkyMaterial_vgotv")
 background_mode = 2
 sky = SubResource("Sky_o2ehe")
 sky_rotation = Vector3(3.14159, 0, 0)
-ambient_light_color = Color(0.529412, 0.662745, 0.745098, 1)
+ambient_light_color = Color(0.207843, 0.701961, 0.866667, 1)
 ambient_light_sky_contribution = 0.75
 ambient_light_energy = 4.0
 
@@ -71,6 +71,401 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.15997, 1.91707, 15.1456)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="environment" index="0"]
 environment = SubResource("Environment_12p4y")
+
+[node name="lights" type="Node3D" parent="environment" index="1"]
+
+[node name="OmniLight3D" type="OmniLight3D" parent="environment/lights" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.21937, 33.5393, -49.0011)
+light_color = Color(1, 0.917647, 0.996078, 1)
+light_energy = 10.0
+light_specular = 0.0
+omni_range = 30.0
+omni_attenuation = 0.0693484
+
+[node name="OmniLight3D4" type="OmniLight3D" parent="environment/lights" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.972792, 30.6285, -5.06383)
+light_color = Color(0.831373, 1, 0.803922, 1)
+light_energy = 10.0
+light_specular = 0.0
+omni_range = 18.273
+omni_attenuation = 0.0693484
+
+[node name="OmniLight3D5" type="OmniLight3D" parent="environment/lights" index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.72187, 22.9861, 25.7434)
+light_color = Color(1, 0.831373, 0.929412, 1)
+light_energy = 10.0
+light_specular = 0.0
+omni_range = 18.273
+omni_attenuation = 0.0693484
+
+[node name="OmniLight3D6" type="OmniLight3D" parent="environment/lights" index="3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.2715, 22.9861, -2.4208)
+light_color = Color(1, 0.309804, 0.698039, 1)
+light_energy = 10.0
+light_specular = 0.0
+omni_range = 18.273
+omni_attenuation = 0.0693484
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="environment/lights" index="4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.21937, 15.214, -41.3013)
+light_color = Color(1, 1, 0.596078, 1)
+light_energy = 6.229
+light_specular = 0.0
+omni_range = 9.88608
+omni_attenuation = 0.0693484
+
+[node name="street_lamp" type="OmniLight3D" parent="environment/lights" index="5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.0838, 18.0843, -18.6576)
+light_energy = 30.0
+distance_fade_enabled = true
+distance_fade_begin = 50.0
+distance_fade_length = 100.0
+omni_range = 21.885
+
+[node name="street_lamp6" type="OmniLight3D" parent="environment/lights" index="6"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -60.4059, 18.0843, -79.4375)
+light_energy = 30.0
+distance_fade_enabled = true
+distance_fade_begin = 50.0
+distance_fade_length = 100.0
+omni_range = 21.885
+
+[node name="street_lamp31" type="OmniLight3D" parent="environment/lights" index="7"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.95327, 18.0843, -87.1676)
+light_energy = 30.0
+distance_fade_enabled = true
+distance_fade_begin = 50.0
+distance_fade_length = 100.0
+omni_range = 21.885
+
+[node name="street_lamp32" type="OmniLight3D" parent="environment/lights" index="8"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 65.8956, 18.0843, -76.3439)
+light_energy = 30.0
+distance_fade_enabled = true
+distance_fade_begin = 50.0
+distance_fade_length = 100.0
+omni_range = 21.885
+
+[node name="street_lamp33" type="OmniLight3D" parent="environment/lights" index="9"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 89.6302, 18.0843, -49.0187)
+light_energy = 30.0
+distance_fade_enabled = true
+distance_fade_begin = 50.0
+distance_fade_length = 100.0
+omni_range = 21.885
+
+[node name="street_lamp34" type="OmniLight3D" parent="environment/lights" index="10"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 79.2247, 18.0843, 30.6127)
+light_energy = 30.0
+distance_fade_enabled = true
+distance_fade_begin = 50.0
+distance_fade_length = 100.0
+omni_range = 21.885
+
+[node name="street_lamp35" type="OmniLight3D" parent="environment/lights" index="11"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 62.0508, 18.0843, 47.561)
+light_energy = 30.0
+distance_fade_enabled = true
+distance_fade_begin = 50.0
+distance_fade_length = 100.0
+omni_range = 21.885
+
+[node name="street_lamp36" type="OmniLight3D" parent="environment/lights" index="12"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.7826, 18.0843, 47.4669)
+light_energy = 30.0
+distance_fade_enabled = true
+distance_fade_begin = 50.0
+distance_fade_length = 100.0
+omni_range = 21.885
+
+[node name="street_lamp2" type="OmniLight3D" parent="environment/lights" index="13"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.5081, 18.0843, -36.7742)
+light_color = Color(1, 1, 0.486275, 1)
+light_energy = 16.0
+distance_fade_enabled = true
+distance_fade_begin = 50.0
+distance_fade_length = 100.0
+omni_range = 21.885
+
+[node name="street_lamp3" type="OmniLight3D" parent="environment/lights" index="14"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -47.6546, 16.9127, -49.3145)
+light_color = Color(1, 1, 0.486275, 1)
+light_energy = 16.0
+distance_fade_enabled = true
+distance_fade_begin = 50.0
+distance_fade_length = 100.0
+omni_range = 21.885
+
+[node name="street_lamp4" type="OmniLight3D" parent="environment/lights" index="15"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.9105, 16.9127, -52.637)
+light_color = Color(1, 1, 0.486275, 1)
+light_energy = 16.0
+distance_fade_enabled = true
+distance_fade_begin = 50.0
+distance_fade_length = 100.0
+omni_range = 21.885
+
+[node name="street_lamp5" type="OmniLight3D" parent="environment/lights" index="16"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -63.2576, 16.9127, -68.2527)
+light_color = Color(1, 1, 0.486275, 1)
+light_energy = 16.0
+distance_fade_enabled = true
+distance_fade_begin = 50.0
+distance_fade_length = 100.0
+omni_range = 21.885
+
+[node name="street_lamp7" type="OmniLight3D" parent="environment/lights" index="17"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -44.5113, 16.2744, -75.7624)
+light_color = Color(1, 1, 0.486275, 1)
+light_energy = 16.0
+distance_fade_enabled = true
+distance_fade_begin = 50.0
+distance_fade_length = 100.0
+omni_range = 21.885
+
+[node name="street_lamp8" type="OmniLight3D" parent="environment/lights" index="18"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30.4383, 16.309, -86.0272)
+light_color = Color(1, 1, 0.486275, 1)
+light_energy = 16.0
+distance_fade_enabled = true
+distance_fade_begin = 50.0
+distance_fade_length = 100.0
+omni_range = 21.885
+
+[node name="street_lamp9" type="OmniLight3D" parent="environment/lights" index="19"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.5228, 17.1858, -76.1814)
+light_color = Color(1, 1, 0.486275, 1)
+light_energy = 16.0
+distance_fade_enabled = true
+distance_fade_begin = 50.0
+distance_fade_length = 100.0
+omni_range = 21.885
+
+[node name="street_lamp11" type="OmniLight3D" parent="environment/lights" index="20"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.22031, 17.3017, -76.2315)
+light_color = Color(1, 1, 0.486275, 1)
+light_energy = 16.0
+distance_fade_enabled = true
+distance_fade_begin = 50.0
+distance_fade_length = 100.0
+omni_range = 21.885
+
+[node name="street_lamp12" type="OmniLight3D" parent="environment/lights" index="21"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 35.1014, 17.3017, -76.2315)
+light_color = Color(1, 1, 0.486275, 1)
+light_energy = 16.0
+distance_fade_enabled = true
+distance_fade_begin = 50.0
+distance_fade_length = 100.0
+omni_range = 21.885
+
+[node name="street_lamp13" type="OmniLight3D" parent="environment/lights" index="22"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.3503, 17.3017, -86.2467)
+light_color = Color(1, 1, 0.486275, 1)
+light_energy = 16.0
+distance_fade_enabled = true
+distance_fade_begin = 50.0
+distance_fade_length = 100.0
+omni_range = 21.885
+
+[node name="street_lamp15" type="OmniLight3D" parent="environment/lights" index="23"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 87.0469, 17.3017, -82.7747)
+light_color = Color(1, 1, 0.486275, 1)
+light_energy = 16.0
+distance_fade_enabled = true
+distance_fade_begin = 50.0
+distance_fade_length = 100.0
+omni_range = 21.885
+
+[node name="street_lamp17" type="OmniLight3D" parent="environment/lights" index="24"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 75.6767, 17.3017, -48.8199)
+light_color = Color(1, 1, 0.486275, 1)
+light_energy = 16.0
+distance_fade_enabled = true
+distance_fade_begin = 50.0
+distance_fade_length = 100.0
+omni_range = 21.885
+
+[node name="street_lamp18" type="OmniLight3D" parent="environment/lights" index="25"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 77.9017, 17.3017, -23.3913)
+light_color = Color(1, 1, 0.486275, 1)
+light_energy = 16.0
+distance_fade_enabled = true
+distance_fade_begin = 50.0
+distance_fade_length = 100.0
+omni_range = 21.885
+
+[node name="street_lamp19" type="OmniLight3D" parent="environment/lights" index="26"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 90.8279, 17.3017, -10.5711)
+light_color = Color(1, 1, 0.486275, 1)
+light_energy = 16.0
+distance_fade_enabled = true
+distance_fade_begin = 50.0
+distance_fade_length = 100.0
+omni_range = 21.885
+
+[node name="street_lamp20" type="OmniLight3D" parent="environment/lights" index="27"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 78.1136, 17.3017, 2.77893)
+light_color = Color(1, 1, 0.486275, 1)
+light_energy = 16.0
+distance_fade_enabled = true
+distance_fade_begin = 50.0
+distance_fade_length = 100.0
+omni_range = 21.885
+
+[node name="street_lamp21" type="OmniLight3D" parent="environment/lights" index="28"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 90.7298, 17.3017, 16.7191)
+light_color = Color(1, 1, 0.486275, 1)
+light_energy = 16.0
+distance_fade_enabled = true
+distance_fade_begin = 50.0
+distance_fade_length = 100.0
+omni_range = 21.885
+
+[node name="street_lamp23" type="OmniLight3D" parent="environment/lights" index="29"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 85.2005, 17.3017, 45.7677)
+light_color = Color(1, 1, 0.486275, 1)
+light_energy = 16.0
+distance_fade_enabled = true
+distance_fade_begin = 50.0
+distance_fade_length = 100.0
+omni_range = 21.885
+
+[node name="street_lamp25" type="OmniLight3D" parent="environment/lights" index="30"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 43.6914, 17.3017, 38.4471)
+light_color = Color(1, 1, 0.486275, 1)
+light_energy = 16.0
+distance_fade_enabled = true
+distance_fade_begin = 50.0
+distance_fade_length = 100.0
+omni_range = 21.885
+
+[node name="street_lamp26" type="OmniLight3D" parent="environment/lights" index="31"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.0662, 17.3017, 49.35)
+light_color = Color(1, 1, 0.486275, 1)
+light_energy = 16.0
+distance_fade_enabled = true
+distance_fade_begin = 50.0
+distance_fade_length = 100.0
+omni_range = 21.885
+
+[node name="street_lamp28" type="OmniLight3D" parent="environment/lights" index="32"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.6799, 17.3017, 31.9832)
+light_color = Color(1, 1, 0.486275, 1)
+light_energy = 16.0
+distance_fade_enabled = true
+distance_fade_begin = 50.0
+distance_fade_length = 100.0
+omni_range = 21.885
+
+[node name="street_lamp29" type="OmniLight3D" parent="environment/lights" index="33"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.932722, 17.3017, 18.5103)
+light_color = Color(1, 1, 0.486275, 1)
+light_energy = 16.0
+distance_fade_enabled = true
+distance_fade_begin = 50.0
+distance_fade_length = 100.0
+omni_range = 21.885
+
+[node name="street_lamp30" type="OmniLight3D" parent="environment/lights" index="34"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.602, 17.3017, 1.84439)
+light_color = Color(1, 1, 0.486275, 1)
+light_energy = 16.0
+distance_fade_enabled = true
+distance_fade_begin = 50.0
+distance_fade_length = 100.0
+omni_range = 21.885
+
+[node name="OmniLight3D3" type="OmniLight3D" parent="environment/lights" index="35"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.0518, 55.9692, 28.9704)
+light_color = Color(1, 1, 0.486275, 1)
+light_energy = 16.0
+omni_range = 56.794
+omni_attenuation = 0.466516
+
+[node name="OmniLight3D7" type="OmniLight3D" parent="environment/lights" index="36"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 59.0981, 20.0381, -23.8671)
+light_color = Color(1, 1, 0.631373, 1)
+light_energy = 100.0
+omni_range = 46.071
+omni_attenuation = 1.36604
+
+[node name="OmniLight3D8" type="OmniLight3D" parent="environment/lights" index="37"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 59.0981, 41.0144, -23.8671)
+light_color = Color(1, 1, 0.631373, 1)
+light_energy = 100.0
+omni_range = 46.071
+omni_attenuation = 1.36604
+
+[node name="OmniLight3D9" type="OmniLight3D" parent="environment/lights" index="38"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 59.0981, 69.1375, -23.8671)
+light_color = Color(1, 1, 0.631373, 1)
+light_energy = 100.0
+omni_range = 46.071
+omni_attenuation = 1.36604
+
+[node name="OmniLight3D10" type="OmniLight3D" parent="environment/lights" index="39"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 78.0585, 20.0381, 0.120617)
+light_color = Color(1, 1, 0.631373, 1)
+light_energy = 100.0
+omni_range = 46.071
+omni_attenuation = 1.36604
+
+[node name="OmniLight3D11" type="OmniLight3D" parent="environment/lights" index="40"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 78.0585, 41.0144, 0.120617)
+light_color = Color(1, 1, 0.631373, 1)
+light_energy = 100.0
+omni_range = 46.071
+omni_attenuation = 1.36604
+
+[node name="OmniLight3D12" type="OmniLight3D" parent="environment/lights" index="41"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 78.0585, 69.1375, 0.120617)
+light_color = Color(1, 1, 0.631373, 1)
+light_energy = 100.0
+omni_range = 46.071
+omni_attenuation = 1.36604
+
+[node name="OmniLight3D13" type="OmniLight3D" parent="environment/lights" index="42"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 60.7343, 20.0381, 27.316)
+light_color = Color(1, 1, 0.631373, 1)
+light_energy = 100.0
+omni_range = 46.071
+omni_attenuation = 1.36604
+
+[node name="OmniLight3D14" type="OmniLight3D" parent="environment/lights" index="43"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 60.7343, 41.0144, 27.316)
+light_color = Color(1, 1, 0.631373, 1)
+light_energy = 100.0
+omni_range = 46.071
+omni_attenuation = 1.36604
+
+[node name="OmniLight3D15" type="OmniLight3D" parent="environment/lights" index="44"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 60.7343, 69.1375, 27.316)
+light_color = Color(1, 1, 0.631373, 1)
+light_energy = 100.0
+omni_range = 46.071
+omni_attenuation = 1.36604
+
+[node name="OmniLight3D16" type="OmniLight3D" parent="environment/lights" index="45"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 36.0498, 20.0381, 0.110195)
+light_color = Color(1, 1, 0.631373, 1)
+light_energy = 100.0
+omni_range = 46.071
+omni_attenuation = 1.36604
+
+[node name="OmniLight3D17" type="OmniLight3D" parent="environment/lights" index="46"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 36.0498, 41.0144, 0.110195)
+light_color = Color(1, 1, 0.631373, 1)
+light_energy = 100.0
+omni_range = 46.071
+omni_attenuation = 1.36604
+
+[node name="OmniLight3D18" type="OmniLight3D" parent="environment/lights" index="47"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 36.0498, 69.1375, 0.110195)
+light_color = Color(1, 1, 0.631373, 1)
+light_energy = 100.0
+omni_range = 46.071
+omni_attenuation = 1.36604
 
 [node name="collisions" type="Node3D" parent="." index="3"]
 transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, 0)
@@ -144,6 +539,7 @@ metadata/_edit_group_ = true
 visible = false
 
 [node name="TrackCheckpoints" type="Node3D" parent="." index="5"]
+visible = false
 script = ExtResource("6_p4icq")
 key_checkpoints = Array[int]([6, 13, 19, 23])
 highest_index = 25
@@ -305,3 +701,107 @@ transform = Transform3D(1, 0, 5.96046e-08, 0, 1, 0, -5.96046e-08, 0, 1, -6.21341
 index = 25
 width = 24.0
 height = 27.0
+
+[node name="TrackCameras" type="Node3D" parent="." index="6"]
+
+[node name="camera1" type="Camera3D" parent="TrackCameras" index="0"]
+transform = Transform3D(0.96363, 0, 0.267238, 0, 1, 0, -0.267238, 0, 0.96363, -0.4, 11.25, 0)
+
+[node name="invisible_walls" type="CSGCombiner3D" parent="." index="7"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 9.94185, 0)
+visible = false
+use_collision = true
+
+[node name="CSGBox3D" type="CSGBox3D" parent="invisible_walls" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.4343, 0, 16.5379)
+size = Vector3(3.53473, 9.65096, 68.5934)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="invisible_walls" index="1"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 39.0319, 0, 52.6075)
+size = Vector3(3.53473, 9.65096, 113.904)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="invisible_walls" index="2"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 94.4928, 0, -19.3577)
+size = Vector3(3.53473, 9.65096, 141.837)
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="invisible_walls" index="3"]
+transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, 14.5144, 0, -89.7404)
+size = Vector3(3.53473, 9.65096, 160.96)
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="invisible_walls" index="4"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -64.9482, 0, -66.7343)
+size = Vector3(3.53473, 9.65096, 44.8495)
+
+[node name="CSGBox3D6" type="CSGBox3D" parent="invisible_walls" index="5"]
+transform = Transform3D(-0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, -0.707107, -56.1233, 0, -49.0846)
+size = Vector3(3.53473, 9.65096, 44.8495)
+
+[node name="CSGBox3D7" type="CSGBox3D" parent="invisible_walls" index="6"]
+transform = Transform3D(-0.866025, 0, -0.5, 0, 1, 0, 0.5, 0, -0.866025, -21.3972, 0, -27.8881)
+size = Vector3(3.53473, 9.65096, 25.5141)
+
+[node name="CSGBox3D8" type="CSGBox3D" parent="invisible_walls" index="7"]
+transform = Transform3D(-0.258819, 0, -0.965926, 0, 1, 0, 0.965926, 0, -0.258819, -41.2892, 0, -41.8703)
+size = Vector3(3.53473, 9.65096, 30.2869)
+
+[node name="CSGBox3D9" type="CSGBox3D" parent="invisible_walls" index="8"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.18922, 0, -1.76139)
+size = Vector3(3.53473, 9.65096, 68.5934)
+
+[node name="CSGBox3D11" type="CSGBox3D" parent="invisible_walls" index="9"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 72.2583, 0, -19.4112)
+size = Vector3(3.53473, 9.65096, 105.829)
+
+[node name="CSGBox3D10" type="CSGBox3D" parent="invisible_walls" index="10"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 38.8034, 0, 32.2235)
+size = Vector3(3.53473, 9.65096, 70.6781)
+
+[node name="CSGBox3D12" type="CSGBox3D" parent="invisible_walls" index="11"]
+transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, 14.5144, 0, -70.7917)
+size = Vector3(3.53473, 9.65096, 119.195)
+
+[node name="CSGBox3D13" type="CSGBox3D" parent="invisible_walls" index="12"]
+transform = Transform3D(-0.258819, 0, -0.965926, 0, 1, 0, 0.965926, 0, -0.258819, -29.3679, 0, -59.6951)
+size = Vector3(3.53473, 9.65096, 30.6658)
+
+[node name="CSGBox3D14" type="CSGBox3D" parent="invisible_walls" index="13"]
+transform = Transform3D(-1, 0, -1.19209e-07, 0, 1, 0, 1.19209e-07, 0, -1, -43.2692, 0, -65.737)
+size = Vector3(3.53473, 9.65096, 7.66406)
+
+[node name="CSGBox3D15" type="CSGBox3D" parent="invisible_walls" index="14"]
+transform = Transform3D(-0.866025, 0, -0.5, 0, 1, 0, 0.5, 0, -0.866025, -7.8471, 0, -41.3687)
+size = Vector3(3.53473, 9.65096, 57.3613)
+
+[node name="visible_walls" type="CSGCombiner3D" parent="." index="8"]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="visible_walls" index="0"]
+transform = Transform3D(-0.5, 0, -0.866025, 0, 1, 0, 0.866025, 0, -0.5, -0.262791, 11.1893, -31.7881)
+size = Vector3(1, 7.29901, 12.5384)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="visible_walls" index="1"]
+transform = Transform3D(-0.00111711, 0, -0.999999, 0, 1, 0, 0.999999, 0, -0.00111711, -56.1752, 11.1893, -88.855)
+size = Vector3(1, 7.29901, 18.6624)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="visible_walls" index="2"]
+transform = Transform3D(-0.00111708, 0, -0.999999, 0, 1, 0, 0.999999, 0, -0.00111708, 11.2317, 11.1893, -90.115)
+size = Vector3(1, 7.29901, 18.6624)
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="visible_walls" index="3"]
+transform = Transform3D(-0.00111708, 0, -0.999999, 0, 1, 0, 0.999999, 0, -0.00111708, 11.2317, 11.1893, -71.705)
+size = Vector3(1, 7.29901, 18.6624)
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="visible_walls" index="4"]
+transform = Transform3D(-0.00111708, 0, -0.999999, 0, 1, 0, 0.999999, 0, -0.00111708, 58.4874, 11.1893, -90.115)
+size = Vector3(1, 7.29901, 18.6624)
+
+[node name="CSGBox3D6" type="CSGBox3D" parent="visible_walls" index="5"]
+transform = Transform3D(-0.00111708, 0, -0.999999, 0, 1, 0, 0.999999, 0, -0.00111708, 58.4874, 11.1893, -71.705)
+size = Vector3(1, 7.29901, 18.6624)
+
+[node name="CSGBox3D7" type="CSGBox3D" parent="visible_walls" index="6"]
+transform = Transform3D(-0.999999, 0, 0.00111712, 0, 1, 0, -0.00111712, 0, -0.999999, 73.528, 11.1893, -41.6146)
+size = Vector3(1, 7.29901, 18.6624)
+
+[node name="CSGBox3D8" type="CSGBox3D" parent="visible_walls" index="7"]
+transform = Transform3D(-0.0142241, 0, -0.999899, 0, 1, 0, 0.999899, 0, -0.0142241, -6.33443, 11.1893, 53.919)
+size = Vector3(1, 7.29901, 12.7872)

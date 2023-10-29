@@ -1,0 +1,10 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://ssa8ije3w80t"]
+
+[ext_resource type="Texture2D" uid="uid://cj54dh5nhh82w" path="res://models/mkwii/tracks/mario_circuit/mario_circuit_base_p_unionE17.png" id="1_vrtaa"]
+
+[resource]
+resource_name = "union_E01"
+cull_mode = 2
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("1_vrtaa")
+roughness = 0.5

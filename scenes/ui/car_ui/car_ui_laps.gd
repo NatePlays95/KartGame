@@ -10,7 +10,7 @@ var race_progress = preload("res://systems/checkpoints/RaceProgressSingleton.res
 
 
 func set_current_lap(current_lap, max_laps):
-	var str = "LAP %d / %d" % [current_lap, max_laps]
+	var str = "LAP %d / %d" % [clamp(current_lap, 0, max_laps), max_laps]
 	lbl_current_lap.text = str
 
 
