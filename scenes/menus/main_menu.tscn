@@ -1,37 +1,6 @@
-[gd_scene load_steps=11 format=3 uid="uid://dp0l70fo23kjv"]
+[gd_scene load_steps=2 format=3 uid="uid://dp0l70fo23kjv"]
 
 [ext_resource type="Script" path="res://scenes/menus/main_menu.gd" id="1_xl24t"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_c363r"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bpie5"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jf0xc"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xsvm3"]
-albedo_color = Color(1, 0, 0, 1)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_e6gl6"]
-albedo_color = Color(0, 1, 0, 1)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tfmlx"]
-metallic = 1.0
-metallic_specular = 1.0
-roughness = 0.18
-
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_60enl"]
-
-[sub_resource type="Sky" id="Sky_jfjpv"]
-sky_material = SubResource("ProceduralSkyMaterial_60enl")
-
-[sub_resource type="Environment" id="Environment_3gfyd"]
-background_mode = 2
-sky = SubResource("Sky_jfjpv")
-ssil_enabled = true
-ssil_radius = 4.35
-ssil_intensity = 1.98
-ssil_sharpness = 1.0
-ssil_normal_rejection = 0.0
 
 [node name="main_menu" type="Node"]
 script = ExtResource("1_xl24t")
@@ -74,48 +43,6 @@ text = "? ? ?"
 [node name="btn_quit" type="Button" parent="Control/VBoxContainer"]
 layout_mode = 2
 text = "Quit"
-
-[node name="Node3D" type="Node3D" parent="."]
-
-[node name="CSGBox3D" type="CSGBox3D" parent="Node3D"]
-material_override = SubResource("StandardMaterial3D_c363r")
-size = Vector3(1, 0.10402, 1)
-
-[node name="CSGBox3D5" type="CSGBox3D" parent="Node3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
-material_override = SubResource("StandardMaterial3D_bpie5")
-size = Vector3(1, 0.10402, 1)
-
-[node name="CSGBox3D2" type="CSGBox3D" parent="Node3D"]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0.444012, -0.50683)
-material_override = SubResource("StandardMaterial3D_jf0xc")
-size = Vector3(1, 0.10402, 1)
-
-[node name="CSGBox3D3" type="CSGBox3D" parent="Node3D"]
-transform = Transform3D(-4.37114e-08, 1, 4.37114e-08, 0, -4.37114e-08, 1, 1, 4.37114e-08, 1.91069e-15, -0.5, 0.444012, -0.00965333)
-material_override = SubResource("StandardMaterial3D_xsvm3")
-size = Vector3(1, 0.10402, 1)
-
-[node name="CSGBox3D4" type="CSGBox3D" parent="Node3D"]
-transform = Transform3D(-4.37114e-08, 1, 4.37114e-08, 0, -4.37114e-08, 1, 1, 4.37114e-08, 1.91069e-15, 0.5, 0.444012, -0.00965333)
-material_override = SubResource("StandardMaterial3D_e6gl6")
-size = Vector3(1, 0.10402, 1)
-
-[node name="OmniLight3D" type="OmniLight3D" parent="Node3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.742543, -0.30172)
-light_energy = 0.894
-light_bake_mode = 1
-omni_range = 134.63
-
-[node name="CSGSphere3D" type="CSGSphere3D" parent="Node3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.236484, 0)
-radius = 0.213976
-material = SubResource("StandardMaterial3D_tfmlx")
-
-[node name="WorldEnvironment" type="WorldEnvironment" parent="Node3D"]
-environment = SubResource("Environment_3gfyd")
-
-[node name="LightmapGI" type="LightmapGI" parent="Node3D"]
 
 [connection signal="pressed" from="Control/VBoxContainer/btn_timetrial" to="." method="_on_btn_timetrial_pressed"]
 [connection signal="pressed" from="Control/VBoxContainer/btn_quit" to="." method="_on_btn_quit_pressed"]

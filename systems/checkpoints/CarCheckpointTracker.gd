@@ -31,7 +31,7 @@ var key_cp_crossed : Array[int] = []
 # tracks distance from the next checkpoint.
 var distance : float = 1000
 
-var current_lap = 1
+var current_lap : int = 1
 
 
 
@@ -89,8 +89,9 @@ func _try_complete_lap():
 
 
 func _complete_lap():
-	current_lap += 1
-	car_completed_lap.emit(car, current_lap)
+	var new_lap := current_lap + 1
+	car_completed_lap.emit(car, new_lap)
+	current_lap  = new_lap
 
 
 func distance_to_checkpoint(position:Vector3, checkpoint:Area3D):

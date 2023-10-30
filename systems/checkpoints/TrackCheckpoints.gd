@@ -10,7 +10,7 @@ var race_progress = preload("res://systems/checkpoints/RaceProgressSingleton.res
 @export var refresh : bool = false :
 	get:
 		return refresh
-	set(value):
+	set(_value):
 		refresh = false
 		_refresh()
 

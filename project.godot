@@ -11,12 +11,17 @@ config_version=5
 [application]
 
 config/name="KartGame"
+run/main_scene="res://scenes/menus/main_menu.tscn"
 config/features=PackedStringArray("4.1", "Forward Plus")
 config/icon="res://icon.svg"
 
 [autoload]
 
 RaceManager="*res://systems/autoloads/RaceManager.gd"
+
+[display]
+
+window/stretch/mode="canvas_items"
 
 [filesystem]
 

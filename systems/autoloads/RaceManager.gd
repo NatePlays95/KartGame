@@ -19,11 +19,12 @@ func setup_race(race:RaceData):
 
 func start_race():
 	set_all_cars_can_input(false)
-	
 	#camera flydowns go here
 	
 	#countdown goes here
-	await get_tree().create_timer(2.0, false).timeout
+	begin_countdown.emit()
+	
+	await get_tree().create_timer(4.0, false).timeout
 	
 	set_all_cars_can_input(true)
 	_on_begin_race()
@@ -56,6 +57,8 @@ func set_all_cars_can_input(value:bool):
 
 
 # RaceEventBus
+signal begin_countdown
+
 signal begin_race #laps, etc
 func _on_begin_race():
 	begin_race.emit()
