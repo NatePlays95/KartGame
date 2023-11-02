@@ -1,7 +1,12 @@
-[gd_scene load_steps=20 format=3 uid="uid://d06le044bc2x8"]
+[gd_scene load_steps=30 format=3 uid="uid://d06le044bc2x8"]
 
 [ext_resource type="PackedScene" uid="uid://dkm1d482y7ohw" path="res://models/mkwii/tracks/mario_circuit/mario_circuit_base.glb" id="1_fu0tg"]
 [ext_resource type="PackedScene" uid="uid://c7v6t2dyiiy5q" path="res://objects/karts/test_rr4.tscn" id="2_2q7f5"]
+[ext_resource type="Script" path="res://systems/checkpoints/TrackCheckpoints.gd" id="3_6soq7"]
+[ext_resource type="Script" path="res://systems/checkpoints/CarCheckpointTracker.gd" id="3_8jmw0"]
+[ext_resource type="Script" path="res://systems/time_attack/CarTimeTracker.gd" id="4_p0byy"]
+[ext_resource type="PackedScene" uid="uid://dyl0q1dqpn1wf" path="res://systems/checkpoints/Checkpoint.scn" id="4_um6ei"]
+[ext_resource type="Script" path="res://scenes/tracks/test/TrackCameras.gd" id="5_wf0m6"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_mpw4l"]
 sky_top_color = Color(0.4, 0.772549, 0.976471, 1)
@@ -12,13 +17,13 @@ ground_horizon_color = Color(1, 1, 1, 1)
 ground_curve = 0.269087
 ground_energy_multiplier = 1.92
 
-[sub_resource type="Sky" id="Sky_pxc4h"]
+[sub_resource type="Sky" id="Sky_54s1s"]
 sky_material = SubResource("ProceduralSkyMaterial_mpw4l")
 
 [sub_resource type="Environment" id="Environment_prig3"]
 background_mode = 2
 background_color = Color(0.921569, 0.839216, 0.768627, 1)
-sky = SubResource("Sky_pxc4h")
+sky = SubResource("Sky_54s1s")
 ambient_light_color = Color(1, 1, 0.74902, 1)
 ambient_light_sky_contribution = 0.0
 reflected_light_source = 1
@@ -98,6 +103,245 @@ _data = {
 "water": SubResource("Animation_6kxlp")
 }
 
+[sub_resource type="Animation" id="Animation_p7so6"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("intro1:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-46.5591, 14.3408, -50.9014)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("intro1:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.266959, 0.157047, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("intro2:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(88.647, 18.8422, -70.6697)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("intro2:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.31932, 2.85359, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("intro3:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(69.1313, 17.8965, 44.1139)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("intro3:quaternion")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Quaternion(0.102593, 0.857567, 0.467603, -0.188152)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("intro1:current")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("intro2:current")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("intro3:current")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_elmga"]
+resource_name = "intro1"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("intro1:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.8, 1.5, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(103.025, 18.37, 73.9498), Vector3(97.416, 12.8403, 93.2418), Vector3(95.7734, 9.59119, 107.348), Vector3(95.3808, 9.16576, 111.697)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("intro1:rotation")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.8, 1.5, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(-0.356994, 2.71828, 0), Vector3(-0.191188, 2.87536, 0), Vector3(0.0400682, 2.88845, 0), Vector3(0.0357049, 2.88409, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("intro1:current")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_gkt1t"]
+resource_name = "intro2"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("intro2:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.3, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(69.3214, 7.98526, 190.89), Vector3(56.4553, 8.68206, 209.963), Vector3(47.6782, 8.77538, 218.033)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("intro2:rotation")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1.3, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0.0531582, 2.63976, 0), Vector3(-0.00356499, 2.46087, 0), Vector3(0.0182516, 2.05072, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("intro2:current")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_xh6xu"]
+resource_name = "intro3"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("intro3:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.2, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(1.17328, 43.9474, 275.97), Vector3(0.0341744, 23.686, 263.886), Vector3(-0.0834463, 19.4985, 259.759)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("intro3:quaternion")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1.2, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Quaternion(-0.198976, -0.00215996, -0.00043855, 0.980002), Quaternion(-0.0126897, -0.0087478, -0.00011102, 0.999881), Quaternion(0.0723295, -0.0065496, 0.000474984, 0.997359)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("intro3:current")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_8jfb4"]
+_data = {
+"RESET": SubResource("Animation_p7so6"),
+"intro1": SubResource("Animation_elmga"),
+"intro2": SubResource("Animation_gkt1t"),
+"intro3": SubResource("Animation_xh6xu")
+}
+
 [node name="mario_circuit_base" instance=ExtResource("1_fu0tg")]
 
 [node name="environment" type="Node3D" parent="." index="0"]
@@ -168,7 +412,6 @@ transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="collisions/wall_fences" index="0"]
 shape = SubResource("ConcavePolygonShape3D_qtox2")
-disabled = true
 
 [node name="wall_bricks" type="StaticBody3D" parent="collisions" index="8"]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
@@ -198,5 +441,207 @@ libraries = {
 "": SubResource("AnimationLibrary_igr2s")
 }
 
-[node name="test_hachiroku" parent="." index="3" instance=ExtResource("2_2q7f5")]
+[node name="test_rr4" parent="." index="3" instance=ExtResource("2_2q7f5")]
 transform = Transform3D(1, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 1, 0, 19, 248)
+
+[node name="CarCheckpointTracker" type="Node" parent="test_rr4" index="14"]
+script = ExtResource("3_8jmw0")
+
+[node name="CarTimeTracker" type="Node" parent="test_rr4" index="15"]
+script = ExtResource("4_p0byy")
+
+[node name="TrackCheckpoints" type="Node3D" parent="." index="4"]
+visible = false
+script = ExtResource("3_6soq7")
+key_checkpoints = Array[int]([6, 11, 16, 24])
+highest_index = 27
+
+[node name="Checkpoint" parent="TrackCheckpoints" index="0" instance=ExtResource("4_um6ei")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.187556, 22.6663, 238.391)
+type = 2
+width = 22.0
+height = 12.0
+
+[node name="Checkpoint2" parent="TrackCheckpoints" index="1" instance=ExtResource("4_um6ei")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.187556, 17.1906, 199.488)
+index = 1
+width = 22.0
+height = 12.0
+
+[node name="Checkpoint3" parent="TrackCheckpoints" index="2" instance=ExtResource("4_um6ei")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.187556, 11.0484, 159.386)
+index = 2
+width = 22.0
+height = 12.0
+
+[node name="Checkpoint4" parent="TrackCheckpoints" index="3" instance=ExtResource("4_um6ei")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.187556, 11.7464, 108.486)
+index = 3
+width = 22.0
+height = 12.0
+
+[node name="Checkpoint5" parent="TrackCheckpoints" index="4" instance=ExtResource("4_um6ei")]
+transform = Transform3D(0.866025, 0, -0.5, 0, 1, 0, 0.5, 0, 0.866025, 6.02139, 11.7464, 77.0126)
+index = 4
+width = 22.0
+height = 12.0
+
+[node name="Checkpoint6" parent="TrackCheckpoints" index="5" instance=ExtResource("4_um6ei")]
+transform = Transform3D(0.5, 0, -0.866025, 0, 1, 0, 0.866025, 0, 0.5, 21.2561, 11.7464, 59.4732)
+index = 5
+width = 25.0
+height = 12.0
+
+[node name="Checkpoint7" parent="TrackCheckpoints" index="6" instance=ExtResource("4_um6ei")]
+transform = Transform3D(-5.96046e-08, 0, -1, 0, 1, 0, 1, 0, -5.96046e-08, 40.0558, 11.7464, 56.3102)
+type = 1
+index = 6
+width = 25.0
+height = 12.0
+
+[node name="Checkpoint8" parent="TrackCheckpoints" index="7" instance=ExtResource("4_um6ei")]
+transform = Transform3D(-5.96046e-08, 0, -1, 0, 1, 0, 1, 0, -5.96046e-08, 67.6157, 11.7464, 56.3102)
+index = 7
+width = 25.0
+height = 12.0
+
+[node name="Checkpoint9" parent="TrackCheckpoints" index="8" instance=ExtResource("4_um6ei")]
+transform = Transform3D(-0.530215, 0, -0.847863, 0, 1, 0, 0.847863, 0, -0.530215, 83.5418, 11.7464, 61.8449)
+index = 8
+width = 25.0
+height = 12.0
+
+[node name="Checkpoint10" parent="TrackCheckpoints" index="9" instance=ExtResource("4_um6ei")]
+transform = Transform3D(-0.883111, 0, -0.469163, 0, 1, 0, 0.469163, 0, -0.883111, 93.7979, 11.7464, 74.5784)
+index = 9
+width = 25.0
+height = 12.0
+
+[node name="Checkpoint11" parent="TrackCheckpoints" index="10" instance=ExtResource("4_um6ei")]
+transform = Transform3D(-0.999379, 0, 0.0352484, 0, 1, 0, -0.0352484, 0, -0.999379, 96.6564, 11.7464, 88.5389)
+index = 10
+width = 25.0
+height = 12.0
+
+[node name="Checkpoint12" parent="TrackCheckpoints" index="11" instance=ExtResource("4_um6ei")]
+transform = Transform3D(-0.999379, 0, 0.0352484, 0, 1, 0, -0.0352484, 0, -0.999379, 96.6564, 11.7464, 121.762)
+type = 1
+index = 11
+width = 25.0
+height = 12.0
+
+[node name="Checkpoint13" parent="TrackCheckpoints" index="12" instance=ExtResource("4_um6ei")]
+transform = Transform3D(-0.847863, 0, 0.530215, 0, 1, 0, -0.530215, 0, -0.847863, 84.3589, 11.7464, 155.238)
+index = 12
+width = 25.0
+height = 12.0
+
+[node name="Checkpoint14" parent="TrackCheckpoints" index="13" instance=ExtResource("4_um6ei")]
+transform = Transform3D(-0.847863, 0, 0.530215, 0, 1, 0, -0.530215, 0, -0.847863, 71.2953, 11.7464, 170.018)
+index = 13
+width = 40.0
+height = 12.0
+
+[node name="Checkpoint15" parent="TrackCheckpoints" index="14" instance=ExtResource("4_um6ei")]
+transform = Transform3D(-0.847863, 0, 0.530215, 0, 1, 0, -0.530215, 0, -0.847863, 57.5236, 11.7464, 203.264)
+index = 14
+width = 90.0
+height = 12.0
+
+[node name="Checkpoint16" parent="TrackCheckpoints" index="15" instance=ExtResource("4_um6ei")]
+transform = Transform3D(-0.469163, 0, 0.883111, 0, 1, 0, -0.883111, 0, -0.469163, 32.8402, 11.7464, 232.274)
+index = 15
+width = 40.0
+height = 12.0
+
+[node name="Checkpoint17" parent="TrackCheckpoints" index="16" instance=ExtResource("4_um6ei")]
+transform = Transform3D(0.0352484, 0, 0.999379, 0, 1, 0, -0.999379, 0, 0.0352484, 18.0908, 8.25734, 232.289)
+type = 1
+index = 16
+width = 20.0
+height = 12.0
+
+[node name="Checkpoint18" parent="TrackCheckpoints" index="17" instance=ExtResource("4_um6ei")]
+transform = Transform3D(0.0352484, 0, 0.999379, 0, 1, 0, -0.999379, 0, 0.0352484, -18.4301, 8.25734, 232.289)
+index = 17
+width = 20.0
+height = 12.0
+
+[node name="Checkpoint19" parent="TrackCheckpoints" index="18" instance=ExtResource("4_um6ei")]
+transform = Transform3D(-0.224611, 0, 0.974449, 0, 1, 0, -0.974449, 0, -0.224611, -53.5241, 13.7802, 233.859)
+index = 18
+width = 60.0
+height = 16.0
+
+[node name="Checkpoint20" parent="TrackCheckpoints" index="19" instance=ExtResource("4_um6ei")]
+transform = Transform3D(-0.681743, 0, 0.731592, 0, 1, 0, -0.731592, 0, -0.681743, -77.3992, 13.7802, 239.343)
+index = 19
+width = 60.0
+height = 16.0
+
+[node name="Checkpoint21" parent="TrackCheckpoints" index="20" instance=ExtResource("4_um6ei")]
+transform = Transform3D(-0.956203, 0, 0.292706, 0, 1, 0, -0.292706, 0, -0.956203, -85.2862, 17.1556, 260.353)
+index = 20
+width = 60.0
+height = 16.0
+
+[node name="Checkpoint22" parent="TrackCheckpoints" index="21" instance=ExtResource("4_um6ei")]
+transform = Transform3D(-0.999379, 0, 0.0352484, 0, 1, 0, -0.0352484, 0, -0.999379, -86.8833, 20.272, 291.195)
+index = 21
+width = 60.0
+height = 16.0
+
+[node name="Checkpoint23" parent="TrackCheckpoints" index="22" instance=ExtResource("4_um6ei")]
+transform = Transform3D(-0.974449, 0, -0.224611, 0, 1, 0, 0.224611, 0, -0.974449, -86.8833, 24.3268, 322.319)
+index = 22
+width = 60.0
+height = 16.0
+
+[node name="Checkpoint24" parent="TrackCheckpoints" index="23" instance=ExtResource("4_um6ei")]
+transform = Transform3D(-0.530215, 0, -0.847863, 0, 1, 0, 0.847863, 0, -0.530215, -68.9851, 25.3156, 346.301)
+index = 23
+width = 60.0
+height = 16.0
+
+[node name="Checkpoint25" parent="TrackCheckpoints" index="24" instance=ExtResource("4_um6ei")]
+transform = Transform3D(-0.0352483, 0, -0.999379, 0, 1, 0, 0.999379, 0, -0.0352483, -41.9435, 25.3156, 349.948)
+type = 1
+index = 24
+width = 60.0
+height = 16.0
+
+[node name="Checkpoint26" parent="TrackCheckpoints" index="25" instance=ExtResource("4_um6ei")]
+transform = Transform3D(0.681743, 0, -0.731592, 0, 1, 0, 0.731592, 0, 0.681743, -12.7854, 25.3156, 341.117)
+index = 25
+width = 60.0
+height = 16.0
+
+[node name="Checkpoint27" parent="TrackCheckpoints" index="26" instance=ExtResource("4_um6ei")]
+transform = Transform3D(0.999379, 0, -0.0352483, 0, 1, 0, 0.0352483, 0, 0.999379, -0.422096, 25.3156, 308.692)
+index = 26
+width = 60.0
+height = 16.0
+
+[node name="Checkpoint28" parent="TrackCheckpoints" index="27" instance=ExtResource("4_um6ei")]
+transform = Transform3D(0.999379, 0, -0.0352483, 0, 1, 0, 0.0352483, 0, 0.999379, -2.29195, 23.566, 266.074)
+index = 27
+width = 40.0
+height = 16.0
+
+[node name="TrackCameras" type="Node3D" parent="." index="5"]
+script = ExtResource("5_wf0m6")
+
+[node name="intro1" type="Camera3D" parent="TrackCameras" index="0"]
+transform = Transform3D(0.987693, 0.0412588, 0.150862, 0, 0.964578, -0.263799, -0.156402, 0.260553, 0.952706, -46.5591, 14.3408, -50.9014)
+
+[node name="intro2" type="Camera3D" parent="TrackCameras" index="1"]
+transform = Transform3D(-0.958813, 0.0891654, 0.269679, 0, 0.949449, -0.313921, -0.284038, -0.300992, -0.910344, 88.647, 18.8422, -70.6697)
+
+[node name="intro3" type="Camera3D" parent="TrackCameras" index="2"]
+transform = Transform3D(-0.908147, 0.351921, -0.22676, -1.3411e-07, 0.541644, 0.840608, 0.418651, 0.763395, -0.491893, 69.1313, 17.8965, 44.1139)
+rotation_edit_mode = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="TrackCameras" index="3"]
+libraries = {
+"": SubResource("AnimationLibrary_8jfb4")
+}

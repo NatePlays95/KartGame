@@ -38,7 +38,7 @@ func _process_old(delta):
 	camera_3d.fov = lerp(camera_3d.fov, 70 + abs(speed)*1.2, delta*10.0)
 	
 	#camera_3d.h_offset = 0
-	var drift_offset_factor = 0.01
+	var drift_offset_factor = 0.05
 	if car.is_drifting and car.is_grounded:
 		camera_3d.h_offset = lerp(camera_3d.h_offset, speed * car.drift_dir * drift_offset_factor, delta * 1.0)
 	else:

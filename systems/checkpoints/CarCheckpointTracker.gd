@@ -47,8 +47,8 @@ func _ready():
 
 
 func _process(delta):
-	if ui_scene:
-		ui_scene.set_current_lap(current_lap, 2)
+	if ui_scene and RaceManager.current_race:
+		ui_scene.set_current_lap(current_lap, RaceManager.current_race.lap_count)
 		ui_scene.set_debug_cps(last_cp_index,key_cp_crossed)
 
 

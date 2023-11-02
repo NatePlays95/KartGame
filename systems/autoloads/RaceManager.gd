@@ -4,24 +4,37 @@ extends Node
 var current_race : RaceData = null
 var ready_to_start : bool = false #for multiplayer/online
 
+var ready_checkpoints : bool = false
+var ready_cameras : bool = false
 
 func setup_race(race:RaceData):
 	current_race = race
-	ready_to_start = false
+	ready_checkpoints = false
+	ready_cameras = false
 	# starting grid goes in racedata
 	# place transitions here
 	get_tree().change_scene_to_packed(race.track_packed)
 
 
 
+func _process(_delta):
+	#try to start race
+	if current_race:
+		if ready_checkpoints and ready_cameras:
+			ready_checkpoints = false
+			ready_cameras = false
+			start_race()
 
 
 
 func start_race():
 	set_all_cars_can_input(false)
-	#camera flydowns go here
+	#await get_tree().create_timer(1.0, false).timeout
 	
-	#countdown goes here
+	do_intro_camera_flydown.emit()
+	
+	await get_tree().create_timer(7.0, false).timeout
+	
 	begin_countdown.emit()
 	
 	await get_tree().create_timer(4.0, false).timeout
@@ -57,6 +70,8 @@ func set_all_cars_can_input(value:bool):
 
 
 # RaceEventBus
+signal do_intro_camera_flydown
+
 signal begin_countdown
 
 signal begin_race #laps, etc

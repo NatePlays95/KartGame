@@ -23,7 +23,8 @@ var race_progress = preload("res://systems/checkpoints/RaceProgressSingleton.res
 func _ready():
 	if not Engine.is_editor_hint():
 		race_progress.track_checkpoints_node = self
-		RaceManager.start_race()
+		RaceManager.ready_checkpoints = true
+		#RaceManager.start_race()
 
 
 

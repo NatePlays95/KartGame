@@ -18,6 +18,7 @@ config/icon="res://icon.svg"
 [autoload]
 
 RaceManager="*res://systems/autoloads/RaceManager.gd"
+Pause="*res://systems/autoloads/Pause.gd"
 
 [display]
 
@@ -72,6 +73,11 @@ boost={
 , Object(InputEventJoypadButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"button_index":1,"pressure":0.0,"pressed":true,"script":null)
 ]
 }
+pause={
+"deadzone": 0.5,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":4194305,"key_label":0,"unicode":0,"echo":false,"script":null)
+]
+}
 
 [physics]
 
@@ -81,5 +87,4 @@ common/max_physics_steps_per_frame=12
 
 [rendering]
 
-driver/threads/thread_model=2
 anti_aliasing/quality/msaa_3d=2

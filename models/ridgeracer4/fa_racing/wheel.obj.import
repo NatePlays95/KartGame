@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://cl1nby1wlinfu"
+path="res://.godot/imported/wheel.obj-aa0a5f259a33a296be33de0bc57f9785.mesh"
+
+[deps]
+
+files=["res://.godot/imported/wheel.obj-aa0a5f259a33a296be33de0bc57f9785.mesh"]
+
+source_file="res://models/ridgeracer4/fa_racing/wheel.obj"
+dest_files=["res://.godot/imported/wheel.obj-aa0a5f259a33a296be33de0bc57f9785.mesh", "res://.godot/imported/wheel.obj-aa0a5f259a33a296be33de0bc57f9785.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true

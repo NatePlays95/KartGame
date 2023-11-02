@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://77nexksnu7ie"]
+[gd_scene load_steps=14 format=3 uid="uid://77nexksnu7ie"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5ab7r"]
 bg_color = Color(0.168627, 0.168627, 0.168627, 1)
@@ -15,6 +15,8 @@ script/source = "extends Control
 
 
 @export var car : SimpleRaycastCar
+const FAKE_SPEED_MULT = 1
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -40,18 +42,36 @@ func set_drifting(is_drifting, drift_angle, drift_charge):
 	%bar_charge.value = drift_charge
 
 func set_speed(amount):
-	%label_speed.text = \"Speed: %.2f m/s\" % amount
-	%label_speed.text += \"\\nSpeed: %.2f km/h\" % (amount*3.6)
+	#%label_speed.text = \"Speed: %.2f m/s\" % amount
+	#%label_speed.text += \"\\nSpeed: %.2f km/h\" % (amount*3.6)
+	%label_speed.text = \"Speed: %.2f units\" % amount
+	%label_speed.text += \"\\nSpeed: %.2f km/h\" % (amount*3.6*FAKE_SPEED_MULT)
 
 "
 
+[sub_resource type="Theme" id="Theme_6sgye"]
+Label/colors/font_outline_color = Color(0, 0, 0.625, 1)
+Label/constants/outline_size = 8
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ghplh"]
-bg_color = Color(0.4, 0.196078, 0.0666667, 1)
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+expand_margin_left = 4.0
+expand_margin_top = 4.0
+expand_margin_right = 4.0
+expand_margin_bottom = 4.0
 
 [sub_resource type="Gradient" id="Gradient_1uekx"]
 interpolation_mode = 1
 offsets = PackedFloat32Array(0, 0.281853, 0.567568, 0.861004)
-colors = PackedColorArray(0, 0, 0.2, 1, 0, 0, 0.372549, 1, 0, 0.290196, 0.639216, 1, 0, 0.517647, 0.67451, 1)
+colors = PackedColorArray(1.92523e-06, 0, 0.627464, 1, 0.0542401, 0.292073, 1, 1, 0.353945, 0.616552, 0.999991, 1, 0.7749, 0.927563, 1, 1)
 
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_4ec1w"]
 gradient = SubResource("Gradient_1uekx")
@@ -103,11 +123,13 @@ offset_right = -495.0
 offset_bottom = -42.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = SubResource("Theme_6sgye")
 text = "Speed: 100.00 m/s
 Speed: 760.00 km/h"
 
 [node name="label_drift" type="Label" parent="."]
 unique_name_in_owner = true
+visible = false
 layout_mode = 1
 anchors_preset = 14
 anchor_top = 0.5
@@ -159,6 +181,7 @@ horizontal_alignment = 1
 
 [node name="bar_steer" type="ProgressBar" parent="."]
 unique_name_in_owner = true
+visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5

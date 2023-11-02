@@ -1,0 +1,11 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://dey3jliiilnyl"]
+
+[ext_resource type="Texture2D" uid="uid://dxq8pjc2n7now" path="res://models/mk7/wuhu_loop/textures/Gctrwi_Road.png" id="1_t5pju"]
+
+[resource]
+resource_name = "Wi_Road"
+cull_mode = 2
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("1_t5pju")
+metallic_specular = 0.1
+roughness_texture = ExtResource("1_t5pju")

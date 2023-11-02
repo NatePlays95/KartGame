@@ -5,7 +5,7 @@
 [resource]
 script = ExtResource("1_l2mun")
 group_name = "path_tiles"
-is_offroad = true
+is_offroad = false
 drag = 0.06
 slide_drag = 7.0
 bumpiness = 0.2

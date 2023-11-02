@@ -4,7 +4,10 @@ extends ShapeCast3D
 
 const ROAD_MATERIALS := preload("res://systems/car/RoadMaterialGroups.tres")
 
-@export var simple_steering : bool = true
+#@export var simple_steering : bool = true
+
+## cosmetic: is the wheel used for steering?
+@export var is_steer : bool = false
 
 @export var wheel_radius : float = 0.2 :
 	get:
@@ -35,6 +38,9 @@ var deform : float = 0 # 0 to 1
 var last_deform : float = 0 # 0 to 1
 
 
+@export var smoke_particle : GPUParticles3D = null
+@export var wheel_mesh : Node3D = null
+
 # Called when the node is instantiated, before it enters the scene tree.
 func _init():
 	wheel_radius = wheel_radius # update shape
@@ -58,6 +64,8 @@ func _update_physics(dt):
 	_update_drag(dt)
 	# finish up
 	_update_children_positions()
+	_update_particles()
+	_update_mesh_rotation(dt)
 
 
 func _update_suspension(dt):
@@ -173,6 +181,62 @@ func _update_drag(dt):
 		car.linear_velocity *= 1.0 - dt * stopping_drag * factor
 
 
+func _update_particles() -> void:
+	if smoke_particle:
+		if deform == 0:
+			smoke_particle.emitting = false
+		else:
+			var speed = abs(car.get_speed())
+			var plane_velocity = car.linear_velocity - car.linear_velocity.project(global_transform.basis.y)
+			var slip_angle = abs(global_transform.basis.x.dot(plane_velocity.normalized()))
+			#print(slip_angle)
+			if slip_angle < 0.1 or speed < 2:
+				smoke_particle.emitting = false
+			else:
+				smoke_particle.emitting = true
+				smoke_particle.process_material.color.a = min(1, 4*slip_angle)
+				
+				smoke_particle.process_material.initial_velocity_min = 0.5 * speed
+				smoke_particle.process_material.initial_velocity_max = 1 * speed
+				smoke_particle.process_material.direction += car.linear_velocity.normalized()
+
+
+func _update_mesh_rotation(dt) -> void:
+	if not wheel_mesh: return
+	var speed = car.get_speed()
+	
+	# as the wheel points downwards, rotations are swapped
+	# x for rolling axis, y for steering
+	
+	var rotation_vector = Vector3.ZERO
+	
+	
+	#rolling
+	var roll_angle = - speed * dt / (PI * wheel_radius)
+	wheel_mesh.rotate_x(roll_angle)
+	
+
+	#steer
+	if is_steer:
+		var last_angle = self.rotation.y
+		var steer_angle = -car.steer_axis * PI/10.0
+		var steer_speed = 20
+		if car.is_drifting: 
+			steer_angle *= 2
+			steer_speed /= 2
+		
+		steer_angle = lerp_angle(last_angle, steer_angle, dt*steer_speed)
+		
+		self.rotate_y(-self.rotation.y)
+		self.rotate_y(steer_angle)
+
+
+
+
+
+
+
+
 func _update_children_positions() -> void:
 	for child in self.get_children():
 		if not (child is Node3D): continue
@@ -180,6 +244,11 @@ func _update_children_positions() -> void:
 		
 		var child3d : Node3D = child as Node3D
 		child3d.position = get_closest_collision_unsafe_fraction() * target_position
+
+
+
+
+
 
 func _update_shape() -> void:
 	if not (shape is SphereShape3D):

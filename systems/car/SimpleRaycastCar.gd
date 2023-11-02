@@ -10,7 +10,7 @@ signal area_entered(area:Area3D)
 @export var grip_factor : float = 0.7 #how well it sticks to the track for turns (0.3 - 1)
 @export var drift_grip_factor : float = 0.7 #how well it sticks to the track for drift turns (0.3 - 1)
 @export var drift_speed : float = 2#how fast the car goes sideways, 0.7 - 4
-@export var boost_power : float = 400
+@export var boost_power : float = 500
 
 @export_group("Node References")
 ## Drag all your wheels here.
@@ -107,16 +107,12 @@ func _physics_process(delta):
 	
 	#jump
 	if input_drift_just_pressed and is_grounded:
-		
-		#for device in Input.get_connected_joypads():
-		#	print_debug(Input.get_joy_name(device))
 		#apply_central_force(global_transform.basis.y * mass * 500)
 		pass
 	
 	
 	## drift steer
 	drift_angle = 0
-	
 	
 	if (not is_drifting) and input_drift != 0.0 and input_steer != 0 and speed > 6.0:
 		is_drifting = true
@@ -148,10 +144,13 @@ func _physics_process(delta):
 		add_drift_charge(-delta * 2)
 	#add_drift_charge(delta * 2)
 	
+	
+	
 	## simple steering
-	var d = 0.7 if is_drifting else 1 #steer less when drifting
+	var d = 0.6 if is_drifting else 1 #steer less when drifting
 	var r = -2 if get_speed() < 0 else 1
 	global_rotate(global_transform.basis.y, -steer_axis*d*r * PI * handling_factor * delta)
+	linear_velocity *= (1 - 0.1*delta*abs(steer_axis)*handling_factor*d)
 	#apply_torque(global_transform.basis.y * -steer_axis * mass)
 	
 	
@@ -179,12 +178,16 @@ func _update_input():
 		input_steer = Input.get_axis("steer_left", "steer_right")
 		input_drift = Input.get_action_strength("drift")
 		input_drift_just_pressed = Input.is_action_just_pressed("drift")
+		
+		if Input.is_action_just_pressed("pause"):
+			Pause.pause()
 	else:
 		input_throttle = 0
 		input_brakes = 0
 		input_steer = 0
 		input_drift = 0
 		input_drift_just_pressed = false
+
 
 
 func _align_up_while_airborne(delta):
