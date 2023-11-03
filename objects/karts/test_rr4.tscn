@@ -39,8 +39,9 @@ max_contacts_reported = 16
 contact_monitor = true
 angular_damp = 10.0
 script = ExtResource("1_1djob")
-engine_power = 6.0
-top_speed = 100.0
+engine_power = 9.0
+top_speed = 40.0
+handling_factor = 0.4
 wheels = [NodePath("SimpleWheel"), NodePath("SimpleWheel2"), NodePath("SimpleWheel3"), NodePath("SimpleWheel4")]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]

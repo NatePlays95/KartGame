@@ -45,6 +45,21 @@ text = "Island Map"
 layout_mode = 2
 text = "Quit"
 
+[node name="Label" type="Label" parent="."]
+offset_left = 45.0
+offset_top = 231.0
+offset_right = 271.0
+offset_bottom = 485.0
+text = "CONTROLES
+RT - acelera
+LT - freia
+RB - drift
+Start - pause
+
+Setas - acelera, freia, vira
+Shift - drift
+Esc - pause"
+
 [connection signal="pressed" from="Control/VBoxContainer/btn_1" to="." method="_on_btn_1_pressed"]
 [connection signal="pressed" from="Control/VBoxContainer/btn_2" to="." method="_on_btn_2_pressed"]
 [connection signal="pressed" from="Control/VBoxContainer/btn_3" to="." method="_on_btn_3_pressed"]

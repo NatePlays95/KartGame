@@ -71,10 +71,11 @@ func _physics_process(delta):
 	var speed = get_speed()
 	## interpret inputs
 	engine_throttle = input_throttle * engine_power * mass
-	if get_speed() > top_speed: engine_throttle = 0.0
+	if speed > top_speed: engine_throttle = 0.0
+	if speed < 0.1 : engine_throttle *= 2
 	
 	braking_force = input_brakes * engine_power*1.5 * mass
-	if get_speed() < -8: braking_force = 0.0
+	if speed < -8: braking_force = 0.0
 	
 	var temp_steer = input_steer
 	temp_steer *= clampf(abs(speed)/5, -1, 1) #TODO: improve turning while stopped
@@ -152,14 +153,6 @@ func _physics_process(delta):
 	global_rotate(global_transform.basis.y, -steer_axis*d*r * PI * handling_factor * delta)
 	linear_velocity *= (1 - 0.1*delta*abs(steer_axis)*handling_factor*d)
 	#apply_torque(global_transform.basis.y * -steer_axis * mass)
-	
-	
-	## boost
-	if Input.is_action_just_pressed("boost"):
-		add_drift_charge(2)
-	#	apply_central_force(-global_transform.basis.z * mass * 1000)
-	#if Input.is_action_pressed("boost"):
-	#	apply_central_force(-global_transform.basis.z * mass * 20)
 	
 	
 	## update wheels
