@@ -3,7 +3,7 @@ extends Node
 
 
 func _ready():
-	%btn_1.grab_focus()
+	%btn_2.grab_focus()
 
 
 

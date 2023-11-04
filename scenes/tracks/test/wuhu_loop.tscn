@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://dllobpi65dwrq"]
+[gd_scene load_steps=34 format=3 uid="uid://dllobpi65dwrq"]
 
 [ext_resource type="PackedScene" uid="uid://namk26g31fld" path="res://models/mk7/wuhu_loop/wuhu_loop_model.tscn" id="1_2lsxu"]
 [ext_resource type="Material" uid="uid://cjn3l37v7ss37" path="res://models/mk7/wuhu_loop/mat/mt_water.tres" id="2_4sfjw"]
@@ -347,6 +347,19 @@ _data = {
 "intro2": SubResource("Animation_dm0ja"),
 "intro3": SubResource("Animation_t73yd")
 }
+
+[sub_resource type="GDScript" id="GDScript_amcfa"]
+script/source = "extends Area3D
+
+
+
+func _on_body_entered(body):
+	if body is SimpleRaycastCar:
+		await get_tree().create_timer(0.5).timeout
+		get_tree().reload_current_scene()
+"
+
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_06dra"]
 
 [node name="wuhu_loop" type="Node3D"]
 
@@ -857,5 +870,13 @@ height = 30.0
 transform = Transform3D(0.958103, -0.00851655, 0.286297, 0, 0.999558, 0.0297342, -0.286423, -0.0284884, 0.95768, 179.32, 30.173, -304.233)
 use_collision = true
 size = Vector3(25.1312, 22.5768, 1)
+
+[node name="worldOutOfBounds" type="Area3D" parent="."]
+script = SubResource("GDScript_amcfa")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="worldOutOfBounds"]
+shape = SubResource("WorldBoundaryShape3D_06dra")
+
+[connection signal="body_entered" from="worldOutOfBounds" to="worldOutOfBounds" method="_on_body_entered"]
 
 [editable path="wuhu_loop_model"]

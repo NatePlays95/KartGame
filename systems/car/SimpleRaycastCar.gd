@@ -151,7 +151,8 @@ func _physics_process(delta):
 	var d = 0.6 if is_drifting else 1 #steer less when drifting
 	var r = -2 if get_speed() < 0 else 1
 	global_rotate(global_transform.basis.y, -steer_axis*d*r * PI * handling_factor * delta)
-	linear_velocity *= (1 - 0.1*delta*abs(steer_axis)*handling_factor*d)
+	if not is_drifting:
+		linear_velocity *= (1 - 0.1*delta*abs(steer_axis)*handling_factor)
 	#apply_torque(global_transform.basis.y * -steer_axis * mass)
 	
 	

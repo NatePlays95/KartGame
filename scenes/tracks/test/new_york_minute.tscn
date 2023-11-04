@@ -733,7 +733,6 @@ shape = SubResource("ConcavePolygonShape3D_qfof8")
 transform = Transform3D(0.146222, 0, 0, 0, 0, -0.146222, 0, 0.146222, 0, 0, 0, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="collisions/street_path_tarmac" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 shape = SubResource("ConcavePolygonShape3D_hydi3")
 
 [node name="street_path_bricks" type="StaticBody3D" parent="collisions" index="4" groups=["path_tiles"]]
@@ -964,6 +963,7 @@ libraries = {
 
 [node name="invisible_walls" type="CSGCombiner3D" parent="." index="7"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 9.94185, 0)
+visible = false
 use_collision = true
 
 [node name="CSGBox3D" type="CSGBox3D" parent="invisible_walls" index="0"]

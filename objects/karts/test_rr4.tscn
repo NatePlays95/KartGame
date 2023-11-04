@@ -42,6 +42,7 @@ script = ExtResource("1_1djob")
 engine_power = 9.0
 top_speed = 40.0
 handling_factor = 0.4
+drift_speed = 3.0
 wheels = [NodePath("SimpleWheel"), NodePath("SimpleWheel2"), NodePath("SimpleWheel3"), NodePath("SimpleWheel4")]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
@@ -173,11 +174,11 @@ visible = false
 no_depth_test = true
 texture = SubResource("ViewportTexture_5qc06")
 
+[node name="car_debug_ui" parent="." node_paths=PackedStringArray("car") instance=ExtResource("3_gi1k7")]
+car = NodePath("..")
+
 [node name="UI" type="SubViewport" parent="."]
 transparent_bg = true
-
-[node name="car_debug_ui" parent="UI" node_paths=PackedStringArray("car") instance=ExtResource("3_gi1k7")]
-car = NodePath("../..")
 
 [node name="car_ui_countdown" parent="." instance=ExtResource("6_nnnsm")]
 
