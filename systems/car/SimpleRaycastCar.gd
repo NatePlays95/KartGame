@@ -36,10 +36,12 @@ var drift_charge : float = 0
 var is_grounded := false
 
 func _ready():
-	if Engine.is_editor_hint(): return
+	if Engine.is_editor_hint(): 
+		return
 	
 	for wheel in wheels:
 		wheel.car = self
+
 
 
 
@@ -115,7 +117,7 @@ func _physics_process(delta):
 	## drift steer
 	drift_angle = 0
 	
-	if (not is_drifting) and input_drift != 0.0 and input_steer != 0 and speed > 6.0:
+	if (not is_drifting) and input_drift != 0.0 and input_steer != 0 and speed > 15.0:
 		is_drifting = true
 		drift_dir = sign(input_steer)
 	
@@ -123,7 +125,7 @@ func _physics_process(delta):
 		is_drifting = false
 		drift_dir = 0.0
 	
-	if is_drifting and (input_throttle == 0.0 or speed < 1.0): #lose drift, lose charge
+	if is_drifting and (input_throttle == 0.0 or speed < 0.01): #lose drift, lose charge
 		is_drifting = false
 		drift_dir = 0.0
 		drift_charge = 0.0
@@ -132,7 +134,7 @@ func _physics_process(delta):
 		is_drifting = false
 		drift_dir = 0.0
 		
-		release_drift_charge()
+		release_drift_charge(delta)
 	
 	
 	if is_drifting:
@@ -195,10 +197,11 @@ func add_drift_charge(amount):
 	drift_charge += amount
 	drift_charge = clamp(drift_charge, 0, 3.5)
 
-func release_drift_charge():
+func release_drift_charge(dt):
 	#print("a")
 	if drift_charge >= 1: 
-		apply_central_force(-global_transform.basis.z * mass * boost_power * (1+floor(drift_charge)*2))
+		var final_power = boost_power * (1.5+floor(drift_charge)*1) / 100.0
+		apply_central_force(-global_transform.basis.z * mass * final_power / dt)
 	drift_charge = 0
 
 

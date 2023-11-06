@@ -22,11 +22,11 @@ size = Vector3(1.12104, 0.615085, 2.18298)
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_vi4mp"]
 margin = 0.0001
-radius = 0.2
+radius = 0.3
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_xjtsw"]
 margin = 0.0001
-radius = 0.2
+radius = 0.3
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_5qc06"]
 viewport_path = NodePath("UI")
@@ -39,7 +39,7 @@ max_contacts_reported = 16
 contact_monitor = true
 angular_damp = 10.0
 script = ExtResource("1_1djob")
-engine_power = 9.0
+engine_power = 8.0
 top_speed = 40.0
 handling_factor = 0.4
 drift_speed = 3.0
@@ -65,9 +65,9 @@ shape = SubResource("SphereShape3D_vi4mp")
 target_position = Vector3(0, -0.2, 0)
 script = ExtResource("2_ootec")
 is_steer = true
+wheel_radius = 0.3
 spring_length = 0.2
 spring_stiffness = 15.0
-damping = 2.0
 wheel_mesh = NodePath("MeshInstance3D")
 
 [node name="CSGCylinder3D" type="CSGCylinder3D" parent="SimpleWheel"]
@@ -85,9 +85,9 @@ shape = SubResource("SphereShape3D_xjtsw")
 target_position = Vector3(0, -0.2, 0)
 script = ExtResource("2_ootec")
 is_steer = true
+wheel_radius = 0.3
 spring_length = 0.2
 spring_stiffness = 15.0
-damping = 2.0
 wheel_mesh = NodePath("MeshInstance3D")
 
 [node name="CSGCylinder3D" type="CSGCylinder3D" parent="SimpleWheel2"]
@@ -104,9 +104,9 @@ transform = Transform3D(0.6, 0, 0, 0, 1, 0, 0, 0, 1, 0.45, 0.132996, 0.658804)
 shape = SubResource("SphereShape3D_xjtsw")
 target_position = Vector3(0, -0.2, 0)
 script = ExtResource("2_ootec")
+wheel_radius = 0.3
 spring_length = 0.2
 spring_stiffness = 15.0
-damping = 2.0
 smoke_particle = NodePath("tire_smoke")
 wheel_mesh = NodePath("MeshInstance3D")
 
@@ -127,9 +127,9 @@ transform = Transform3D(0.6, 0, 0, 0, 1, 0, 0, 0, 1, -0.45, 0.132996, 0.658804)
 shape = SubResource("SphereShape3D_xjtsw")
 target_position = Vector3(0, -0.2, 0)
 script = ExtResource("2_ootec")
+wheel_radius = 0.3
 spring_length = 0.2
 spring_stiffness = 15.0
-damping = 2.0
 smoke_particle = NodePath("tire_smoke")
 wheel_mesh = NodePath("MeshInstance3D")
 
@@ -164,6 +164,7 @@ fov = 90.0
 
 [node name="Sprite3DBillboard" type="Sprite3D" parent="."]
 transform = Transform3D(0.720172, 0, 0, 0, 0.720172, 0, 0, 0, 0.720172, 0, 0.200595, 0.597988)
+visible = false
 billboard = 1
 no_depth_test = true
 texture = SubResource("ViewportTexture_5qc06")

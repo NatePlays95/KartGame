@@ -1,0 +1,81 @@
+[gd_scene load_steps=8 format=3 uid="uid://c1u2fa36rdl3c"]
+
+[ext_resource type="PackedScene" uid="uid://c7v6t2dyiiy5q" path="res://objects/karts/test_rr4.tscn" id="1_pj0fk"]
+[ext_resource type="Texture2D" uid="uid://0dap5a71pif6" path="res://models/mkwii/tracks/mario_circuit/mario_circuit_base_t_road_i04f6k3.png" id="1_r0td8"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_xtmcg"]
+sky_top_color = Color(0.4, 0.772549, 0.976471, 1)
+sky_horizon_color = Color(1, 1, 1, 1)
+sky_curve = 0.0630673
+ground_bottom_color = Color(0, 0.168627, 0.133333, 1)
+ground_horizon_color = Color(1, 1, 1, 1)
+ground_curve = 0.269087
+ground_energy_multiplier = 1.92
+
+[sub_resource type="Sky" id="Sky_nym6q"]
+sky_material = SubResource("ProceduralSkyMaterial_xtmcg")
+
+[sub_resource type="Environment" id="Environment_vb5c4"]
+background_mode = 2
+background_color = Color(0.921569, 0.839216, 0.768627, 1)
+sky = SubResource("Sky_nym6q")
+ambient_light_color = Color(1, 1, 0.74902, 1)
+ambient_light_sky_contribution = 0.0
+reflected_light_source = 1
+tonemap_mode = 2
+ssil_intensity = 2.0
+glow_intensity = 1.45
+adjustment_brightness = 0.84
+
+[sub_resource type="Curve3D" id="Curve3D_vxdoy"]
+_data = {
+"points": PackedVector3Array(-4.43205, 0, 2.58084, 4.43205, 0, -2.58084, -27.6695, 0, -25.2473, -9.19141, 0, 2.9369, 9.19141, 0, -2.9369, -6.2882, 0, -43.2386, -9.33714, 0, -2.71593, 9.33714, 0, 2.71593, 25.62, 0, -43.6937, -12.5407, -0.203232, -6.66605, 12.5407, 0.203232, 6.66605, 51.0134, 1.02258, -33.3175, -0.0928879, 0.0180111, -3.55612, 0.0928879, -0.0180111, 3.55612, 63.4229, 1.30906, -8.96844, 5.38554, 0.185526, -2.87252, -5.38554, -0.185526, 2.87252, 61.2433, 1.24588, 5.29993, 6.03311, 0.227146, -2.93986, -6.03311, -0.227146, 2.93986, 40.6081, 0.492142, 11.6149, 1.5795, 0, -1.68234, -1.5795, 0, 1.68234, 30.0918, 0, 20.2165, 1.68425, 0, -4.67257, -1.68425, 0, 4.67257, 27.6695, 0, 31.0234, 8.15839, 0, -0.909519, -8.15839, 0, 0.909519, 12.2044, 0, 39.7808, 13.9675, 0, 0.334854, -13.9675, 0, -0.334854, -24.1293, 0, 40.7124, 1.96312, 0, 1.68397, -1.96312, 0, -1.68397, -50.5878, 0, 27.8559, 9.39322, 0, 8.95639, -9.39322, 0, -8.95639, -81.0035, 1.1461, 4.18081, 0.211418, 0, 6.2029, -0.211418, 0, -6.2029, -95.8023, 0.510339, -17.5392, -4.04461, 0, 2.43095, 4.04461, 0, -2.43095, -89.7164, 0, -32.1414, -3.60267, 0, -3.51045, 3.60267, 0, 3.51045, -77.9778, 0, -30.6508, -6.16419, 0, -1.20669, 6.16419, 0, 1.20669, -62.8853, 0, -23.5704, -5.90066, 0, 0.912798, 5.90066, 0, -0.912798, -39.7808, 0, -21.1481, -3.3567, 0, 1.75945, 3.3567, 0, -1.75945, -27.6695, 0, -25.2473),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+}
+point_count = 19
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_f86fx"]
+albedo_texture = ExtResource("1_r0td8")
+
+[node name="csg_test" type="Node3D"]
+
+[node name="environment" type="Node3D" parent="."]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="environment"]
+environment = SubResource("Environment_vb5c4")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="environment"]
+transform = Transform3D(-0.434138, 0.283487, -0.855078, -0.175593, 0.904358, 0.388977, 0.883567, 0.319015, -0.342838, 0, 24.75, 46.8234)
+light_bake_mode = 1
+shadow_enabled = true
+shadow_normal_bias = 3.0
+shadow_blur = 0.0
+directional_shadow_blend_splits = true
+directional_shadow_max_distance = 500.0
+sky_mode = 1
+
+[node name="Path3D" type="Path3D" parent="."]
+curve = SubResource("Curve3D_vxdoy")
+
+[node name="CSGPolygon3D" type="CSGPolygon3D" parent="."]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, -40.1011)
+use_collision = true
+polygon = PackedVector2Array(-2, 0, -2, 0.2, 2, 0.2, 2, 0)
+mode = 2
+path_node = NodePath("../Path3D")
+path_interval_type = 0
+path_interval = 1.0
+path_simplify_angle = 0.0
+path_rotation = 2
+path_local = false
+path_continuous_u = true
+path_u_distance = 6.0
+path_joined = true
+material = SubResource("StandardMaterial3D_f86fx")
+
+[node name="test_rr4" parent="." instance=ExtResource("1_pj0fk")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -3.71876, 0.813036, 41.0852)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+use_collision = true
+size = Vector3(1000, 0.5, 1000)

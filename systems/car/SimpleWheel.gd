@@ -46,9 +46,13 @@ func _init():
 	wheel_radius = wheel_radius # update shape
 	spring_length = spring_length # update children
 
-# Called when the node enters the scene tree for the first time.
+
 func _ready():
 	pass # Replace with function body.
+
+
+func get_deform() -> float:
+	return 1 - get_closest_collision_unsafe_fraction()
 
 
 
@@ -69,7 +73,7 @@ func _update_physics(dt):
 
 
 func _update_suspension(dt):
-	deform = (1 - get_closest_collision_unsafe_fraction())
+	deform = get_deform()
 	
 	if not is_colliding():
 		last_deform = 0
@@ -99,9 +103,9 @@ func _update_suspension(dt):
 	
 	var delta_deform = (last_deform - deform)
 	var up_or_down = sign(delta_deform)
-	var damp_force = damping * delta_deform/dt
+	var damp_force = damping * delta_deform/dt# * 120*120 * dt
 	
-	#var damp_clamp = car.mass * damping / 100
+	#var damp_clamp = car.mass / 100
 	#damp_force = clampf(damp_force, -damp_clamp, damp_clamp)
 	#damp_force = 0
 	#if up_or_down == 1:
@@ -121,8 +125,9 @@ func _update_suspension(dt):
 	#### bumpiness ####
 	var bumpiness := contact_material.bumpiness
 	if bumpiness > 0:
-		var terrain_push = car.mass * car.linear_velocity.length()
-		terrain_push *= min(0, randf_range(-1,1)) * bumpiness
+		var terrain_push = car.mass * min(20, car.linear_velocity.length()/2.0)
+		#terrain_push *= min(0, randf_range(-1,1)) * bumpiness
+		terrain_push *= max(-0.0, randf_range(-1,1)) * bumpiness
 		car.apply_force(-global_transform.basis.y * terrain_push, force_pos)
 	
 	last_deform = deform
@@ -243,7 +248,7 @@ func _update_children_positions() -> void:
 		if (child.name.begins_with("@")): continue #debug mesh
 		
 		var child3d : Node3D = child as Node3D
-		child3d.position = get_closest_collision_unsafe_fraction() * target_position
+		child3d.position = (1 - get_deform()) * self.target_position
 
 
 

@@ -90,9 +90,13 @@ pause={
 
 [physics]
 
-common/physics_ticks_per_second=120
-common/max_physics_steps_per_frame=12
+common/physics_jitter_fix=0.0
+3d/physics_engine="JoltPhysics3D"
 3d/default_gravity=20.0
+3d/default_linear_damp=0.0
+jolt_3d/solver/position_iterations=4
+jolt_3d/solver/active_edge_threshold=0.523599
+jolt_3d/limits/max_linear_velocity=1000.0
 
 [rendering]
 

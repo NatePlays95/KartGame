@@ -1,8 +1,7 @@
-[gd_scene load_steps=28 format=3 uid="uid://jds7ak0tic0n"]
+[gd_scene load_steps=27 format=3 uid="uid://jds7ak0tic0n"]
 
 [ext_resource type="PackedScene" uid="uid://dn7eau2kt1hmq" path="res://models/mktour/new-york-mario-kart-tour/new_york_mario_kart_tour.glb" id="1_22wwg"]
 [ext_resource type="PackedScene" uid="uid://c7v6t2dyiiy5q" path="res://objects/karts/test_rr4.tscn" id="2_s5552"]
-[ext_resource type="PackedScene" uid="uid://bbs6o63a524oj" path="res://objects/karts/test_kart.tscn" id="2_w6jko"]
 [ext_resource type="Script" path="res://systems/checkpoints/CarCheckpointTracker.gd" id="3_ppkyb"]
 [ext_resource type="Texture2D" uid="uid://sdtcbkuymmmh" path="res://models/mktour/new-york-mario-kart-tour/T_Mobny1_VR_Alb.png" id="4_v6a6s"]
 [ext_resource type="Script" path="res://systems/time_attack/CarTimeTracker.gd" id="4_wevj7"]
@@ -13,12 +12,12 @@
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_vgotv"]
 panorama = ExtResource("4_v6a6s")
 
-[sub_resource type="Sky" id="Sky_o2ehe"]
+[sub_resource type="Sky" id="Sky_osl0r"]
 sky_material = SubResource("PanoramaSkyMaterial_vgotv")
 
 [sub_resource type="Environment" id="Environment_12p4y"]
 background_mode = 2
-sky = SubResource("Sky_o2ehe")
+sky = SubResource("Sky_osl0r")
 sky_rotation = Vector3(3.14159, 0, 0)
 ambient_light_color = Color(0.207843, 0.701961, 0.866667, 1)
 ambient_light_sky_contribution = 0.75
@@ -304,10 +303,7 @@ script = ExtResource("3_ppkyb")
 [node name="CarTimeTracker" type="Node" parent="test_rr4" index="13"]
 script = ExtResource("4_wevj7")
 
-[node name="test_kart" parent="." index="1" instance=ExtResource("2_w6jko")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.15997, 1.91707, 15.1456)
-
-[node name="environment" type="Node3D" parent="." index="2"]
+[node name="environment" type="Node3D" parent="." index="1"]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="environment" index="0"]
 environment = SubResource("Environment_12p4y")
@@ -707,7 +703,7 @@ light_energy = 100.0
 omni_range = 46.071
 omni_attenuation = 1.36604
 
-[node name="collisions" type="Node3D" parent="." index="3"]
+[node name="collisions" type="Node3D" parent="." index="2"]
 transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, 0)
 metadata/_edit_lock_ = true
 
@@ -771,7 +767,7 @@ transform = Transform3D(0.146222, 0, 0, 0, 0, -0.146222, 0, 0.146222, 0, 0, 0, 0
 [node name="CollisionShape3D" type="CollisionShape3D" parent="collisions/ground1" index="0"]
 shape = SubResource("ConcavePolygonShape3D_pdh7n")
 
-[node name="Sketchfab_model" parent="." index="4"]
+[node name="Sketchfab_model" parent="." index="3"]
 transform = Transform3D(3.339, 0, 0, 0, -1.45952e-07, 3.339, 0, -3.339, -1.45952e-07, 0, 0, 0)
 metadata/_edit_group_ = true
 metadata/_edit_lock_ = true
@@ -779,7 +775,7 @@ metadata/_edit_lock_ = true
 [node name="VR_0_32" parent="Sketchfab_model/root/GLTF_SceneRootNode" index="32"]
 visible = false
 
-[node name="TrackCheckpoints" type="Node3D" parent="." index="5"]
+[node name="TrackCheckpoints" type="Node3D" parent="." index="4"]
 visible = false
 script = ExtResource("6_p4icq")
 key_checkpoints = Array[int]([6, 13, 19, 23])
@@ -943,7 +939,7 @@ index = 25
 width = 24.0
 height = 27.0
 
-[node name="TrackCameras" type="Node3D" parent="." index="6"]
+[node name="TrackCameras" type="Node3D" parent="." index="5"]
 script = ExtResource("9_qimr4")
 
 [node name="intro1" type="Camera3D" parent="TrackCameras" index="0"]
@@ -961,7 +957,7 @@ libraries = {
 "": SubResource("AnimationLibrary_1q65t")
 }
 
-[node name="invisible_walls" type="CSGCombiner3D" parent="." index="7"]
+[node name="invisible_walls" type="CSGCombiner3D" parent="." index="6"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 9.94185, 0)
 visible = false
 use_collision = true
@@ -1062,7 +1058,7 @@ size = Vector3(3.53473, 9.65096, 7.66406)
 transform = Transform3D(-0.866025, 0, -0.5, 0, 1, 0, 0.5, 0, -0.866025, -7.8471, 0, -41.3687)
 size = Vector3(3.53473, 9.65096, 57.3613)
 
-[node name="visible_walls" type="CSGCombiner3D" parent="." index="8"]
+[node name="visible_walls" type="CSGCombiner3D" parent="." index="7"]
 
 [node name="CSGBox3D" type="CSGBox3D" parent="visible_walls" index="0"]
 transform = Transform3D(-0.5, 0, -0.866025, 0, 1, 0, 0.866025, 0, -0.5, -0.262791, 11.1893, -31.7881)
