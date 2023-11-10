@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://namk26g31fld" path="res://models/mk7/wuhu_loop/wuhu_loop_model.tscn" id="1_2lsxu"]
 [ext_resource type="Material" uid="uid://cjn3l37v7ss37" path="res://models/mk7/wuhu_loop/mat/mt_water.tres" id="2_4sfjw"]
-[ext_resource type="PackedScene" uid="uid://c7v6t2dyiiy5q" path="res://objects/karts/test_rr4.tscn" id="2_axqpt"]
+[ext_resource type="PackedScene" uid="uid://4206awoqr3i7" path="res://objects/karts/test_gt2.tscn" id="3_w3dmh"]
 [ext_resource type="Script" path="res://scenes/tracks/test/TrackCameras.gd" id="4_0aele"]
 [ext_resource type="Script" path="res://systems/checkpoints/CarCheckpointTracker.gd" id="4_8xqh2"]
 [ext_resource type="Script" path="res://systems/checkpoints/TrackCheckpoints.gd" id="5_s7hmd"]
@@ -471,27 +471,27 @@ directional_shadow_blend_splits = true
 directional_shadow_max_distance = 1000.0
 sky_mode = 1
 
-[node name="test_rr4" parent="." instance=ExtResource("2_axqpt")]
+[node name="test_gt2" parent="." instance=ExtResource("3_w3dmh")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -152.822, 5.29174, 250.261)
 
-[node name="CarCheckpointTracker" type="Node" parent="test_rr4"]
+[node name="CarCheckpointTracker" type="Node" parent="test_gt2"]
 script = ExtResource("4_8xqh2")
 
-[node name="CarTimeTracker" type="Node" parent="test_rr4"]
+[node name="CarTimeTracker" type="Node" parent="test_gt2"]
 script = ExtResource("5_sxka3")
 
 [node name="TrackCameras" type="Node3D" parent="."]
 script = ExtResource("4_0aele")
 
 [node name="intro1" type="Camera3D" parent="TrackCameras"]
-transform = Transform3D(0.858112, 0.0634864, 0.509521, 0, 0.992327, -0.123644, -0.513462, 0.1061, 0.851527, 70.1712, 14.8463, 262.089)
+transform = Transform3D(0.858112, 0.0634864, 0.509521, 0, 0.992327, -0.123644, -0.513462, 0.1061, 0.851526, 70.1712, 14.8463, 262.089)
 
 [node name="intro2" type="Camera3D" parent="TrackCameras"]
 transform = Transform3D(-0.667261, 0.339851, -0.662769, -2.98023e-07, 0.889834, 0.456284, 0.744823, 0.304461, -0.593751, 117.213, 14.8463, 239.499)
 rotation_edit_mode = 1
 
 [node name="intro3" type="Camera3D" parent="TrackCameras"]
-transform = Transform3D(-0.41639, 0.245226, -0.87549, -1.56462e-07, 0.962939, 0.26972, 0.909185, 0.112309, -0.400959, -235.372, 24.4458, 223.344)
+transform = Transform3D(-0.41639, 0.245226, -0.87549, -1.56462e-07, 0.962939, 0.26972, 0.909184, 0.112309, -0.400959, -235.372, 24.4458, 223.344)
 rotation_edit_mode = 1
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="TrackCameras"]

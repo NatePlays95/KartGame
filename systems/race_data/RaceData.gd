@@ -1,7 +1,7 @@
 class_name RaceData
 extends Resource
 
-enum RACE_TYPE { TIME_ATTACK }
+enum RACE_TYPE { NULL=0, TIME_ATTACK }
 
 @export var track_packed : PackedScene = null
 

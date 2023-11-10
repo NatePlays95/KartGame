@@ -1,0 +1,225 @@
+[gd_scene load_steps=18 format=3 uid="uid://4206awoqr3i7"]
+
+[ext_resource type="Script" path="res://systems/car/SimpleRaycastCar.gd" id="1_p8qof"]
+[ext_resource type="PackedScene" uid="uid://cls8s0go0dt7t" path="res://models/ridgeracer4/fa_racing/shell.gltf" id="2_j8kcn"]
+[ext_resource type="PackedScene" uid="uid://dnhxppvqe45e2" path="res://models/paulo/test_gt2/teste_de_Escala_GT2.glb" id="3_45abl"]
+[ext_resource type="Script" path="res://systems/car/SimpleWheel.gd" id="3_fwtqi"]
+[ext_resource type="ArrayMesh" uid="uid://bom0j4wxrils4" path="res://models/paulo/test_gt2/mesh/teste_de_Escala_GT2(1)_Plane.res" id="4_b8hpq"]
+[ext_resource type="ArrayMesh" uid="uid://bwdgv44biriut" path="res://models/paulo/test_gt2/mesh/teste_de_Escala_GT2_Cylinder.res" id="5_ifwtu"]
+[ext_resource type="PackedScene" uid="uid://dhkqhjk3tkew2" path="res://objects/particles/tire_smoke.tscn" id="5_qkf3x"]
+[ext_resource type="Script" path="res://systems/cameras/chase_cam.gd" id="6_ac53v"]
+[ext_resource type="PackedScene" uid="uid://77nexksnu7ie" path="res://scenes/ui/car_ui/car_debug_ui.tscn" id="7_iui8a"]
+[ext_resource type="PackedScene" uid="uid://b2ytp13icf54n" path="res://scenes/ui/car_ui/car_ui_countdown.tscn" id="8_baiud"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_kdl87"]
+friction = 0.4
+rough = true
+bounce = 0.4
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_3p8ib"]
+size = Vector3(0.971852, 0.572464, 2.1889)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_5hp1n"]
+size = Vector3(0.994257, 0.615085, 2.21756)
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_vi4mp"]
+margin = 0.0001
+radius = 0.3
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_xjtsw"]
+margin = 0.0001
+radius = 0.3
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_5qc06"]
+viewport_path = NodePath("UI")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_fcgsi"]
+viewport_path = NodePath("UI")
+
+[node name="test_gt2" type="RigidBody3D" node_paths=PackedStringArray("wheels")]
+rotation_edit_mode = 1
+mass = 200.0
+physics_material_override = SubResource("PhysicsMaterial_kdl87")
+max_contacts_reported = 16
+contact_monitor = true
+angular_damp = 10.0
+script = ExtResource("1_p8qof")
+engine_power = 6.0
+top_speed = 35.0
+handling_factor = 0.4
+drift_speed = 3.0
+wheels = [NodePath("SimpleWheel"), NodePath("SimpleWheel2"), NodePath("SimpleWheel3"), NodePath("SimpleWheel4")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.205522, -0.0952803)
+shape = SubResource("BoxShape3D_3p8ib")
+
+[node name="contact_area" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.00362506, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="contact_area"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.202972, -0.0900074)
+shape = SubResource("BoxShape3D_5hp1n")
+
+[node name="shell" parent="." instance=ExtResource("2_j8kcn")]
+transform = Transform3D(-0.555084, 0, -4.8527e-08, 0, 0.555084, 0, 4.8527e-08, 0, -0.555084, 0, -0.164797, 0)
+visible = false
+
+[node name="teste_de_Escala_GT2" parent="." instance=ExtResource("3_45abl")]
+transform = Transform3D(-0.6, 0, -5.24537e-08, 0, 0.6, 0, 5.24537e-08, 0, -0.6, 0, -0.159757, -0.318634)
+visible = false
+
+[node name="model" type="Node3D" parent="."]
+
+[node name="shell" type="MeshInstance3D" parent="model"]
+transform = Transform3D(5.46392e-09, -0.125, -1.88745e-08, -0.125, -5.46392e-09, 0, -8.2503e-16, 1.88745e-08, -0.125, 0, 0.027, -0.464221)
+mesh = ExtResource("4_b8hpq")
+skeleton = NodePath("../..")
+
+[node name="wheel1" type="CSGMesh3D" parent="model"]
+transform = Transform3D(-1.83588e-08, 0.42, 0, -0.7, -3.0598e-08, 0, 0, 0, 0.7, 0.45, -0.162564, -0.813175)
+mesh = ExtResource("5_ifwtu")
+
+[node name="wheel2" type="CSGMesh3D" parent="model"]
+transform = Transform3D(-1.83588e-08, -0.42, 0, 0.7, -3.0598e-08, 0, 0, 0, 0.7, -0.45, -0.162564, -0.813175)
+mesh = ExtResource("5_ifwtu")
+
+[node name="wheel3" type="CSGMesh3D" parent="model"]
+transform = Transform3D(-1.83588e-08, 0.42, 0, -0.7, -3.0598e-08, 0, 0, 0, 0.7, 0.45, -0.162564, 0.524608)
+mesh = ExtResource("5_ifwtu")
+
+[node name="wheel4" type="CSGMesh3D" parent="model"]
+transform = Transform3D(-1.83588e-08, -0.42, 0, 0.7, -3.0598e-08, 0, 0, 0, 0.7, -0.45, -0.162564, 0.524608)
+mesh = ExtResource("5_ifwtu")
+
+[node name="SimpleWheel" type="ShapeCast3D" parent="." node_paths=PackedStringArray("wheel_mesh")]
+transform = Transform3D(0.6, 0, 0, 0, 1, 0, 0, 0, 1, 0.45, 0.0374365, -0.813175)
+shape = SubResource("SphereShape3D_vi4mp")
+target_position = Vector3(0, -0.2, 0)
+script = ExtResource("3_fwtqi")
+is_steer = true
+wheel_radius = 0.3
+spring_length = 0.2
+spring_stiffness = 15.0
+wheel_mesh = NodePath("RemoteTransform3D")
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="SimpleWheel"]
+transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, 0, -0.2, 0)
+radius = 0.138157
+height = 0.132088
+
+[node name="RemoteTransform3D" type="RemoteTransform3D" parent="SimpleWheel"]
+transform = Transform3D(-3.0598e-08, 0.7, 0, -0.7, -3.0598e-08, 0, 0, 0, 0.7, 0, -0.2, 0)
+remote_path = NodePath("../../model/wheel1")
+
+[node name="SimpleWheel2" type="ShapeCast3D" parent="." node_paths=PackedStringArray("wheel_mesh")]
+transform = Transform3D(0.6, 0, 0, 0, 1, 0, 0, 0, 1, -0.45, 0.0374365, -0.813175)
+shape = SubResource("SphereShape3D_xjtsw")
+target_position = Vector3(0, -0.2, 0)
+script = ExtResource("3_fwtqi")
+is_steer = true
+wheel_radius = 0.3
+spring_length = 0.2
+spring_stiffness = 15.0
+wheel_mesh = NodePath("RemoteTransform3D")
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="SimpleWheel2"]
+transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, 0, -0.2, 0)
+radius = 0.138157
+height = 0.132088
+
+[node name="RemoteTransform3D" type="RemoteTransform3D" parent="SimpleWheel2"]
+transform = Transform3D(-3.0598e-08, -0.7, 0, 0.7, -3.0598e-08, 0, 0, 0, 0.7, 0, -0.2, 0)
+remote_path = NodePath("../../model/wheel2")
+
+[node name="SimpleWheel3" type="ShapeCast3D" parent="." node_paths=PackedStringArray("smoke_particle", "wheel_mesh")]
+transform = Transform3D(0.6, 0, 0, 0, 1, 0, 0, 0, 1, 0.45, 0.0374365, 0.524608)
+shape = SubResource("SphereShape3D_xjtsw")
+target_position = Vector3(0, -0.2, 0)
+script = ExtResource("3_fwtqi")
+wheel_radius = 0.3
+spring_length = 0.2
+spring_stiffness = 15.0
+smoke_particle = NodePath("tire_smoke")
+wheel_mesh = NodePath("RemoteTransform3D")
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="SimpleWheel3"]
+transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, 0, -0.2, 0)
+radius = 0.138157
+height = 0.132088
+
+[node name="tire_smoke" parent="SimpleWheel3" instance=ExtResource("5_qkf3x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.2, 0)
+
+[node name="RemoteTransform3D" type="RemoteTransform3D" parent="SimpleWheel3"]
+transform = Transform3D(-3.0598e-08, 0.7, 0, -0.7, -3.0598e-08, 0, 0, 0, 0.7, 0, -0.2, 0)
+remote_path = NodePath("../../model/wheel3")
+
+[node name="SimpleWheel4" type="ShapeCast3D" parent="." node_paths=PackedStringArray("smoke_particle", "wheel_mesh")]
+transform = Transform3D(0.6, 0, 0, 0, 1, 0, 0, 0, 1, -0.45, 0.0374365, 0.524608)
+shape = SubResource("SphereShape3D_xjtsw")
+target_position = Vector3(0, -0.2, 0)
+script = ExtResource("3_fwtqi")
+wheel_radius = 0.3
+spring_length = 0.2
+spring_stiffness = 15.0
+smoke_particle = NodePath("tire_smoke")
+wheel_mesh = NodePath("RemoteTransform3D")
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="SimpleWheel4"]
+transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, 0, -0.2, 0)
+radius = 0.138157
+height = 0.132088
+
+[node name="tire_smoke" parent="SimpleWheel4" instance=ExtResource("5_qkf3x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.2, 0)
+
+[node name="RemoteTransform3D" type="RemoteTransform3D" parent="SimpleWheel4"]
+transform = Transform3D(-3.0598e-08, -0.7, 0, 0.7, -3.0598e-08, 0, 0, 0, 0.7, 0, -0.2, 0)
+remote_path = NodePath("../../model/wheel4")
+
+[node name="chase_cam" type="Node3D" parent="."]
+top_level = true
+script = ExtResource("6_ac53v")
+
+[node name="Camera3D" type="Camera3D" parent="chase_cam"]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 0.964262, 0.26495, 0, -0.26495, 0.964262, 0, 1.25102, 2.93839)
+current = true
+
+[node name="ReflectionProbe" type="ReflectionProbe" parent="chase_cam/Camera3D"]
+transform = Transform3D(1, 0, 0, 0, 0.964262, -0.26495, 0, 0.26495, 0.964262, 0, 0, 0)
+update_mode = 1
+size = Vector3(100, 100, 100)
+
+[node name="hood_cam" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.398215, -0.837133)
+fov = 90.0
+
+[node name="wheel_cam" type="Camera3D" parent="."]
+transform = Transform3D(0.830475, 0.0184478, -0.556751, 0, 0.999452, 0.0331167, 0.557056, -0.0275025, 0.830019, -1.21423, 0.134908, 1.12502)
+fov = 90.0
+
+[node name="Sprite3DBillboard" type="Sprite3D" parent="."]
+transform = Transform3D(0.720172, 0, 0, 0, 0.720172, 0, 0, 0, 0.720172, 0, 0.200595, 0.597988)
+visible = false
+billboard = 1
+no_depth_test = true
+texture = SubResource("ViewportTexture_5qc06")
+
+[node name="Sprite3D2" type="Sprite3D" parent="."]
+transform = Transform3D(0.720172, 0, 0, 0, 0.720172, 0, 0, 0, 0.720172, 0, 1.79093, 0.597988)
+no_depth_test = true
+texture = SubResource("ViewportTexture_fcgsi")
+
+[node name="car_debug_ui" parent="." node_paths=PackedStringArray("car") instance=ExtResource("7_iui8a")]
+car = NodePath("..")
+
+[node name="UI" type="SubViewport" parent="."]
+transparent_bg = true
+size = Vector2i(256, 128)
+render_target_update_mode = 4
+
+[node name="car_ui_countdown" parent="." instance=ExtResource("8_baiud")]
+
+[connection signal="area_entered" from="contact_area" to="." method="_on_contact_area_area_entered"]

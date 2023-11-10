@@ -19,9 +19,12 @@ config/icon="res://icon.svg"
 
 RaceManager="*res://systems/autoloads/RaceManager.gd"
 Pause="*res://systems/autoloads/Pause.gd"
+MainMenuManager="*res://systems/autoloads/MainMenuManager.gd"
 
 [display]
 
+window/size/viewport_width=1920
+window/size/viewport_height=1080
 window/stretch/mode="canvas_items"
 
 [filesystem]

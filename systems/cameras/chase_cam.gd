@@ -18,7 +18,7 @@ func _physics_process(delta):
 func _process_old(delta):
 	var speed = car.get_speed()
 	
-	global_position = global_position.lerp(car.global_position, delta*100.0)
+	global_position = global_position.lerp(car.global_position, 0.8)#delta*150.0)
 
 	if speed < 0:
 		transform = transform.interpolate_with(car.transform, delta*10.0)
@@ -32,10 +32,12 @@ func _process_old(delta):
 	
 	#speed shake
 	if speed > 5:
-		global_position += speed * 0.005 * delta * Vector3(randf_range(-1.0,1.0),randf_range(-1.0,1.0),randf_range(-1.0,1.0))
+		global_position += speed * 0.001 * delta * Vector3(randf_range(-1.0,1.0),randf_range(-1.0,1.0),randf_range(-1.0,1.0))
 	
+	if car.input_brakes > 0:
+		camera_3d.fov -= car.input_brakes * 2 #lerp(camera_3d.fov, camera_3d.fov + car.braking_force*(-20), delta*50.0)
+	camera_3d.fov = lerp(camera_3d.fov, 70 + abs(speed)*0.5, delta*10.0)
 	
-	camera_3d.fov = lerp(camera_3d.fov, 70 + abs(speed)*1.2, delta*10.0)
 	
 	#camera_3d.h_offset = 0
 	var drift_offset_factor = 0.05

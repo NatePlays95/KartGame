@@ -81,7 +81,7 @@ func _physics_process(delta):
 	
 	var temp_steer = input_steer
 	temp_steer *= clampf(abs(speed)/5, -1, 1) #TODO: improve turning while stopped
-	steer_axis = lerp(steer_axis, temp_steer, delta*10)
+	steer_axis = lerp(steer_axis, temp_steer, delta*5)
 	if abs(speed) < 2: steer_axis = 0.0
 	
 	# complex brakes
@@ -119,7 +119,7 @@ func _physics_process(delta):
 	
 	if (not is_drifting) and input_drift != 0.0 and input_steer != 0 and speed > 15.0:
 		is_drifting = true
-		drift_dir = sign(input_steer)
+		drift_dir = sign(input_steer) * 0.1
 	
 	if is_drifting and not is_grounded: #lose drift, dont lose charge
 		is_drifting = false
@@ -138,7 +138,9 @@ func _physics_process(delta):
 	
 	
 	if is_drifting:
-		global_rotate(global_transform.basis.y, -drift_dir * PI * handling_factor * 1.5 * delta)
+		drift_dir = lerp(drift_dir, sign(drift_dir), delta * speed/5.0)
+		
+		global_rotate(global_transform.basis.y, -drift_dir * PI * handling_factor * 1.2 * delta)
 		var ground_velocity = linear_velocity - linear_velocity*global_transform.basis.y
 		var drift_slip = ground_velocity.normalized().dot(-global_transform.basis.z)
 		drift_angle = acos(clamp(drift_slip, -1, 1))
@@ -150,7 +152,7 @@ func _physics_process(delta):
 	
 	
 	## simple steering
-	var d = 0.6 if is_drifting else 1 #steer less when drifting
+	var d = 0.8 if is_drifting else 1 #steer less when drifting
 	var r = -2 if get_speed() < 0 else 1
 	global_rotate(global_transform.basis.y, -steer_axis*d*r * PI * handling_factor * delta)
 	if not is_drifting:

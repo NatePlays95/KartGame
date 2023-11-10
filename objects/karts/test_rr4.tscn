@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://c7v6t2dyiiy5q"]
+[gd_scene load_steps=16 format=3 uid="uid://c7v6t2dyiiy5q"]
 
 [ext_resource type="Script" path="res://systems/car/SimpleRaycastCar.gd" id="1_1djob"]
 [ext_resource type="PackedScene" uid="uid://cls8s0go0dt7t" path="res://models/ridgeracer4/fa_racing/shell.gltf" id="2_4h1xf"]
@@ -31,6 +31,9 @@ radius = 0.3
 [sub_resource type="ViewportTexture" id="ViewportTexture_5qc06"]
 viewport_path = NodePath("UI")
 
+[sub_resource type="ViewportTexture" id="ViewportTexture_fcgsi"]
+viewport_path = NodePath("UI")
+
 [node name="test_rr4" type="RigidBody3D" node_paths=PackedStringArray("wheels")]
 rotation_edit_mode = 1
 mass = 200.0
@@ -39,8 +42,8 @@ max_contacts_reported = 16
 contact_monitor = true
 angular_damp = 10.0
 script = ExtResource("1_1djob")
-engine_power = 8.0
-top_speed = 40.0
+engine_power = 6.0
+top_speed = 35.0
 handling_factor = 0.4
 drift_speed = 3.0
 wheels = [NodePath("SimpleWheel"), NodePath("SimpleWheel2"), NodePath("SimpleWheel3"), NodePath("SimpleWheel4")]
@@ -170,16 +173,17 @@ no_depth_test = true
 texture = SubResource("ViewportTexture_5qc06")
 
 [node name="Sprite3D2" type="Sprite3D" parent="."]
-transform = Transform3D(0.720172, 0, 0, 0, 0.720172, 0, 0, 0, 0.720172, 0, 0.439838, 0.597988)
-visible = false
+transform = Transform3D(0.720172, 0, 0, 0, 0.720172, 0, 0, 0, 0.720172, 0, 1.79093, 0.597988)
 no_depth_test = true
-texture = SubResource("ViewportTexture_5qc06")
+texture = SubResource("ViewportTexture_fcgsi")
 
 [node name="car_debug_ui" parent="." node_paths=PackedStringArray("car") instance=ExtResource("3_gi1k7")]
 car = NodePath("..")
 
 [node name="UI" type="SubViewport" parent="."]
 transparent_bg = true
+size = Vector2i(256, 128)
+render_target_update_mode = 4
 
 [node name="car_ui_countdown" parent="." instance=ExtResource("6_nnnsm")]
 

@@ -1,7 +1,7 @@
 [gd_scene load_steps=27 format=3 uid="uid://jds7ak0tic0n"]
 
 [ext_resource type="PackedScene" uid="uid://dn7eau2kt1hmq" path="res://models/mktour/new-york-mario-kart-tour/new_york_mario_kart_tour.glb" id="1_22wwg"]
-[ext_resource type="PackedScene" uid="uid://c7v6t2dyiiy5q" path="res://objects/karts/test_rr4.tscn" id="2_s5552"]
+[ext_resource type="PackedScene" uid="uid://4206awoqr3i7" path="res://objects/karts/test_gt2.tscn" id="2_u3ge2"]
 [ext_resource type="Script" path="res://systems/checkpoints/CarCheckpointTracker.gd" id="3_ppkyb"]
 [ext_resource type="Texture2D" uid="uid://sdtcbkuymmmh" path="res://models/mktour/new-york-mario-kart-tour/T_Mobny1_VR_Alb.png" id="4_v6a6s"]
 [ext_resource type="Script" path="res://systems/time_attack/CarTimeTracker.gd" id="4_wevj7"]
@@ -294,13 +294,13 @@ _data = {
 
 [node name="new_york_mario_kart_tour" instance=ExtResource("1_22wwg")]
 
-[node name="test_rr4" parent="." index="0" instance=ExtResource("2_s5552")]
+[node name="test_gt2" parent="." index="0" instance=ExtResource("2_u3ge2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.71876, 8.71188, 15.1456)
 
-[node name="CarCheckpointTracker" type="Node" parent="test_rr4" index="12"]
+[node name="CarCheckpointTracker" type="Node" parent="test_gt2" index="17"]
 script = ExtResource("3_ppkyb")
 
-[node name="CarTimeTracker" type="Node" parent="test_rr4" index="13"]
+[node name="CarTimeTracker" type="Node" parent="test_gt2" index="18"]
 script = ExtResource("4_wevj7")
 
 [node name="environment" type="Node3D" parent="." index="1"]

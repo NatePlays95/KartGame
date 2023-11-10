@@ -129,16 +129,15 @@ Speed: 760.00 km/h"
 
 [node name="label_drift" type="Label" parent="."]
 unique_name_in_owner = true
-visible = false
 layout_mode = 1
 anchors_preset = 14
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
-offset_left = 355.0
-offset_top = -43.0
-offset_right = -495.0
-offset_bottom = 9.0
+offset_left = 33.0
+offset_top = 155.0
+offset_right = -817.0
+offset_bottom = 207.0
 grow_horizontal = 2
 grow_vertical = 2
 text = "in drift
@@ -181,17 +180,16 @@ horizontal_alignment = 1
 
 [node name="bar_steer" type="ProgressBar" parent="."]
 unique_name_in_owner = true
-visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -173.0
-offset_top = 107.0
-offset_right = 173.0
-offset_bottom = 134.0
+offset_left = -105.0
+offset_top = 257.0
+offset_right = 113.0
+offset_bottom = 274.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = SubResource("Theme_nq4in")
@@ -200,6 +198,7 @@ max_value = 1.0
 show_percentage = false
 
 [node name="Label" type="Label" parent="bar_steer"]
+visible = false
 layout_mode = 1
 anchors_preset = 14
 anchor_top = 0.5
