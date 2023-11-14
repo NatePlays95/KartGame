@@ -68,7 +68,7 @@ func _update_physics(dt):
 	_update_drag(dt)
 	# finish up
 	_update_children_positions()
-	_update_particles()
+	_update_particles(dt)
 	_update_mesh_rotation(dt)
 
 
@@ -184,9 +184,13 @@ func _update_drag(dt):
 	if abs_speed < 5.0 and not (car.engine_throttle != 0.0 or car.braking_force != 0.0):
 		var stopping_drag = max(0, 5 - abs_speed)
 		car.linear_velocity *= 1.0 - dt * stopping_drag * factor
+		
+		sideways_velocity = car.linear_velocity * global_transform.basis.x
+		if sideways_velocity.length() < 0.5:
+			car.linear_velocity -= global_transform.basis.x*sideways_velocity
 
 
-func _update_particles() -> void:
+func _update_particles(dt) -> void:
 	if smoke_particle:
 		if deform == 0:
 			smoke_particle.emitting = false
@@ -195,15 +199,17 @@ func _update_particles() -> void:
 			var plane_velocity = car.linear_velocity - car.linear_velocity.project(global_transform.basis.y)
 			var slip_angle = abs(global_transform.basis.x.dot(plane_velocity.normalized()))
 			#print(slip_angle)
-			if slip_angle < 0.1 or speed < 2:
+			if slip_angle < 0.1 or speed < 1:
 				smoke_particle.emitting = false
 			else:
 				smoke_particle.emitting = true
-				smoke_particle.process_material.color.a = min(1, 4*slip_angle)
+				smoke_particle.process_material.color.a = min(1, 0.5*slip_angle + 0.0001*speed)
 				
-				smoke_particle.process_material.initial_velocity_min = 0.5 * speed
-				smoke_particle.process_material.initial_velocity_max = 1 * speed
-				smoke_particle.process_material.direction += car.linear_velocity.normalized()
+				smoke_particle.process_material.initial_velocity_min = 0.95 * speed
+				smoke_particle.process_material.initial_velocity_max = 1.05 * speed
+				smoke_particle.process_material.direction += 0.5 * dt * car.linear_velocity * global_transform.basis
+				#smoke_particle.process_material.direction += Vector3(0,0,1) * 0.3
+				smoke_particle.process_material.direction = smoke_particle.process_material.direction.normalized()
 
 
 func _update_mesh_rotation(dt) -> void:

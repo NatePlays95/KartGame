@@ -1,6 +1,9 @@
-[gd_scene load_steps=2 format=3 uid="uid://o3m7l1cgtxs0"]
+[gd_scene load_steps=3 format=3 uid="uid://o3m7l1cgtxs0"]
 
 [ext_resource type="Script" path="res://scenes/ui/car_ui/car_ui_laps.gd" id="1_vy2gm"]
+
+[sub_resource type="Theme" id="Theme_vevby"]
+Label/font_sizes/font_size = 40
 
 [node name="car_ui_laps" type="Control"]
 layout_mode = 3
@@ -9,6 +12,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = SubResource("Theme_vevby")
 script = ExtResource("1_vy2gm")
 
 [node name="Control" type="VBoxContainer" parent="."]
@@ -26,6 +30,7 @@ text = "LAP  1 / 1
 
 [node name="lbl_debug_checkpoints" type="Label" parent="Control"]
 unique_name_in_owner = true
+visible = false
 layout_mode = 2
 text = "ck 40/42
 keys: [12, 15]"

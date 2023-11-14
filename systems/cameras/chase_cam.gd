@@ -32,7 +32,7 @@ func _process_old(delta):
 	
 	#speed shake
 	if speed > 5:
-		global_position += speed * 0.001 * delta * Vector3(randf_range(-1.0,1.0),randf_range(-1.0,1.0),randf_range(-1.0,1.0))
+		global_position += speed * 0.01 * delta * Vector3(randf_range(-1.0,1.0),randf_range(-1.0,1.0),randf_range(-1.0,1.0))
 	
 	if car.input_brakes > 0:
 		camera_3d.fov -= car.input_brakes * 2 #lerp(camera_3d.fov, camera_3d.fov + car.braking_force*(-20), delta*50.0)
@@ -40,7 +40,7 @@ func _process_old(delta):
 	
 	
 	#camera_3d.h_offset = 0
-	var drift_offset_factor = 0.05
+	var drift_offset_factor = 0.03
 	if car.is_drifting and car.is_grounded:
 		camera_3d.h_offset = lerp(camera_3d.h_offset, speed * car.drift_dir * drift_offset_factor, delta * 1.0)
 	else:

@@ -97,10 +97,14 @@ common/physics_jitter_fix=0.0
 3d/physics_engine="JoltPhysics3D"
 3d/default_gravity=20.0
 3d/default_linear_damp=0.0
+jolt_3d/sleep/time_threshold=0.2
 jolt_3d/solver/position_iterations=4
 jolt_3d/solver/active_edge_threshold=0.523599
 jolt_3d/limits/max_linear_velocity=1000.0
 
 [rendering]
 
+lights_and_shadows/directional_shadow/size=8192
 anti_aliasing/quality/msaa_3d=2
+lights_and_shadows/positional_shadow/atlas_size=8192
+lights_and_shadows/positional_shadow/atlas_16_bits=false

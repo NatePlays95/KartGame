@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://cl2235d3md1ku" path="res://images/particles/smoke_07.png" id="1_gkqyw"]
 
 [sub_resource type="Gradient" id="Gradient_1rc3i"]
-offsets = PackedFloat32Array(0, 0.440529, 1)
+offsets = PackedFloat32Array(0, 0.22467, 1)
 colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0)
 
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_btqvi"]
@@ -25,11 +25,12 @@ spread = 10.0
 gravity = Vector3(0, -3, 0)
 initial_velocity_min = 1.0
 initial_velocity_max = 1.0
-damping_min = 5.0
-damping_max = 5.0
+damping_min = 2.0
+damping_max = 4.0
 angle_min = -180.0
 angle_max = 180.0
-scale_min = 0.5
+scale_min = 0.2
+scale_max = 1.5
 scale_curve = SubResource("CurveTexture_ifjrw")
 color_ramp = SubResource("GradientTexture1D_btqvi")
 attractor_interaction_enabled = false
@@ -52,8 +53,9 @@ size = Vector2(0.5, 0.5)
 
 [node name="tire_smoke" type="GPUParticles3D"]
 emitting = false
-amount = 40
-lifetime = 0.7
+amount = 60
+lifetime = 0.5
+randomness = 0.2
 visibility_aabb = AABB(-0.5, -0.5, -0.5, 1, 1, 1)
 process_material = SubResource("ParticleProcessMaterial_pa4ra")
 draw_pass_1 = SubResource("QuadMesh_ngxle")

@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://dp0l70fo23kjv"]
+[gd_scene load_steps=3 format=3 uid="uid://dp0l70fo23kjv"]
 
 [ext_resource type="Script" path="res://scenes/menus/main_menu.gd" id="1_xl24t"]
+[ext_resource type="Theme" uid="uid://woesn7de4su7" path="res://scenes/menus/menu_standard.theme" id="2_nptn7"]
 
 [node name="main_menu" type="Node"]
 script = ExtResource("1_xl24t")
@@ -12,8 +13,10 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("2_nptn7")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Control"]
+[node name="vbox_select" type="VBoxContainer" parent="Control"]
+unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -28,22 +31,29 @@ grow_horizontal = 2
 grow_vertical = 2
 alignment = 1
 
-[node name="btn_2" type="Button" parent="Control/VBoxContainer"]
+[node name="btn_ta" type="Button" parent="Control/vbox_select"]
+layout_mode = 2
+text = "Time Attack"
+
+[node name="btn_2" type="Button" parent="Control/vbox_select"]
 unique_name_in_owner = true
+visible = false
 layout_mode = 2
 text = "Circuit Map"
 
-[node name="btn_1" type="Button" parent="Control/VBoxContainer"]
+[node name="btn_1" type="Button" parent="Control/vbox_select"]
 unique_name_in_owner = true
+visible = false
 layout_mode = 2
 text = "City Map"
 
-[node name="btn_3" type="Button" parent="Control/VBoxContainer"]
+[node name="btn_3" type="Button" parent="Control/vbox_select"]
 unique_name_in_owner = true
+visible = false
 layout_mode = 2
 text = "Island Map"
 
-[node name="btn_quit" type="Button" parent="Control/VBoxContainer"]
+[node name="btn_quit" type="Button" parent="Control/vbox_select"]
 layout_mode = 2
 text = "Quit"
 
@@ -62,7 +72,8 @@ Setas - acelera, freia, vira
 Shift - drift
 Esc - pause"
 
-[connection signal="pressed" from="Control/VBoxContainer/btn_2" to="." method="_on_btn_2_pressed"]
-[connection signal="pressed" from="Control/VBoxContainer/btn_1" to="." method="_on_btn_1_pressed"]
-[connection signal="pressed" from="Control/VBoxContainer/btn_3" to="." method="_on_btn_3_pressed"]
-[connection signal="pressed" from="Control/VBoxContainer/btn_quit" to="." method="_on_btn_quit_pressed"]
+[connection signal="pressed" from="Control/vbox_select/btn_ta" to="." method="_on_btn_ta_pressed"]
+[connection signal="pressed" from="Control/vbox_select/btn_2" to="." method="_on_btn_2_pressed"]
+[connection signal="pressed" from="Control/vbox_select/btn_1" to="." method="_on_btn_1_pressed"]
+[connection signal="pressed" from="Control/vbox_select/btn_3" to="." method="_on_btn_3_pressed"]
+[connection signal="pressed" from="Control/vbox_select/btn_quit" to="." method="_on_btn_quit_pressed"]

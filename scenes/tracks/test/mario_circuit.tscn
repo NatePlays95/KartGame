@@ -17,13 +17,13 @@ ground_horizon_color = Color(1, 1, 1, 1)
 ground_curve = 0.269087
 ground_energy_multiplier = 1.92
 
-[sub_resource type="Sky" id="Sky_4qum3"]
+[sub_resource type="Sky" id="Sky_m07bw"]
 sky_material = SubResource("ProceduralSkyMaterial_mpw4l")
 
 [sub_resource type="Environment" id="Environment_prig3"]
 background_mode = 2
 background_color = Color(0.921569, 0.839216, 0.768627, 1)
-sky = SubResource("Sky_4qum3")
+sky = SubResource("Sky_m07bw")
 ambient_light_color = Color(1, 1, 0.74902, 1)
 ambient_light_sky_contribution = 0.0
 reflected_light_source = 1
@@ -354,10 +354,9 @@ transform = Transform3D(-0.434138, 0.283487, -0.855078, -0.175593, 0.904358, 0.3
 light_energy = 5.0
 light_bake_mode = 1
 shadow_enabled = true
-shadow_normal_bias = 3.0
-shadow_blur = 0.0
 directional_shadow_blend_splits = true
-directional_shadow_max_distance = 500.0
+directional_shadow_max_distance = 300.0
+directional_shadow_pancake_size = 0.0
 sky_mode = 1
 
 [node name="collisions" type="Node3D" parent="." index="1"]

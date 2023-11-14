@@ -1,15 +1,21 @@
-[gd_scene load_steps=18 format=3 uid="uid://4206awoqr3i7"]
+[gd_scene load_steps=26 format=3 uid="uid://4206awoqr3i7"]
 
 [ext_resource type="Script" path="res://systems/car/SimpleRaycastCar.gd" id="1_p8qof"]
 [ext_resource type="PackedScene" uid="uid://cls8s0go0dt7t" path="res://models/ridgeracer4/fa_racing/shell.gltf" id="2_j8kcn"]
 [ext_resource type="PackedScene" uid="uid://dnhxppvqe45e2" path="res://models/paulo/test_gt2/teste_de_Escala_GT2.glb" id="3_45abl"]
 [ext_resource type="Script" path="res://systems/car/SimpleWheel.gd" id="3_fwtqi"]
-[ext_resource type="ArrayMesh" uid="uid://bom0j4wxrils4" path="res://models/paulo/test_gt2/mesh/teste_de_Escala_GT2(1)_Plane.res" id="4_b8hpq"]
-[ext_resource type="ArrayMesh" uid="uid://bwdgv44biriut" path="res://models/paulo/test_gt2/mesh/teste_de_Escala_GT2_Cylinder.res" id="5_ifwtu"]
+[ext_resource type="ArrayMesh" uid="uid://yo5313pmwc8r" path="res://models/paulo/GT2 2003 LowPoly/mesh/Porsche_911_GT2_2003_Plane.res" id="4_i88n5"]
+[ext_resource type="Texture2D" uid="uid://d21q01hjerkax" path="res://models/paulo/GT2 2003 LowPoly/Textura A3/GT2 Completa_Base_color.png" id="5_4uem3"]
+[ext_resource type="ArrayMesh" uid="uid://c8m5wqqn68tvl" path="res://models/paulo/GT2 2003 LowPoly/mesh/Porsche_911_GT2_2003_Cylinder.res" id="5_k1gye"]
 [ext_resource type="PackedScene" uid="uid://dhkqhjk3tkew2" path="res://objects/particles/tire_smoke.tscn" id="5_qkf3x"]
+[ext_resource type="Texture2D" uid="uid://d1bnl8g06rd7m" path="res://models/paulo/GT2 2003 LowPoly/Textura A3/GT2 Completa_Metallic.png" id="6_85c86"]
 [ext_resource type="Script" path="res://systems/cameras/chase_cam.gd" id="6_ac53v"]
 [ext_resource type="PackedScene" uid="uid://77nexksnu7ie" path="res://scenes/ui/car_ui/car_debug_ui.tscn" id="7_iui8a"]
+[ext_resource type="Texture2D" uid="uid://cxhub1captj1h" path="res://models/paulo/GT2 2003 LowPoly/Textura A3/GT2 Completa_Roughness.png" id="7_vrtow"]
 [ext_resource type="PackedScene" uid="uid://b2ytp13icf54n" path="res://scenes/ui/car_ui/car_ui_countdown.tscn" id="8_baiud"]
+[ext_resource type="Texture2D" uid="uid://uim7r1q3catw" path="res://models/paulo/GT2 2003 LowPoly/Wheel/Wheel_Base_color.png" id="9_3jc8h"]
+[ext_resource type="Texture2D" uid="uid://c0y7g72411jay" path="res://models/paulo/GT2 2003 LowPoly/Wheel/Wheel_Metallic.png" id="10_7vp0y"]
+[ext_resource type="Texture2D" uid="uid://b7xfv6u3hrtxu" path="res://models/paulo/GT2 2003 LowPoly/Wheel/Wheel_Roughness.png" id="11_6ygro"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_kdl87"]
 friction = 0.4
@@ -22,13 +28,27 @@ size = Vector3(0.971852, 0.572464, 2.1889)
 [sub_resource type="BoxShape3D" id="BoxShape3D_5hp1n"]
 size = Vector3(0.994257, 0.615085, 2.21756)
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rm00i"]
+albedo_texture = ExtResource("5_4uem3")
+metallic = 1.0
+metallic_specular = 1.0
+metallic_texture = ExtResource("6_85c86")
+roughness_texture = ExtResource("7_vrtow")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_n4odc"]
+albedo_texture = ExtResource("9_3jc8h")
+metallic = 1.0
+metallic_specular = 0.0
+metallic_texture = ExtResource("10_7vp0y")
+roughness_texture = ExtResource("11_6ygro")
+
 [sub_resource type="SphereShape3D" id="SphereShape3D_vi4mp"]
 margin = 0.0001
-radius = 0.3
+radius = 0.32
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_xjtsw"]
 margin = 0.0001
-radius = 0.3
+radius = 0.32
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_5qc06"]
 viewport_path = NodePath("UI")
@@ -46,8 +66,8 @@ angular_damp = 10.0
 script = ExtResource("1_p8qof")
 engine_power = 6.0
 top_speed = 35.0
-handling_factor = 0.4
 drift_speed = 3.0
+boost_power = 600.0
 wheels = [NodePath("SimpleWheel"), NodePath("SimpleWheel2"), NodePath("SimpleWheel3"), NodePath("SimpleWheel4")]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
@@ -72,33 +92,43 @@ visible = false
 [node name="model" type="Node3D" parent="."]
 
 [node name="shell" type="MeshInstance3D" parent="model"]
-transform = Transform3D(5.46392e-09, -0.125, -1.88745e-08, -0.125, -5.46392e-09, 0, -8.2503e-16, 1.88745e-08, -0.125, 0, 0.027, -0.464221)
-mesh = ExtResource("4_b8hpq")
+transform = Transform3D(2.62268e-08, -0.6, -9.05975e-08, -0.6, -2.62268e-08, -2.5411e-22, -3.96014e-15, 9.05975e-08, -0.6, 0, 0.027, -0.464221)
+layers = 2
+mesh = ExtResource("4_i88n5")
 skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_rm00i")
 
 [node name="wheel1" type="CSGMesh3D" parent="model"]
-transform = Transform3D(-1.83588e-08, 0.42, 0, -0.7, -3.0598e-08, 0, 0, 0, 0.7, 0.45, -0.162564, -0.813175)
-mesh = ExtResource("5_ifwtu")
+transform = Transform3D(-1.83588e-08, 0.42, 0, -0.7, -3.0598e-08, 0, 0, 0, 0.7, 0.45, -0.162564, -0.825895)
+layers = 2
+mesh = ExtResource("5_k1gye")
+material = SubResource("StandardMaterial3D_n4odc")
 
 [node name="wheel2" type="CSGMesh3D" parent="model"]
-transform = Transform3D(-1.83588e-08, -0.42, 0, 0.7, -3.0598e-08, 0, 0, 0, 0.7, -0.45, -0.162564, -0.813175)
-mesh = ExtResource("5_ifwtu")
+transform = Transform3D(-1.83588e-08, -0.42, 0, 0.7, -3.0598e-08, 0, 0, 0, 0.7, -0.45, -0.162564, -0.825895)
+layers = 2
+mesh = ExtResource("5_k1gye")
+material = SubResource("StandardMaterial3D_n4odc")
 
 [node name="wheel3" type="CSGMesh3D" parent="model"]
-transform = Transform3D(-1.83588e-08, 0.42, 0, -0.7, -3.0598e-08, 0, 0, 0, 0.7, 0.45, -0.162564, 0.524608)
-mesh = ExtResource("5_ifwtu")
+transform = Transform3D(-1.83588e-08, 0.42, 0, -0.7, -3.0598e-08, 0, 0, 0, 0.7, 0.45, -0.162564, 0.54624)
+layers = 2
+mesh = ExtResource("5_k1gye")
+material = SubResource("StandardMaterial3D_n4odc")
 
 [node name="wheel4" type="CSGMesh3D" parent="model"]
-transform = Transform3D(-1.83588e-08, -0.42, 0, 0.7, -3.0598e-08, 0, 0, 0, 0.7, -0.45, -0.162564, 0.524608)
-mesh = ExtResource("5_ifwtu")
+transform = Transform3D(-1.83588e-08, -0.42, 0, 0.7, -3.0598e-08, 0, 0, 0, 0.7, -0.45, -0.162564, 0.54624)
+layers = 2
+mesh = ExtResource("5_k1gye")
+material = SubResource("StandardMaterial3D_n4odc")
 
 [node name="SimpleWheel" type="ShapeCast3D" parent="." node_paths=PackedStringArray("wheel_mesh")]
-transform = Transform3D(0.6, 0, 0, 0, 1, 0, 0, 0, 1, 0.45, 0.0374365, -0.813175)
+transform = Transform3D(0.6, 0, 0, 0, 1, 0, 0, 0, 1, 0.45, 0.0374365, -0.825895)
 shape = SubResource("SphereShape3D_vi4mp")
 target_position = Vector3(0, -0.2, 0)
 script = ExtResource("3_fwtqi")
 is_steer = true
-wheel_radius = 0.3
+wheel_radius = 0.32
 spring_length = 0.2
 spring_stiffness = 15.0
 wheel_mesh = NodePath("RemoteTransform3D")
@@ -113,12 +143,12 @@ transform = Transform3D(-3.0598e-08, 0.7, 0, -0.7, -3.0598e-08, 0, 0, 0, 0.7, 0,
 remote_path = NodePath("../../model/wheel1")
 
 [node name="SimpleWheel2" type="ShapeCast3D" parent="." node_paths=PackedStringArray("wheel_mesh")]
-transform = Transform3D(0.6, 0, 0, 0, 1, 0, 0, 0, 1, -0.45, 0.0374365, -0.813175)
+transform = Transform3D(0.6, 0, 0, 0, 1, 0, 0, 0, 1, -0.45, 0.0374365, -0.825895)
 shape = SubResource("SphereShape3D_xjtsw")
 target_position = Vector3(0, -0.2, 0)
 script = ExtResource("3_fwtqi")
 is_steer = true
-wheel_radius = 0.3
+wheel_radius = 0.32
 spring_length = 0.2
 spring_stiffness = 15.0
 wheel_mesh = NodePath("RemoteTransform3D")
@@ -133,11 +163,11 @@ transform = Transform3D(-3.0598e-08, -0.7, 0, 0.7, -3.0598e-08, 0, 0, 0, 0.7, 0,
 remote_path = NodePath("../../model/wheel2")
 
 [node name="SimpleWheel3" type="ShapeCast3D" parent="." node_paths=PackedStringArray("smoke_particle", "wheel_mesh")]
-transform = Transform3D(0.6, 0, 0, 0, 1, 0, 0, 0, 1, 0.45, 0.0374365, 0.524608)
+transform = Transform3D(0.6, 0, 0, 0, 1, 0, 0, 0, 1, 0.45, 0.0374365, 0.54624)
 shape = SubResource("SphereShape3D_xjtsw")
 target_position = Vector3(0, -0.2, 0)
 script = ExtResource("3_fwtqi")
-wheel_radius = 0.3
+wheel_radius = 0.32
 spring_length = 0.2
 spring_stiffness = 15.0
 smoke_particle = NodePath("tire_smoke")
@@ -156,11 +186,11 @@ transform = Transform3D(-3.0598e-08, 0.7, 0, -0.7, -3.0598e-08, 0, 0, 0, 0.7, 0,
 remote_path = NodePath("../../model/wheel3")
 
 [node name="SimpleWheel4" type="ShapeCast3D" parent="." node_paths=PackedStringArray("smoke_particle", "wheel_mesh")]
-transform = Transform3D(0.6, 0, 0, 0, 1, 0, 0, 0, 1, -0.45, 0.0374365, 0.524608)
+transform = Transform3D(0.6, 0, 0, 0, 1, 0, 0, 0, 1, -0.45, 0.0374365, 0.54624)
 shape = SubResource("SphereShape3D_xjtsw")
 target_position = Vector3(0, -0.2, 0)
 script = ExtResource("3_fwtqi")
-wheel_radius = 0.3
+wheel_radius = 0.32
 spring_length = 0.2
 spring_stiffness = 15.0
 smoke_particle = NodePath("tire_smoke")
@@ -188,9 +218,10 @@ transform = Transform3D(1, 0, 0, 0, 0.964262, 0.26495, 0, -0.26495, 0.964262, 0,
 current = true
 
 [node name="ReflectionProbe" type="ReflectionProbe" parent="chase_cam/Camera3D"]
-transform = Transform3D(1, 0, 0, 0, 0.964262, -0.26495, 0, 0.26495, 0.964262, 0, 0, 0)
-update_mode = 1
+transform = Transform3D(1, 0, 0, 0, 0.964262, -0.26495, 0, 0.26495, 0.964262, 0, -0.27226, -3.11615)
+visible = false
 size = Vector3(100, 100, 100)
+cull_mask = 1048573
 
 [node name="hood_cam" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.398215, -0.837133)

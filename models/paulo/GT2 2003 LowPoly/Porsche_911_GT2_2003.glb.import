@@ -1,0 +1,65 @@
+[remap]
+
+importer="scene"
+importer_version=1
+type="PackedScene"
+uid="uid://ci12vocm2clrb"
+path="res://.godot/imported/Porsche_911_GT2_2003.glb-610d46d5a29d0f98d3e446cb58db40b7.scn"
+
+[deps]
+
+source_file="res://models/paulo/GT2 2003 LowPoly/Porsche_911_GT2_2003.glb"
+dest_files=["res://.godot/imported/Porsche_911_GT2_2003.glb-610d46d5a29d0f98d3e446cb58db40b7.scn"]
+
+[params]
+
+nodes/root_type="Node3D"
+nodes/root_name="Scene Root"
+nodes/apply_root_scale=true
+nodes/root_scale=1.0
+meshes/ensure_tangents=true
+meshes/generate_lods=true
+meshes/create_shadow_meshes=true
+meshes/light_baking=1
+meshes/lightmap_texel_size=0.2
+skins/use_named_skins=true
+animation/import=true
+animation/fps=30
+animation/trimming=false
+animation/remove_immutable_tracks=true
+import_script/path=""
+_subresources={
+"materials": {
+"GT2Boyd": {
+"use_external/enabled": true,
+"use_external/path": "res://models/paulo/GT2 2003 LowPoly/mat/GT2Boyd.tres"
+},
+"Wheel": {
+"use_external/enabled": true,
+"use_external/path": "res://models/paulo/GT2 2003 LowPoly/mat/Wheel.tres"
+}
+},
+"meshes": {
+"Porsche_911_GT2_2003_Cylinder": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"lods/normal_split_angle": 25.0,
+"save_to_file/enabled": true,
+"save_to_file/make_streamable": "",
+"save_to_file/path": "res://models/paulo/GT2 2003 LowPoly/mesh/Porsche_911_GT2_2003_Cylinder.res"
+},
+"Porsche_911_GT2_2003_Plane": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"lods/normal_split_angle": 25.0,
+"save_to_file/enabled": true,
+"save_to_file/make_streamable": "",
+"save_to_file/path": "res://models/paulo/GT2 2003 LowPoly/mesh/Porsche_911_GT2_2003_Plane.res"
+}
+}
+}
+gltf/embedded_image_handling=1

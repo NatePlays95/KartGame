@@ -112,6 +112,7 @@ script = SubResource("GDScript_lly0v")
 
 [node name="label_speed" type="Label" parent="."]
 unique_name_in_owner = true
+visible = false
 layout_mode = 1
 anchors_preset = 14
 anchor_top = 0.5
@@ -129,6 +130,7 @@ Speed: 760.00 km/h"
 
 [node name="label_drift" type="Label" parent="."]
 unique_name_in_owner = true
+visible = false
 layout_mode = 1
 anchors_preset = 14
 anchor_top = 0.5
@@ -152,9 +154,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -128.0
-offset_top = 284.0
+offset_top = 479.0
 offset_right = 128.0
-offset_bottom = 306.0
+offset_bottom = 501.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = SubResource("Theme_y07ha")
@@ -180,6 +182,7 @@ horizontal_alignment = 1
 
 [node name="bar_steer" type="ProgressBar" parent="."]
 unique_name_in_owner = true
+visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5

@@ -2,8 +2,12 @@ extends Node
 
 
 
+
+
+
+
 func _ready():
-	%btn_2.grab_focus()
+	%vbox_select.get_children()[0].grab_focus()
 
 
 
@@ -36,3 +40,6 @@ func _on_btn_quit_pressed():
 
 
 
+func _on_btn_ta_pressed():
+	MainMenuManager.selected_race_type = RaceData.RACE_TYPE.TIME_ATTACK
+	get_tree().change_scene_to_file("res://scenes/menus/select_track.tscn")
