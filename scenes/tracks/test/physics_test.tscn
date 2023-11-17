@@ -1,8 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://cp5d10dhhgdrg"]
+[gd_scene load_steps=10 format=3 uid="uid://cp5d10dhhgdrg"]
 
 [ext_resource type="Material" uid="uid://ciurjf3tg3tdo" path="res://models/csg/physics_test/prototype_dark.material" id="1_30p6t"]
-[ext_resource type="PackedScene" uid="uid://4206awoqr3i7" path="res://objects/karts/test_gt2.tscn" id="1_htkty"]
 [ext_resource type="Material" uid="uid://bmpr5el304c6t" path="res://models/csg/physics_test/prototype_purple.material" id="3_qgcdr"]
+[ext_resource type="Script" path="res://systems/checkpoints/TrackCheckpoints.gd" id="4_a4pxr"]
+[ext_resource type="Script" path="res://systems/racing_grid/TrackStartingGrdSimple.gd" id="4_t5kbv"]
+[ext_resource type="PackedScene" uid="uid://dyl0q1dqpn1wf" path="res://systems/checkpoints/Checkpoint.scn" id="5_02nc1"]
+[ext_resource type="Script" path="res://scenes/tracks/test/TrackCameras.gd" id="6_sl8ya"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_f2xt4"]
 sky_top_color = Color(0.4, 0.772549, 0.976471, 1)
@@ -29,9 +32,6 @@ glow_intensity = 1.45
 adjustment_brightness = 0.84
 
 [node name="physics_test" type="Node3D"]
-
-[node name="test_gt2" parent="." instance=ExtResource("1_htkty")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.569334, 19)
 
 [node name="environment" type="Node3D" parent="."]
 
@@ -533,3 +533,21 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 11, 0)
 pixel_size = 0.2
 billboard = 2
 text = "Radius 64m"
+
+[node name="TrackStartingGridSimple" type="Node3D" parent="."]
+script = ExtResource("4_t5kbv")
+
+[node name="Marker3D" type="Marker3D" parent="TrackStartingGridSimple"]
+transform = Transform3D(0.393942, 0, 0.919135, 0, 1, 0, -0.919135, 0, 0.393942, -12, 0, 14)
+gizmo_extents = 2.0
+
+[node name="TrackCheckpoints" type="Node3D" parent="."]
+script = ExtResource("4_a4pxr")
+
+[node name="Checkpoint" parent="TrackCheckpoints" instance=ExtResource("5_02nc1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -72.4948, 0, 125.825)
+
+[node name="TrackCameras" type="Node3D" parent="."]
+script = ExtResource("6_sl8ya")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="TrackCameras"]

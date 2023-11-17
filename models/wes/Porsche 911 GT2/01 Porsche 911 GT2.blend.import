@@ -1,0 +1,163 @@
+[remap]
+
+importer="scene"
+importer_version=1
+type="PackedScene"
+uid="uid://crb5h2x5ee3rs"
+path="res://.godot/imported/01 Porsche 911 GT2.blend-cfc797b6bf403c89b84c25de6ad1106d.scn"
+
+[deps]
+
+source_file="res://models/wes/Porsche 911 GT2/01 Porsche 911 GT2.blend"
+dest_files=["res://.godot/imported/01 Porsche 911 GT2.blend-cfc797b6bf403c89b84c25de6ad1106d.scn"]
+
+[params]
+
+nodes/root_type="Node3D"
+nodes/root_name="Scene Root"
+nodes/apply_root_scale=true
+nodes/root_scale=1.0
+meshes/ensure_tangents=true
+meshes/generate_lods=true
+meshes/create_shadow_meshes=true
+meshes/light_baking=1
+meshes/lightmap_texel_size=0.2
+skins/use_named_skins=true
+animation/import=true
+animation/fps=30
+animation/trimming=false
+animation/remove_immutable_tracks=true
+import_script/path=""
+_subresources={
+"materials": {
+"Borracha": {
+"use_external/enabled": true,
+"use_external/path": "res://models/wes/Porsche 911 GT2/mat/Borracha.tres"
+},
+"Calota": {
+"use_external/enabled": true,
+"use_external/path": "res://models/wes/Porsche 911 GT2/mat/Calota.tres"
+},
+"Farol_Frente": {
+"use_external/enabled": true,
+"use_external/path": "res://models/wes/Porsche 911 GT2/mat/Farol_Frente.tres"
+},
+"Farol_Tras": {
+"use_external/enabled": true,
+"use_external/path": "res://models/wes/Porsche 911 GT2/mat/Farol_Tras.tres"
+},
+"Oclusao": {
+"use_external/enabled": true,
+"use_external/path": "res://models/wes/Porsche 911 GT2/mat/Oclusao.tres"
+},
+"Oclusão": {
+"use_external/enabled": true,
+"use_external/path": "res://models/wes/Porsche 911 GT2/mat/Oclusão.tres"
+},
+"Plastico": {
+"use_external/enabled": true,
+"use_external/path": "res://models/wes/Porsche 911 GT2/mat/Plastico.tres"
+},
+"Resto": {
+"use_external/enabled": true,
+"use_external/path": "res://models/wes/Porsche 911 GT2/mat/Resto.tres"
+},
+"UV": {
+"use_external/enabled": true,
+"use_external/path": "res://models/wes/Porsche 911 GT2/mat/UV.tres"
+},
+"Vidro": {
+"use_external/enabled": true,
+"use_external/path": "res://models/wes/Porsche 911 GT2/mat/Vidro.tres"
+}
+},
+"meshes": {
+"01 Porsche 911 GT2-cfc797b6bf403c89b84c25de6ad1106d_Cube": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"lods/normal_split_angle": 25.0,
+"save_to_file/enabled": true,
+"save_to_file/make_streamable": "",
+"save_to_file/path": "res://models/wes/Porsche 911 GT2/mesh/01 Porsche 911 GT2-cfc797b6bf403c89b84c25de6ad1106d_Cube.res"
+},
+"01 Porsche 911 GT2-cfc797b6bf403c89b84c25de6ad1106d_Cube_001": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"lods/normal_split_angle": 25.0,
+"save_to_file/enabled": true,
+"save_to_file/make_streamable": "",
+"save_to_file/path": "res://models/wes/Porsche 911 GT2/mesh/01 Porsche 911 GT2-cfc797b6bf403c89b84c25de6ad1106d_Cube_001.res"
+},
+"01 Porsche 911 GT2-cfc797b6bf403c89b84c25de6ad1106d_Cube_002": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"lods/normal_split_angle": 25.0,
+"save_to_file/enabled": true,
+"save_to_file/make_streamable": "",
+"save_to_file/path": "res://models/wes/Porsche 911 GT2/mesh/01 Porsche 911 GT2-cfc797b6bf403c89b84c25de6ad1106d_Cube_002.res"
+},
+"01 Porsche 911 GT2-cfc797b6bf403c89b84c25de6ad1106d_Cylinder": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"lods/normal_split_angle": 25.0,
+"save_to_file/enabled": true,
+"save_to_file/make_streamable": "",
+"save_to_file/path": "res://models/wes/Porsche 911 GT2/mesh/01 Porsche 911 GT2-cfc797b6bf403c89b84c25de6ad1106d_Cylinder.res"
+},
+"01 Porsche 911 GT2-cfc797b6bf403c89b84c25de6ad1106d_Plane_002": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"lods/normal_split_angle": 25.0,
+"save_to_file/enabled": true,
+"save_to_file/make_streamable": "",
+"save_to_file/path": "res://models/wes/Porsche 911 GT2/mesh/01 Porsche 911 GT2-cfc797b6bf403c89b84c25de6ad1106d_Plane_002.res"
+},
+"01 Porsche 911 GT2-cfc797b6bf403c89b84c25de6ad1106d_Plane_003": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"lods/normal_split_angle": 25.0,
+"save_to_file/enabled": true,
+"save_to_file/make_streamable": "",
+"save_to_file/path": "res://models/wes/Porsche 911 GT2/mesh/01 Porsche 911 GT2-cfc797b6bf403c89b84c25de6ad1106d_Plane_003.res"
+},
+"01 Porsche 911 GT2-cfc797b6bf403c89b84c25de6ad1106d_Plane_009": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"lods/normal_split_angle": 25.0,
+"save_to_file/enabled": true,
+"save_to_file/make_streamable": "",
+"save_to_file/path": "res://models/wes/Porsche 911 GT2/mesh/01 Porsche 911 GT2-cfc797b6bf403c89b84c25de6ad1106d_Plane_009.res"
+}
+}
+}
+gltf/embedded_image_handling=1
+blender/nodes/visible=0
+blender/nodes/punctual_lights=true
+blender/nodes/cameras=true
+blender/nodes/custom_properties=true
+blender/nodes/modifiers=1
+blender/meshes/colors=false
+blender/meshes/uvs=true
+blender/meshes/normals=true
+blender/meshes/tangents=true
+blender/meshes/skins=2
+blender/meshes/export_bones_deforming_mesh_only=false
+blender/materials/unpack_enabled=true
+blender/materials/export_materials=1
+blender/animation/limit_playback=true
+blender/animation/always_sample=true
+blender/animation/group_tracks=true

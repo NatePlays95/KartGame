@@ -6,11 +6,14 @@ var ready_to_start : bool = false #for multiplayer/online
 
 var ready_checkpoints : bool = false
 var ready_cameras : bool = false
+var ready_starting_grid : bool = false
 
 func setup_race(race:RaceData):
 	current_race = race
+	
 	ready_checkpoints = false
 	ready_cameras = false
+	ready_starting_grid = false
 	# starting grid goes in racedata
 	# place transitions here
 	get_tree().change_scene_to_packed(race.track_packed)
@@ -20,9 +23,10 @@ func setup_race(race:RaceData):
 func _process(_delta):
 	#try to start race
 	if current_race:
-		if ready_checkpoints and ready_cameras:
+		if ready_checkpoints and ready_cameras and ready_starting_grid:
 			ready_checkpoints = false
 			ready_cameras = false
+			ready_starting_grid = false
 			start_race()
 
 
@@ -31,9 +35,9 @@ func start_race():
 	set_all_cars_can_input(false)
 	#await get_tree().create_timer(1.0, false).timeout
 	
-	do_intro_camera_flydown.emit()
-	
-	await get_tree().create_timer(7.0, false).timeout
+	start_intro_camera_flydown.emit()
+	await self.end_intro_camera_flydown
+	#await get_tree().create_timer(7.0, false).timeout
 	
 	begin_countdown.emit()
 	
@@ -70,7 +74,10 @@ func set_all_cars_can_input(value:bool):
 
 
 # RaceEventBus
-signal do_intro_camera_flydown
+signal start_intro_camera_flydown
+signal end_intro_camera_flydown
+func _on_end_intro_camera_flydown():
+	end_intro_camera_flydown.emit()
 
 signal begin_countdown
 

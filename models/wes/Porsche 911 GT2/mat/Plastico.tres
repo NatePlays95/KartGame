@@ -1,0 +1,8 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://by8b10jsrjykl"]
+
+[resource]
+resource_name = "Plastico"
+cull_mode = 2
+vertex_color_use_as_albedo = true
+albedo_color = Color(0.126661, 0.126661, 0.126661, 1)
+roughness = 0.574803

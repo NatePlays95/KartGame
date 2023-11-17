@@ -15,8 +15,10 @@ func _process(delta):
 
 
 func get_checkpoint(index:int) -> Checkpoint:
+	if not track_checkpoints_node: return null
 	return track_checkpoints_node.get_checkpoint(index)
 
 
 func get_highest_checkpoint_index() -> int:
+	if not track_checkpoints_node: return 0
 	return track_checkpoints_node.highest_index

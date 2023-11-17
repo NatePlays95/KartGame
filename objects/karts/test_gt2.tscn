@@ -215,6 +215,7 @@ script = ExtResource("6_ac53v")
 [node name="Camera3D" type="Camera3D" parent="chase_cam"]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 0.964262, 0.26495, 0, -0.26495, 0.964262, 0, 1.25102, 2.93839)
+doppler_tracking = 2
 current = true
 
 [node name="ReflectionProbe" type="ReflectionProbe" parent="chase_cam/Camera3D"]
@@ -225,10 +226,13 @@ cull_mask = 1048573
 
 [node name="hood_cam" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.398215, -0.837133)
+doppler_tracking = 2
 fov = 90.0
 
 [node name="wheel_cam" type="Camera3D" parent="."]
 transform = Transform3D(0.830475, 0.0184478, -0.556751, 0, 0.999452, 0.0331167, 0.557056, -0.0275025, 0.830019, -1.21423, 0.134908, 1.12502)
+doppler_tracking = 2
+current = true
 fov = 90.0
 
 [node name="Sprite3DBillboard" type="Sprite3D" parent="."]

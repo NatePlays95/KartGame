@@ -7,12 +7,22 @@ enum MODE { OLD }
 @onready var camera_3d : Camera3D = %Camera3D
 @onready var look_at : Vector3 = car.global_position
 
+
+func _ready():
+	RaceManager.end_intro_camera_flydown.connect(_on_end_intro_camera_flydown)
+	camera_3d.make_current()
+
+
+func _on_end_intro_camera_flydown():
+	get_viewport().get_camera_3d().clear_current(false)
+	camera_3d.make_current()
+
+
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):
 	match camera_mode:
 		MODE.OLD:
 			_process_old(delta)
-
 
 
 func _process_old(delta):
