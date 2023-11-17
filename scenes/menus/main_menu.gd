@@ -42,5 +42,5 @@ func _on_btn_quit_pressed():
 
 func _on_btn_ta_pressed():
 	MainMenuManager.selected_race_type = RaceData.RACE_TYPE.TIME_ATTACK
-	MainMenuManager.selected_cars = ["res://objects/karts/test_westurbo.tscn"]
-	get_tree().change_scene_to_file("res://scenes/menus/select_track.tscn")
+	#MainMenuManager.selected_cars = ["res://objects/karts/test_westurbo.tscn"]
+	get_tree().change_scene_to_file("res://scenes/menus/select_car.tscn")

@@ -37,6 +37,7 @@ layout_mode = 2
 text = "City"
 
 [node name="btn3" type="Button" parent="Control/vbox_tracks"]
+visible = false
 layout_mode = 2
 text = "Island"
 

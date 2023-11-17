@@ -1,6 +1,10 @@
-[gd_scene format=3 uid="uid://c4o2gvraawhcj"]
+[gd_scene load_steps=3 format=3 uid="uid://c4o2gvraawhcj"]
+
+[ext_resource type="Script" path="res://scenes/menus/select_car.gd" id="1_aoqrv"]
+[ext_resource type="Theme" uid="uid://woesn7de4su7" path="res://scenes/menus/menu_standard.theme" id="1_c57x3"]
 
 [node name="select_car" type="Node"]
+script = ExtResource("1_aoqrv")
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
@@ -9,27 +13,34 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("1_c57x3")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Control"]
+unique_name_in_owner = true
 layout_mode = 0
-offset_left = 781.0
+offset_left = 160.0
 offset_top = 103.0
-offset_right = 1065.0
+offset_right = 444.0
 offset_bottom = 547.0
 alignment = 1
 
-[node name="Button" type="Button" parent="Control/VBoxContainer"]
+[node name="btn" type="Button" parent="Control/VBoxContainer"]
 layout_mode = 2
-text = "FA Racing"
+text = "GT2"
+
+[node name="btn2" type="Button" parent="Control/VBoxContainer"]
+layout_mode = 2
+text = "Turbo"
 
 [node name="Button4" type="Button" parent="Control/VBoxContainer"]
+visible = false
 layout_mode = 2
-text = "DIG Racing"
-
-[node name="Button2" type="Button" parent="Control/VBoxContainer"]
-layout_mode = 2
-text = "White Angel"
+text = "Turbo"
 
 [node name="Button3" type="Button" parent="Control/VBoxContainer"]
+visible = false
 layout_mode = 2
 text = "Supernova"
+
+[connection signal="pressed" from="Control/VBoxContainer/btn" to="." method="_on_btn_1_pressed"]
+[connection signal="pressed" from="Control/VBoxContainer/btn2" to="." method="_on_btn_2_pressed"]
