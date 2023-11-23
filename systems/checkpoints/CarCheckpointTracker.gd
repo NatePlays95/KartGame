@@ -94,7 +94,7 @@ func _complete_lap():
 	current_lap  = new_lap
 
 
-func distance_to_checkpoint(position:Vector3, checkpoint:Area3D):
+func distance_to_checkpoint(position:Vector3, _checkpoint:Area3D):
 	var n := -next_checkpoint.global_transform.basis.z
 	var c := next_checkpoint.global_position
 	var p := position

@@ -163,7 +163,7 @@ func _update_drag(dt):
 	#### standard linear drag ####
 	
 	if deform == 0 or contact_material == null: #air
-		var air_drag = 0
+		#var air_drag = 0
 		#car.linear_velocity *= 1.0 - dt * air_drag * factor
 		return #no slip drag
 	#not air

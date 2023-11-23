@@ -43,11 +43,11 @@ func start_timer():
 	is_timer_active = true
 
 func split() -> float:
-	var split = current_time
+	var current_split = current_time
 	if lap_times.size() > 0:
-		split -= lap_times.reduce(func(a, n): return a+n, 0)
+		current_split -= lap_times.reduce(func(a, n): return a+n, 0)
 	
-	lap_times.push_back(split)
+	lap_times.push_back(current_split)
 	if ui_scene:
 		ui_scene.set_splits(lap_times.map(timer_formatted))
 	return current_time
@@ -61,10 +61,10 @@ func timer_formatted(time_in:float) -> String:
 	if minutes > 99: return "99:99:999"
 	var seconds:int = floor(time_in) - minutes*60
 	var millis:int = floor((time_in - minutes*60 - seconds)*1000)
-	var str : String = "%02d" % minutes
-	str += ":%02d" % seconds
-	str += ".%03d" % millis
-	return str
+	var s : String = "%02d" % minutes
+	s += ":%02d" % seconds
+	s += ".%03d" % millis
+	return s
 
 
 
