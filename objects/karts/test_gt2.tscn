@@ -130,7 +130,6 @@ script = ExtResource("3_fwtqi")
 is_steer = true
 wheel_radius = 0.32
 spring_length = 0.2
-spring_stiffness = 15.0
 wheel_mesh = NodePath("RemoteTransform3D")
 
 [node name="CSGCylinder3D" type="CSGCylinder3D" parent="SimpleWheel"]
@@ -150,7 +149,6 @@ script = ExtResource("3_fwtqi")
 is_steer = true
 wheel_radius = 0.32
 spring_length = 0.2
-spring_stiffness = 15.0
 wheel_mesh = NodePath("RemoteTransform3D")
 
 [node name="CSGCylinder3D" type="CSGCylinder3D" parent="SimpleWheel2"]
@@ -169,7 +167,6 @@ target_position = Vector3(0, -0.2, 0)
 script = ExtResource("3_fwtqi")
 wheel_radius = 0.32
 spring_length = 0.2
-spring_stiffness = 15.0
 smoke_particle = NodePath("tire_smoke")
 wheel_mesh = NodePath("RemoteTransform3D")
 
@@ -192,7 +189,6 @@ target_position = Vector3(0, -0.2, 0)
 script = ExtResource("3_fwtqi")
 wheel_radius = 0.32
 spring_length = 0.2
-spring_stiffness = 15.0
 smoke_particle = NodePath("tire_smoke")
 wheel_mesh = NodePath("RemoteTransform3D")
 
@@ -217,12 +213,6 @@ unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 0.964262, 0.26495, 0, -0.26495, 0.964262, 0, 1.25102, 2.93839)
 doppler_tracking = 2
 current = true
-
-[node name="ReflectionProbe" type="ReflectionProbe" parent="chase_cam/Camera3D"]
-transform = Transform3D(1, 0, 0, 0, 0.964262, -0.26495, 0, 0.26495, 0.964262, 0, -0.27226, -3.11615)
-visible = false
-size = Vector3(100, 100, 100)
-cull_mask = 1048573
 
 [node name="hood_cam" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.398215, -0.837133)

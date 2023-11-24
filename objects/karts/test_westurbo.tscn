@@ -75,109 +75,109 @@ mesh = ExtResource("4_01vbx")
 skeleton = NodePath("../..")
 
 [node name="wheel1" type="CSGMesh3D" parent="model"]
-transform = Transform3D(-1.83588e-08, -0.42, 0, 0.7, -3.0598e-08, 0, 0, 0, 0.7, 0.45, -0.142564, -0.769504)
+transform = Transform3D(-1.83588e-08, -0.42, 0, 0.7, -3.0598e-08, 0, 0, 0, 0.7, 0.45, -0.102564, -0.769504)
 layers = 2
 mesh = ExtResource("5_6ypah")
 
 [node name="wheel2" type="CSGMesh3D" parent="model"]
-transform = Transform3D(-1.83588e-08, 0.42, 0, -0.7, -3.0598e-08, 0, 0, 0, 0.7, -0.45, -0.142564, -0.769504)
+transform = Transform3D(-1.83588e-08, 0.42, 0, -0.7, -3.0598e-08, 0, 0, 0, 0.7, -0.45, -0.102564, -0.769504)
 layers = 2
 mesh = ExtResource("5_6ypah")
 
 [node name="wheel3" type="CSGMesh3D" parent="model"]
-transform = Transform3D(-1.83588e-08, -0.42, 0, 0.7, -3.0598e-08, 0, 0, 0, 0.7, 0.45, -0.142564, 0.659021)
+transform = Transform3D(-1.83588e-08, -0.42, 0, 0.7, -3.0598e-08, 0, 0, 0, 0.7, 0.45, -0.102564, 0.659021)
 layers = 2
 mesh = ExtResource("5_6ypah")
 
 [node name="wheel4" type="CSGMesh3D" parent="model"]
-transform = Transform3D(-1.83588e-08, 0.42, 0, -0.7, -3.0598e-08, 0, 0, 0, 0.7, -0.45, -0.142564, 0.659021)
+transform = Transform3D(-1.83588e-08, 0.42, 0, -0.7, -3.0598e-08, 0, 0, 0, 0.7, -0.45, -0.102564, 0.659021)
 layers = 2
 mesh = ExtResource("5_6ypah")
 
 [node name="SimpleWheel" type="ShapeCast3D" parent="." node_paths=PackedStringArray("wheel_mesh")]
 transform = Transform3D(0.6, 0, 0, 0, 1, 0, 0, 0, 1, 0.45, 0.0374365, -0.769504)
 shape = SubResource("SphereShape3D_vi4mp")
-target_position = Vector3(0, -0.18, 0)
+target_position = Vector3(0, -0.14, 0)
 script = ExtResource("12_15cv7")
 is_steer = true
 wheel_radius = 0.32
-spring_length = 0.18
-spring_stiffness = 17.0
+spring_length = 0.14
+spring_stiffness = 16.0
 wheel_mesh = NodePath("RemoteTransform3D")
 
 [node name="CSGCylinder3D" type="CSGCylinder3D" parent="SimpleWheel"]
-transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, 0, -0.18, 0)
+transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, 0, -0.14, 0)
 radius = 0.138157
 height = 0.132088
 
 [node name="RemoteTransform3D" type="RemoteTransform3D" parent="SimpleWheel"]
-transform = Transform3D(-3.0598e-08, -0.7, 0, 0.7, -3.0598e-08, 0, 0, 0, 0.7, 0, -0.18, 0)
+transform = Transform3D(-3.0598e-08, -0.7, 0, 0.7, -3.0598e-08, 0, 0, 0, 0.7, 0, -0.14, 0)
 remote_path = NodePath("../../model/wheel1")
 
 [node name="SimpleWheel2" type="ShapeCast3D" parent="." node_paths=PackedStringArray("wheel_mesh")]
 transform = Transform3D(0.6, 0, 0, 0, 1, 0, 0, 0, 1, -0.45, 0.0374365, -0.769504)
 shape = SubResource("SphereShape3D_xjtsw")
-target_position = Vector3(0, -0.18, 0)
+target_position = Vector3(0, -0.14, 0)
 script = ExtResource("12_15cv7")
 is_steer = true
 wheel_radius = 0.32
-spring_length = 0.18
-spring_stiffness = 17.0
+spring_length = 0.14
+spring_stiffness = 16.0
 wheel_mesh = NodePath("RemoteTransform3D")
 
 [node name="CSGCylinder3D" type="CSGCylinder3D" parent="SimpleWheel2"]
-transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, 0, -0.18, 0)
+transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, 0, -0.14, 0)
 radius = 0.138157
 height = 0.132088
 
 [node name="RemoteTransform3D" type="RemoteTransform3D" parent="SimpleWheel2"]
-transform = Transform3D(-3.0598e-08, 0.7, 0, -0.7, -3.0598e-08, 0, 0, 0, 0.7, 0, -0.18, 0)
+transform = Transform3D(-3.0598e-08, 0.7, 0, -0.7, -3.0598e-08, 0, 0, 0, 0.7, 0, -0.14, 0)
 remote_path = NodePath("../../model/wheel2")
 
 [node name="SimpleWheel3" type="ShapeCast3D" parent="." node_paths=PackedStringArray("smoke_particle", "wheel_mesh")]
 transform = Transform3D(0.6, 0, 0, 0, 1, 0, 0, 0, 1, 0.45, 0.0374365, 0.659021)
 shape = SubResource("SphereShape3D_xjtsw")
-target_position = Vector3(0, -0.18, 0)
+target_position = Vector3(0, -0.14, 0)
 script = ExtResource("12_15cv7")
 wheel_radius = 0.32
-spring_length = 0.18
-spring_stiffness = 17.0
+spring_length = 0.14
+spring_stiffness = 16.0
 smoke_particle = NodePath("tire_smoke")
 wheel_mesh = NodePath("RemoteTransform3D")
 
 [node name="CSGCylinder3D" type="CSGCylinder3D" parent="SimpleWheel3"]
-transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, 0, -0.18, 0)
+transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, 0, -0.14, 0)
 radius = 0.138157
 height = 0.132088
 
 [node name="tire_smoke" parent="SimpleWheel3" instance=ExtResource("13_1calc")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.18, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.14, 0)
 
 [node name="RemoteTransform3D" type="RemoteTransform3D" parent="SimpleWheel3"]
-transform = Transform3D(-3.0598e-08, -0.7, 0, 0.7, -3.0598e-08, 0, 0, 0, 0.7, 0, -0.18, 0)
+transform = Transform3D(-3.0598e-08, -0.7, 0, 0.7, -3.0598e-08, 0, 0, 0, 0.7, 0, -0.14, 0)
 remote_path = NodePath("../../model/wheel3")
 
 [node name="SimpleWheel4" type="ShapeCast3D" parent="." node_paths=PackedStringArray("smoke_particle", "wheel_mesh")]
 transform = Transform3D(0.6, 0, 0, 0, 1, 0, 0, 0, 1, -0.45, 0.0374365, 0.659021)
 shape = SubResource("SphereShape3D_xjtsw")
-target_position = Vector3(0, -0.18, 0)
+target_position = Vector3(0, -0.14, 0)
 script = ExtResource("12_15cv7")
 wheel_radius = 0.32
-spring_length = 0.18
-spring_stiffness = 17.0
+spring_length = 0.14
+spring_stiffness = 16.0
 smoke_particle = NodePath("tire_smoke")
 wheel_mesh = NodePath("RemoteTransform3D")
 
 [node name="CSGCylinder3D" type="CSGCylinder3D" parent="SimpleWheel4"]
-transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, 0, -0.18, 0)
+transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, 0, -0.14, 0)
 radius = 0.138157
 height = 0.132088
 
 [node name="tire_smoke" parent="SimpleWheel4" instance=ExtResource("13_1calc")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.18, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.14, 0)
 
 [node name="RemoteTransform3D" type="RemoteTransform3D" parent="SimpleWheel4"]
-transform = Transform3D(-3.0598e-08, 0.7, 0, -0.7, -3.0598e-08, 0, 0, 0, 0.7, 0, -0.18, 0)
+transform = Transform3D(-3.0598e-08, 0.7, 0, -0.7, -3.0598e-08, 0, 0, 0, 0.7, 0, -0.14, 0)
 remote_path = NodePath("../../model/wheel4")
 
 [node name="chase_cam" type="Node3D" parent="."]
@@ -189,12 +189,6 @@ unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 0.964262, 0.26495, 0, -0.26495, 0.964262, 0, 1.25102, 2.93839)
 doppler_tracking = 2
 current = true
-
-[node name="ReflectionProbe" type="ReflectionProbe" parent="chase_cam/Camera3D"]
-transform = Transform3D(1, 0, 0, 0, 0.964262, -0.26495, 0, 0.26495, 0.964262, 0, -0.27226, -3.11615)
-visible = false
-size = Vector3(100, 100, 100)
-cull_mask = 1048573
 
 [node name="hood_cam" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.398215, -0.837133)

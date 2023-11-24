@@ -4,6 +4,7 @@ extends Node
 var selected_race_type : RaceData.RACE_TYPE = RaceData.RACE_TYPE.NULL
 var selected_cars : Array[String] = []
 var selected_track : String = ""
+var selected_track_name : String = ""
 var selected_laps : int = 1
 
 func setup_race() -> void:
@@ -12,7 +13,7 @@ func setup_race() -> void:
 	)
 	
 	var race :  = RaceData.new(
-		load(selected_track), 
+		load(selected_track), selected_track_name,
 		selected_race_type, selected_laps,
 		cars_packed_array
 	)

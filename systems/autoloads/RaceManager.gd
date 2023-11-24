@@ -52,6 +52,7 @@ func start_race():
 func handle_car_finish(car:SimpleRaycastCar):
 	if not current_race: return
 	if current_race.race_type == RaceData.RACE_TYPE.TIME_ATTACK:
+		#car.get_node("CarTimeTracker").try_save_records()
 		handle_end_race()
 
 

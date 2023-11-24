@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://dp0l70fo23kjv"]
+[gd_scene load_steps=4 format=3 uid="uid://dp0l70fo23kjv"]
 
 [ext_resource type="Script" path="res://scenes/menus/main_menu.gd" id="1_xl24t"]
 [ext_resource type="Theme" uid="uid://woesn7de4su7" path="res://scenes/menus/menu_standard.theme" id="2_nptn7"]
+[ext_resource type="FontFile" uid="uid://dmqimawlgk1k" path="res://fonts/RussoOne-Regular.ttf" id="3_vx0da"]
 
 [node name="main_menu" type="Node"]
 script = ExtResource("1_xl24t")
@@ -15,6 +16,22 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("2_nptn7")
 
+[node name="title" type="Label" parent="Control"]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -391.0
+offset_bottom = -166.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("3_vx0da")
+theme_override_font_sizes/font_size = 100
+text = "PROJECT NITRO"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="vbox_select" type="VBoxContainer" parent="Control"]
 unique_name_in_owner = true
 layout_mode = 1
@@ -23,12 +40,13 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -197.5
-offset_top = 68.0
-offset_right = 197.5
-offset_bottom = 280.0
+offset_left = -300.0
+offset_top = 15.0
+offset_right = 300.0
+offset_bottom = 340.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/separation = 20
 alignment = 1
 
 [node name="btn_ta" type="Button" parent="Control/vbox_select"]
@@ -52,6 +70,11 @@ unique_name_in_owner = true
 visible = false
 layout_mode = 2
 text = "Island Map"
+
+[node name="btn_set" type="Button" parent="Control/vbox_select"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Settings"
 
 [node name="btn_quit" type="Button" parent="Control/vbox_select"]
 layout_mode = 2

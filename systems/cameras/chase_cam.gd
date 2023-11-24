@@ -10,7 +10,8 @@ enum MODE { OLD }
 
 func _ready():
 	RaceManager.end_intro_camera_flydown.connect(_on_end_intro_camera_flydown)
-	camera_3d.make_current()
+	if RaceManager.current_race:
+		camera_3d.make_current()
 
 
 func _on_end_intro_camera_flydown():

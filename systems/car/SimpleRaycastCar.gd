@@ -76,6 +76,11 @@ func _physics_process(delta):
 	if speed > top_speed: engine_throttle = 0.0
 	if speed < 0.1 : engine_throttle *= 2
 	
+	if linear_velocity.length_squared() < 1:
+		angular_damp = 100
+	else:
+		angular_damp = 10
+	
 	braking_force = input_brakes * engine_power*1.5 * mass
 	if speed < -8: braking_force = 0.0
 	

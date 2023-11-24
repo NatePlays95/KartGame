@@ -13,14 +13,14 @@ func _ready():
 
 func _on_btn_1_pressed():
 	var race : RaceData = RaceData.new(
-		load("res://scenes/tracks/test/new_york_minute.tscn"), 
+		load("res://scenes/tracks/test/new_york_minute.tscn"), "city",
 		RaceData.RACE_TYPE.TIME_ATTACK, 5, []
 	)
 	RaceManager.setup_race(race)
 
 func _on_btn_2_pressed():
 	var race : RaceData = RaceData.new(
-		load("res://scenes/tracks/test/mario_circuit.tscn"), 
+		load("res://scenes/tracks/test/mario_circuit.tscn"), "circuit",
 		RaceData.RACE_TYPE.TIME_ATTACK, 3, []
 	)
 	RaceManager.setup_race(race)
@@ -28,7 +28,7 @@ func _on_btn_2_pressed():
 
 func _on_btn_3_pressed():
 	var race : RaceData = RaceData.new(
-		load("res://scenes/tracks/test/wuhu_loop.tscn"), 
+		load("res://scenes/tracks/test/wuhu_loop.tscn"), "physics_test",
 		RaceData.RACE_TYPE.TIME_ATTACK, 2, []
 	)
 	RaceManager.setup_race(race)
