@@ -1,0 +1,80 @@
+[gd_scene load_steps=7 format=3 uid="uid://c02mnw4n2gipt"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_4p2ka"]
+sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+sky_energy_multiplier = 2.1
+ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+
+[sub_resource type="Sky" id="Sky_wfrtv"]
+sky_material = SubResource("ProceduralSkyMaterial_4p2ka")
+
+[sub_resource type="Environment" id="Environment_bsc0v"]
+background_mode = 2
+sky = SubResource("Sky_wfrtv")
+ambient_light_color = Color(0.690196, 0.741176, 0.984314, 1)
+ambient_light_sky_contribution = 0.8
+ambient_light_energy = 2.0
+
+[sub_resource type="Curve3D" id="Curve3D_1uyrs"]
+_data = {
+"points": PackedVector3Array(0.471456, 0, 0, -0.471456, 0, 0, -0.0199635, 0, -0.643712, 0.00512457, 0, -0.425335, -0.00512457, 0, 0.425335, -0.737396, 0, -0.01852, -0.599569, 0, -0.010249, 0.599569, 0, 0.010249, -0.0148389, 0, 0.72966, -0.0153732, 0, 0.404837, 0.0153732, 0, -0.404837, 0.676972, 0, -0.01852, 0.445833, 0, -0.020498, -0.445833, 0, 0.020498, -0.0199635, 0, -0.643712),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0)
+}
+point_count = 5
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_c4xkn"]
+radius = 0.2
+
+[sub_resource type="GDScript" id="GDScript_yv2fw"]
+script/source = "extends ShapeCast3D
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	pass
+
+func _physics_process(delta):
+	get_parent().progress_ratio += delta
+	#position += Vector3(delta,0,0)*randf_range(-1,1)*5 + Vector3(0,0,delta)*randf_range(-1,1)*5
+	
+	var extend = get_closest_collision_unsafe_fraction()
+	var point = position + target_position * extend
+	print(point)
+"
+
+[node name="test_shapecast" type="Node3D"]
+
+[node name="env" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 18.3858, 0)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="env"]
+environment = SubResource("Environment_bsc0v")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="env"]
+transform = Transform3D(-0.959314, -0.282342, -1.23415e-08, 0, -4.37114e-08, 1, -0.282342, 0.959314, 4.19329e-08, 0, 0, 0)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 33.8758, -5, -39.602)
+use_collision = true
+size = Vector3(1000, 10, 1000)
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(0.00436324, 0.169348, -0.985547, 0, 0.985556, 0.16935, 0.999991, -0.000738913, 0.00430022, -2.45358, 0.609625, 0.0107057)
+
+[node name="Path3D" type="Path3D" parent="."]
+curve = SubResource("Curve3D_1uyrs")
+
+[node name="PathFollow3D" type="PathFollow3D" parent="Path3D"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.0199635, 0, -0.643712)
+
+[node name="ShapeCast3D" type="ShapeCast3D" parent="Path3D/PathFollow3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8, 0)
+shape = SubResource("SphereShape3D_c4xkn")
+exclude_parent = false
+debug_shape_custom_color = Color(0.282353, 0.376471, 0.133333, 1)
+script = SubResource("GDScript_yv2fw")

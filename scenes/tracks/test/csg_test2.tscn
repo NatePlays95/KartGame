@@ -9,12 +9,12 @@ sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
 sky_energy_multiplier = 2.1
 ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
 
-[sub_resource type="Sky" id="Sky_wfrtv"]
+[sub_resource type="Sky" id="Sky_nxaub"]
 sky_material = SubResource("ProceduralSkyMaterial_iqqnh")
 
 [sub_resource type="Environment" id="Environment_xdg4g"]
 background_mode = 2
-sky = SubResource("Sky_wfrtv")
+sky = SubResource("Sky_nxaub")
 ambient_light_color = Color(0.690196, 0.741176, 0.984314, 1)
 ambient_light_sky_contribution = 0.8
 ambient_light_energy = 2.0
