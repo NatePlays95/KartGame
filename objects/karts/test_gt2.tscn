@@ -222,7 +222,6 @@ fov = 90.0
 [node name="wheel_cam" type="Camera3D" parent="."]
 transform = Transform3D(0.830475, 0.0184478, -0.556751, 0, 0.999452, 0.0331167, 0.557056, -0.0275025, 0.830019, -1.21423, 0.134908, 1.12502)
 doppler_tracking = 2
-current = true
 fov = 90.0
 
 [node name="Sprite3DBillboard" type="Sprite3D" parent="."]

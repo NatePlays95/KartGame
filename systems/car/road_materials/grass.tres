@@ -7,5 +7,5 @@ script = ExtResource("1_uxh8s")
 group_name = "grass"
 is_offroad = true
 drag = 0.5
-slide_drag = 3.0
+slide_drag = 1.0
 bumpiness = 1.2

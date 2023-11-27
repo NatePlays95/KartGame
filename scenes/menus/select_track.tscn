@@ -3,7 +3,7 @@
 [ext_resource type="Theme" uid="uid://woesn7de4su7" path="res://scenes/menus/menu_standard.theme" id="1_b2ahw"]
 [ext_resource type="Script" path="res://scenes/menus/select_track.gd" id="1_f7y1k"]
 [ext_resource type="FontFile" uid="uid://dmqimawlgk1k" path="res://fonts/RussoOne-Regular.ttf" id="3_yc70t"]
-[ext_resource type="Texture2D" uid="uid://bwwot8b6nwje2" path="res://images/prototype_textures/png/brick.png" id="4_f8eke"]
+[ext_resource type="Texture2D" uid="uid://c3aap5gk8fgh4" path="res://images/prototype_textures/png/brick.png" id="4_f8eke"]
 
 [node name="select_track" type="Node"]
 script = ExtResource("1_f7y1k")

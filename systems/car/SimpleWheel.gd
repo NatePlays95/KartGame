@@ -127,8 +127,8 @@ func _update_suspension(dt):
 	if bumpiness > 0:
 		var terrain_push = car.mass * min(20, car.linear_velocity.length()/2.0)
 		#terrain_push *= min(0, randf_range(-1,1)) * bumpiness
-		terrain_push *= max(-0.0, randf_range(-1,1)) * bumpiness
-		car.apply_force(-global_transform.basis.y * terrain_push, force_pos)
+		terrain_push *= max(-0.5, randf_range(-1,1)) * bumpiness
+		car.apply_force(global_transform.basis.y * terrain_push, force_pos)
 	
 	last_deform = deform
 

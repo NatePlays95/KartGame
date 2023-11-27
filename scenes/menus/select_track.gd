@@ -2,7 +2,7 @@ extends Node
 
 
 var track_options = [
-	{"file": "res://scenes/tracks/test/mario_circuit.tscn", "name": "circuit", "laps": 3},
+	{"file": "res://scenes/tracks/test/csg_test3.tscn", "name": "csg_test3", "laps": 5},
 	{"file": "res://scenes/tracks/test/new_york_minute.tscn", "name": "city", "laps": 5},#change to 5
 	{"file": "res://scenes/tracks/test/physics_test.tscn", "name": "physics_test", "laps": 1}
 ]

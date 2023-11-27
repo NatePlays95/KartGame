@@ -5,7 +5,7 @@
 [ext_resource type="Script" path="res://systems/checkpoints/TrackCheckpoints.gd" id="4_a4pxr"]
 [ext_resource type="Script" path="res://systems/racing_grid/TrackStartingGrdSimple.gd" id="4_t5kbv"]
 [ext_resource type="PackedScene" uid="uid://dyl0q1dqpn1wf" path="res://systems/checkpoints/Checkpoint.scn" id="5_02nc1"]
-[ext_resource type="Script" path="res://scenes/tracks/test/TrackCameras.gd" id="6_sl8ya"]
+[ext_resource type="Script" path="res://systems/racing_grid/TrackCameras.gd" id="6_jmvjf"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_f2xt4"]
 sky_top_color = Color(0.4, 0.772549, 0.976471, 1)
@@ -548,6 +548,6 @@ script = ExtResource("4_a4pxr")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -72.4948, 0, 125.825)
 
 [node name="TrackCameras" type="Node3D" parent="."]
-script = ExtResource("6_sl8ya")
+script = ExtResource("6_jmvjf")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="TrackCameras"]
