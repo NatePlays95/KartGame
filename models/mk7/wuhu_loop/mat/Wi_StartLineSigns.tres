@@ -1,9 +1,0 @@
-[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://cy4ai5bjb4mlo"]
-
-[ext_resource type="Texture2D" uid="uid://dqgpq41yvwolf" path="res://models/mk7/wuhu_loop/textures/Gctrwi_StartLineSigns.png" id="1_lbdme"]
-
-[resource]
-resource_name = "Wi_StartLineSigns"
-vertex_color_use_as_albedo = true
-albedo_texture = ExtResource("1_lbdme")
-roughness = 0.5

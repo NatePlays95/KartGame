@@ -1,6 +1,5 @@
-[gd_scene load_steps=28 format=3 uid="uid://d06le044bc2x8"]
+[gd_scene load_steps=27 format=3 uid="uid://cvp71wl1onm2s"]
 
-[ext_resource type="PackedScene" uid="uid://dkm1d482y7ohw" path="res://models/mkwii/tracks/mario_circuit/mario_circuit_base.glb" id="1_fu0tg"]
 [ext_resource type="Script" path="res://systems/checkpoints/TrackCheckpoints.gd" id="3_6soq7"]
 [ext_resource type="PackedScene" uid="uid://dyl0q1dqpn1wf" path="res://systems/checkpoints/Checkpoint.scn" id="4_um6ei"]
 [ext_resource type="Script" path="res://systems/racing_grid/TrackStartingGrdSimple.gd" id="5_bpjxw"]
@@ -340,7 +339,7 @@ _data = {
 "intro3": SubResource("Animation_xh6xu")
 }
 
-[node name="mario_circuit_base" instance=ExtResource("1_fu0tg")]
+[node name="mario_circuit_base"]
 
 [node name="environment" type="Node3D" parent="." index="0"]
 

@@ -1,9 +1,0 @@
-[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://cho18cswonhmc"]
-
-[ext_resource type="Texture2D" uid="uid://cl1wqb3nnwngu" path="res://models/mkwii/tracks/mario_circuit/mario_circuit_base_t_renga_W13k.png" id="1_tljcf"]
-
-[resource]
-resource_name = "k_isi_hei"
-cull_mode = 2
-albedo_texture = ExtResource("1_tljcf")
-metallic_specular = 0.0

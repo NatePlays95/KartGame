@@ -1,9 +1,0 @@
-[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://c23oilgprluhe"]
-
-[ext_resource type="Texture2D" uid="uid://c5quldrmvbl82" path="res://models/mk7/wuhu_loop/textures/Gctrwi_HouseGreen.png" id="1_6ulvp"]
-
-[resource]
-resource_name = "Wi_HouseGreen"
-cull_mode = 2
-vertex_color_use_as_albedo = true
-albedo_texture = ExtResource("1_6ulvp")
