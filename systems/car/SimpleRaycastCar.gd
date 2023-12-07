@@ -76,7 +76,7 @@ func _physics_process(delta):
 	if speed > top_speed: engine_throttle = 0.0
 	if speed < 0.1 : engine_throttle *= 2
 	
-	if linear_velocity.length_squared() < 1:
+	if linear_velocity.length_squared() < 0.2:
 		angular_damp = 100
 	else:
 		angular_damp = 10

@@ -1,12 +1,14 @@
 extends Node
 
 var cars_filepaths = [
-	"res://objects/karts/test_gt2.tscn",
-	"res://objects/karts/test_westurbo.tscn"
+	"res://objects/karts/test_impreza.tscn",
+	"res://objects/karts/test_escudo.tscn",
+	"res://objects/karts/test_stratos.tscn"
 ]
 var cars_packed_scenes = [
-	preload("res://objects/karts/test_gt2.tscn"),
-	preload("res://objects/karts/test_westurbo.tscn")
+	preload("res://objects/karts/test_impreza.tscn"),
+	preload("res://objects/karts/test_escudo.tscn"),
+	preload("res://objects/karts/test_stratos.tscn")
 ]
 
 # Called when the node enters the scene tree for the first time.
@@ -39,7 +41,11 @@ func _on_btn_2_pressed():
 	select_car(1)
 	pass # Replace with function body.
 
-
+func _on_btn_3_pressed():
+	select_car(2)
 
 func _on_btn_focus_entered(index):
 	spawn_car(index)
+
+
+

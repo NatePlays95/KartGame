@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://d4cns2bovosql"]
+[gd_scene load_steps=6 format=3 uid="uid://d4cns2bovosql"]
 
 [ext_resource type="Theme" uid="uid://woesn7de4su7" path="res://scenes/menus/menu_standard.theme" id="1_b2ahw"]
 [ext_resource type="Script" path="res://scenes/menus/select_track.gd" id="1_f7y1k"]
+[ext_resource type="Texture2D" uid="uid://yiubid3ovq45" path="res://images/bg/jake-blucker-OJX7gIU3E6U-unsplash.jpg" id="3_1ympb"]
 [ext_resource type="FontFile" uid="uid://dmqimawlgk1k" path="res://fonts/RussoOne-Regular.ttf" id="3_yc70t"]
 [ext_resource type="Texture2D" uid="uid://c3aap5gk8fgh4" path="res://images/prototype_textures/png/brick.png" id="4_f8eke"]
 
@@ -16,6 +17,15 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_b2ahw")
+
+[node name="TextureRect" type="TextureRect" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_1ympb")
 
 [node name="MarginContainer" type="MarginContainer" parent="Control"]
 layout_mode = 1
@@ -49,11 +59,11 @@ theme_override_constants/separation = 20
 layout_mode = 2
 text = "Circuit"
 
-[node name="btn2" type="Button" parent="Control/vbox_tracks"]
-layout_mode = 2
-text = "City"
-
 [node name="btn3" type="Button" parent="Control/vbox_tracks"]
+layout_mode = 2
+text = "Mountain"
+
+[node name="btn4" type="Button" parent="Control/vbox_tracks"]
 layout_mode = 2
 text = "Physics Test"
 
@@ -90,7 +100,7 @@ vertical_alignment = 1
 
 [connection signal="focus_entered" from="Control/vbox_tracks/btn1" to="." method="_on_btn_focus_entered" binds= [0]]
 [connection signal="pressed" from="Control/vbox_tracks/btn1" to="." method="_on_btn_pressed" binds= [0]]
-[connection signal="focus_entered" from="Control/vbox_tracks/btn2" to="." method="_on_btn_focus_entered" binds= [1]]
-[connection signal="pressed" from="Control/vbox_tracks/btn2" to="." method="_on_btn_pressed" binds= [1]]
-[connection signal="focus_entered" from="Control/vbox_tracks/btn3" to="." method="_on_btn_focus_entered" binds= [2]]
-[connection signal="pressed" from="Control/vbox_tracks/btn3" to="." method="_on_btn_pressed" binds= [2]]
+[connection signal="focus_entered" from="Control/vbox_tracks/btn3" to="." method="_on_btn_focus_entered" binds= [1]]
+[connection signal="pressed" from="Control/vbox_tracks/btn3" to="." method="_on_btn_pressed" binds= [1]]
+[connection signal="focus_entered" from="Control/vbox_tracks/btn4" to="." method="_on_btn_focus_entered" binds= [2]]
+[connection signal="pressed" from="Control/vbox_tracks/btn4" to="." method="_on_btn_pressed" binds= [2]]

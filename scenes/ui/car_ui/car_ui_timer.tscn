@@ -1,9 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://baj1uieshkyfj"]
+[gd_scene load_steps=4 format=3 uid="uid://baj1uieshkyfj"]
 
+[ext_resource type="Theme" uid="uid://woesn7de4su7" path="res://scenes/menus/menu_standard.theme" id="1_dkdxa"]
 [ext_resource type="Script" path="res://scenes/ui/car_ui/car_ui_timer.gd" id="1_icymn"]
-
-[sub_resource type="Theme" id="Theme_pwk7a"]
-Label/font_sizes/font_size = 40
+[ext_resource type="StyleBox" uid="uid://dn3b56vi83xny" path="res://scenes/menus/panel_blue.stylebox" id="2_06vox"]
 
 [node name="car_ui_timer" type="Control"]
 layout_mode = 3
@@ -12,32 +11,49 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme = SubResource("Theme_pwk7a")
+theme = ExtResource("1_dkdxa")
 script = ExtResource("1_icymn")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
+[node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
-anchors_preset = 1
-anchor_left = 1.0
+anchors_preset = 15
 anchor_right = 1.0
-offset_left = -155.0
-offset_top = 24.0
-offset_right = -29.0
-offset_bottom = 258.0
-grow_horizontal = 0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_top = 32
+theme_override_constants/margin_right = 32
+theme_override_constants/margin_bottom = 32
 
-[node name="lbl_current_time" type="Label" parent="VBoxContainer"]
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+theme_override_styles/panel = ExtResource("2_06vox")
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_right = 32
+theme_override_constants/margin_bottom = 12
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="lbl_current_time" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 text = "TIME: 99:99.999"
-horizontal_alignment = 2
 
-[node name="ColorRect" type="ColorRect" parent="VBoxContainer"]
-custom_minimum_size = Vector2(0, 10)
+[node name="ColorRect" type="ColorRect" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(300, 10)
 layout_mode = 2
 
-[node name="lbl_splits" type="Label" parent="VBoxContainer"]
+[node name="lbl_splits" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
 unique_name_in_owner = true
+clip_contents = true
 layout_mode = 2
-text = "LAP1: 99:99.999"
-horizontal_alignment = 2
+size_flags_vertical = 2
+text = "LAP 1: 99:99.999"

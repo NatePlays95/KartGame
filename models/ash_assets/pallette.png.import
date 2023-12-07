@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c3aap5gk8fgh4"
-path.s3tc="res://.godot/imported/brick.png-decc33038dba68c33fc65e5fdfa71a7f.s3tc.ctex"
+uid="uid://b4efarit1mta2"
+path.s3tc="res://.godot/imported/pallette.png-54a38d4947ff7059b067eb0e0ad4c983.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://images/prototype_textures/png/brick.png"
-dest_files=["res://.godot/imported/brick.png-decc33038dba68c33fc65e5fdfa71a7f.s3tc.ctex"]
+source_file="res://models/ash_assets/pallette.png"
+dest_files=["res://.godot/imported/pallette.png-54a38d4947ff7059b067eb0e0ad4c983.s3tc.ctex"]
 
 [params]
 

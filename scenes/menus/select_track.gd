@@ -3,12 +3,12 @@ extends Node
 
 var track_options = [
 	{"file": "res://scenes/tracks/test/csg_test3.tscn", "name": "csg_test3", "laps": 5},
-	{"file": "res://scenes/tracks/test/new_york_minute.tscn", "name": "city", "laps": 5},#change to 5
+	{"file": "res://scenes/tracks/test/csg_test4.tscn", "name": "csg_test4", "laps": 3},
 	{"file": "res://scenes/tracks/test/physics_test.tscn", "name": "physics_test", "laps": 1}
 ]
 var track_pictures = [
 	preload("res://images/prototype_textures/png/grass.png"),
-	preload("res://images/prototype_textures/png/concrete.png"),
+	preload("res://images/prototype_textures/png/fire.png"),
 	preload("res://images/prototype_textures/png/purple.png")
 ]
 var track_records = {

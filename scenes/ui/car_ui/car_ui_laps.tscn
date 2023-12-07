@@ -1,9 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://o3m7l1cgtxs0"]
+[gd_scene load_steps=4 format=3 uid="uid://o3m7l1cgtxs0"]
 
+[ext_resource type="Theme" uid="uid://woesn7de4su7" path="res://scenes/menus/menu_standard.theme" id="1_k58o7"]
 [ext_resource type="Script" path="res://scenes/ui/car_ui/car_ui_laps.gd" id="1_vy2gm"]
-
-[sub_resource type="Theme" id="Theme_vevby"]
-Label/font_sizes/font_size = 40
+[ext_resource type="StyleBox" uid="uid://dn3b56vi83xny" path="res://scenes/menus/panel_blue.stylebox" id="2_cy1hq"]
 
 [node name="car_ui_laps" type="Control"]
 layout_mode = 3
@@ -12,25 +11,32 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme = SubResource("Theme_vevby")
+theme = ExtResource("1_k58o7")
 script = ExtResource("1_vy2gm")
 
-[node name="Control" type="VBoxContainer" parent="."]
-layout_mode = 1
-offset_left = 27.0
-offset_top = 25.0
-offset_right = 288.0
-offset_bottom = 157.0
+[node name="Panel" type="PanelContainer" parent="."]
+layout_mode = 0
+offset_left = 32.0
+offset_top = 32.0
+offset_right = 302.0
+offset_bottom = 114.0
+size_flags_vertical = 3
+theme_override_styles/panel = ExtResource("2_cy1hq")
 
-[node name="lbl_current_lap" type="Label" parent="Control"]
+[node name="MarginContainer" type="MarginContainer" parent="Panel"]
+layout_mode = 2
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 12
+
+[node name="Control" type="VBoxContainer" parent="Panel/MarginContainer"]
+layout_mode = 2
+
+[node name="lbl_current_lap" type="Label" parent="Panel/MarginContainer/Control"]
 unique_name_in_owner = true
 layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 2
 text = "LAP  1 / 1
 "
-
-[node name="lbl_debug_checkpoints" type="Label" parent="Control"]
-unique_name_in_owner = true
-visible = false
-layout_mode = 2
-text = "ck 40/42
-keys: [12, 15]"

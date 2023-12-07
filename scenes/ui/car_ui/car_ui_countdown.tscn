@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://b2ytp13icf54n"]
+[gd_scene load_steps=8 format=3 uid="uid://b2ytp13icf54n"]
 
 [ext_resource type="Script" path="res://scenes/ui/car_ui/car_ui_countdown.gd" id="1_defoh"]
+[ext_resource type="FontFile" uid="uid://dmqimawlgk1k" path="res://fonts/RussoOne-Regular.ttf" id="2_ma1wg"]
 
 [sub_resource type="Animation" id="Animation_k6blj"]
 length = 0.001
@@ -93,6 +94,8 @@ _data = {
 "finish": SubResource("Animation_p530u")
 }
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_vrvr7"]
+
 [node name="car_ui_countdown" type="Control"]
 layout_mode = 3
 anchors_preset = 15
@@ -129,13 +132,14 @@ layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -193.0
+offset_left = -173.0
 offset_top = -1000.0
-offset_right = 193.0
+offset_right = 213.0
 offset_bottom = -928.0
 grow_horizontal = 2
 
 [node name="lbl_countdown" type="Label" parent="countdown_holder/countdown_origin"]
+material = SubResource("ShaderMaterial_vrvr7")
 layout_mode = 1
 anchors_preset = 14
 anchor_top = 0.5
@@ -145,6 +149,9 @@ offset_top = -36.0
 offset_bottom = 36.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_font_sizes/font_size = 50
+theme_override_colors/font_outline_color = Color(0, 0.254902, 0.380392, 1)
+theme_override_constants/outline_size = 30
+theme_override_fonts/font = ExtResource("2_ma1wg")
+theme_override_font_sizes/font_size = 80
 text = "3"
 horizontal_alignment = 1

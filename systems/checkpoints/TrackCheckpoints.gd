@@ -32,9 +32,13 @@ func _refresh():
 	key_checkpoints = []
 	highest_index = 0
 	
+	var counter = 0
 	for child in get_children():
 		if not child is Checkpoint: continue
+		
 		var cp : Checkpoint = child
+		cp.index = counter
+		counter += 1
 		
 		highest_index = max(highest_index, cp.index)
 		

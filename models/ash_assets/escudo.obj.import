@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://bns7dng41tdud"
+path="res://.godot/imported/escudo.obj-b96aca82e4f1970a3cda79fb6d8b937d.mesh"
+
+[deps]
+
+files=["res://.godot/imported/escudo.obj-b96aca82e4f1970a3cda79fb6d8b937d.mesh"]
+
+source_file="res://models/ash_assets/escudo.obj"
+dest_files=["res://.godot/imported/escudo.obj-b96aca82e4f1970a3cda79fb6d8b937d.mesh", "res://.godot/imported/escudo.obj-b96aca82e4f1970a3cda79fb6d8b937d.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
