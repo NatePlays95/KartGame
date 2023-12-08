@@ -95,6 +95,7 @@ layout_mode = 2
 text = "Quit"
 
 [node name="Label" type="Label" parent="Control"]
+layout_mode = 0
 offset_left = 63.0
 offset_top = 513.0
 offset_right = 451.0
