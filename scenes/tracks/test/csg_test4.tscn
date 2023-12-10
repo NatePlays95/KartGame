@@ -31,46 +31,6 @@ ambient_light_sky_contribution = 0.5
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_n4cpf"]
 albedo_color = Color(0.392157, 0.654902, 0.701961, 1)
 
-[sub_resource type="Animation" id="Animation_ff105"]
-resource_name = "intro1"
-length = 2.0
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("intro1:current")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("intro1:position")
-tracks/1/interp = 2
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 2),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector3(-71.2379, 65.81, 70.0646), Vector3(-83.7162, 62.3079, 115.754)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("intro1:rotation")
-tracks/2/interp = 2
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 2),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector3(-0.505349, -2.23768, 0), Vector3(-0.339542, -1.60495, 0)]
-}
-
 [sub_resource type="Animation" id="Animation_snjwb"]
 length = 0.001
 tracks/0/type = "value"
@@ -180,6 +140,46 @@ tracks/8/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector3(-0.46608, 2.2522, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_ff105"]
+resource_name = "intro1"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("intro1:current")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("intro1:position")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(-71.2379, 65.81, 70.0646), Vector3(-83.7162, 62.3079, 115.754)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("intro1:rotation")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(-0.505349, -2.23768, 0), Vector3(-0.339542, -1.60495, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_hec4e"]
@@ -975,10 +975,10 @@ libraries = {
 }
 
 [node name="intro1" type="Camera3D" parent="TrackCameras"]
-transform = Transform3D(-0.618542, 0.380392, -0.687537, 0, 0.875006, 0.484113, 0.785751, 0.299444, -0.541228, -71.2379, 65.81, 70.0646)
+transform = Transform3D(-0.61854, 0.380393, -0.687538, 0, 0.875006, 0.484113, 0.785753, 0.299443, -0.541226, -71.2379, 65.81, 70.0646)
 
 [node name="intro2" type="Camera3D" parent="TrackCameras"]
-transform = Transform3D(0.872156, -0.0845699, 0.481862, 0, 0.984946, 0.172864, -0.489227, -0.150765, 0.859026, 256.137, 55.1725, 154.726)
+transform = Transform3D(0.872156, -0.08457, 0.481862, 0, 0.984946, 0.172864, -0.489227, -0.150765, 0.859026, 256.137, 55.1725, 154.726)
 
 [node name="intro3" type="Camera3D" parent="TrackCameras"]
-transform = Transform3D(-0.629882, -0.349035, 0.693847, 0, 0.893337, 0.449388, -0.776691, 0.283061, -0.562697, 1.87231, 37.8066, -38.9673)
+transform = Transform3D(-0.629884, -0.349035, 0.693846, 0, 0.893337, 0.449388, -0.77669, 0.283062, -0.562699, 1.87231, 37.8066, -38.9673)

@@ -110,7 +110,7 @@ fov = 60.0
 
 [node name="car_marker" type="Marker3D" parent="SubViewport/Node3D"]
 unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.791164, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.89114, 0)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="SubViewport/Node3D"]
 environment = SubResource("Environment_tcc3m")

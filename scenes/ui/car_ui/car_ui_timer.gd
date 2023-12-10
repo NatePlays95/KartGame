@@ -9,7 +9,7 @@ func _ready():
 	lbl_splits.text = ""
 	lbl_splits.visible = false
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
+# Called every frame. 'delta' is the elapsed time since th previous frame.
 func _process(delta):
 	pass
 
